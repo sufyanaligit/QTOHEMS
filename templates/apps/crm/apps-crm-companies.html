@@ -1,0 +1,1109 @@
+{% extends "partials/base.html" %}
+{% load static %}
+{% block title %}Companies{% endblock title %}
+{% block extra_css %}
+<!-- Sweet Alert css-->
+<link href="{% static 'libs/sweetalert2/dist/sweetalert2.min.css' %}" rel="stylesheet" type="text/css" />
+{% endblock extra_css %}
+{% block content %}
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+<div class="main-content">
+
+    <div class="page-content">
+        <div class="container-fluid">
+
+            {% block pagetitle %}
+            {% include "partials/page-title.html" with pagetitle="CRM" title="Companies" %}
+            {% endblock pagetitle %}
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="d-flex align-items-center flex-wrap gap-2">
+                                <div class="flex-grow-1">
+                                    <a href="{% url 'apps:companies.Create' %}" class="btn btn-success"><i class="ri-add-line align-bottom me-1"></i> Add
+                                        New Company</a>
+                                    <!-- <button class="btn btn-success" data-bs-toggle="modal"
+                                                                            data-bs-target="#addSeller"><i class="ri-add-fill me-1 align-bottom"></i> Add
+                                                                            Seller</button> -->
+                                    </div>
+                                    <!-- <div class="flex-shrink-0">
+                                                <div class="hstack text-nowrap gap-2">
+                                                    <button class="btn btn-soft-danger" id="remove-actions" onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button>
+                                                    <button class="btn btn-danger"><i class="ri-filter-2-line me-1 align-bottom"></i> Filters</button>
+                                                    <button class="btn btn-soft-success">Import</button>
+                                                    <button type="button" id="dropdownMenuLink1" data-bs-toggle="dropdown" aria-expanded="false" class="btn btn-soft-info"><i class="ri-more-2-fill"></i></button>
+                                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
+                                                        <li><a class="dropdown-item" href="#">All</a></li>
+                                                        <li><a class="dropdown-item" href="#">Last Week</a></li>
+                                                        <li><a class="dropdown-item" href="#">Last Month</a></li>
+                                                        <li><a class="dropdown-item" href="#">Last Year</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div> -->
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-xxl-9">
+                                <div class="card" id="companyList">
+                                    <div class="card-header">
+                                        <div class="row g-2">
+                                            <div class="col-md-3">
+                                                <div class="search-box">
+                                        <input type="text" class="form-control search" placeholder="Search for company...">
+                                        <i class="ri-search-line search-icon"></i>
+                                        </div>
+                                        </div>
+                                        <div class="col-md-auto ms-auto">
+                                            <div class="d-flex align-items-center gap-2">
+                                                <span class="text-muted">Sort by: </span>
+                                        <select class="form-control mb-0" data-choices data-choices-search-false id="choices-single-default">
+                                            <option value="Owner">Owner</option>
+                                            <option value="Company">Company</option>
+                                            <option value="location">Location</option>
+                                        </select>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div>
+                                                <div class="table-responsive table-card mb-3">
+                                                    <table class="table align-middle table-nowrap mb-0" id="customerTable">
+                                                        <thead class="table-light">
+                                                            <tr>
+                                                                <th scope="col" style="width: 50px;">
+                                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="checkAll" value="option">
+                                                        </div>
+                                                        </th>
+                                                        <th class="sort" data-sort="name" scope="col">Company Name</th>
+                                                <th class="sort" data-sort="location" scope="col">Contact Person</th>
+                                                <th class="sort" data-sort="owner" scope="col">Location</th>
+                                                <th class="sort" data-sort="industry_type" scope="col">Contractor
+                                                    Type</th>
+                                                <th class="sort" data-sort="star_value" scope="col">Type of Construction
+                                                </th>
+                                                
+                                                <th scope="col">Action</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody class="list form-check-all">
+                                                    {% for company in companies %}
+                                                    <tr>
+                                                        <th scope="row">
+                                                            <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
+                                                        </div>
+                                                        </th>
+                                                <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ001</a>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="flex-shrink-0">
+                                                            {% comment %} <img src="{{ company.logo.url }}" alt="" class="avatar-xxs rounded-circle image_src object-fit-cover">
+                                                            {% endcomment %}
+                                                            </div>
+                                                        <div class="flex-grow-1 ms-2 name"><a href="{% url 'apps:companies.overview' pk=company.company_id %}">
+                                                                {{ company.company_name }}</a>
+                                                        </div>
+                                                        </div>
+                                                        </td>
+                                                <td class="owner">{{ company.contact_person.name }}</td>
+                                                <td class="industry_type">{{ company.company_address.state }}</td>
+                                                <td><span class="star_value">{{ company.contractor_type }}</span></td>
+                                                <td class="location">{{ company.company_details.type_of_construction }}
+                                                </td>
+                                                <td>
+                                                    <ul class="list-inline hstack gap-2 mb-0">
+                                                        <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Call">
+                                                            <a href="javascript:void(0);" class="text-muted d-inline-block">
+                                                                <i class="ri-phone-line fs-16"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top"
+                                                            title="Message">
+                                                            <a href="javascript:void(0);" class="text-muted d-inline-block">
+                                                                <i class="ri-question-answer-line fs-16"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="View">
+                                                            <a href="{% url 'apps:crm.companies_details' pk=company.company_id %}" class="view-item-btn"><i
+                                                                    class="ri-eye-fill align-bottom text-muted"></i></a>
+                                                        </li>
+                                                        <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Edit">
+                                                            <a class="edit-item-btn" href="#showModal-{{ forloop.counter }}" data-bs-toggle="modal"><i
+                                                                    class="ri-pencil-fill align-bottom text-muted"></i></a>
+                                                        </li>
+                                                        <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Delete">
+                                                            <a class="remove-item-btn" data-bs-toggle="modal" href="#deleteRecordModal-{{ forloop.counter }}">
+                                                                <i class="ri-delete-bin-fill align-bottom text-muted"></i>
+                                                            </a>
+                                                        </li>
+                                                        </ul>
+                                                        </td>
+                                                        </tr>
+                                                        {% endfor %}
+                                                        </tbody>
+                                                        </table>
+                                                        <div class="noresult" style="display: none">
+                                                            <div class="text-center">
+                                            <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop" colors="primary:#121331,secondary:#08a88a"
+                                                style="width:75px;height:75px"></lord-icon>
+                                            <h5 class="mt-2">Sorry! No Result Found</h5>
+                                            <p class="text-muted mb-0">We've searched more than 150+ companies We did
+                                                not find any companies for you search.</p>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            <div class="d-flex justify-content-end mt-3">
+                                                <div class="pagination-wrap hstack gap-2">
+                                                    <a class="page-item pagination-prev disabled" href="#">
+                                                        Previous
+                                                    </a>
+                                                    <ul class="pagination listjs-pagination mb-0"></ul>
+                                                    <a class="page-item pagination-next" href="#">
+                                                        Next
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            </div>
+                            <div class="modal fade zoomIn" id="addSeller" tabindex="-1" aria-labelledby="addSellerLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="addSellerLabel">Add Company</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-content border-0 mt-3">
+                                            <ul class="nav nav-tabs nav-tabs-custom nav-success p-2 pb-0 bg-light" role="tablist">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" id="Personal_Details" data-bs-toggle="tab" href="#personalDetails" role="tab"
+                                                        aria-selected="false">
+                                                        Company
+                                                    </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                    <a class="nav-link" id="Business_Details" data-bs-toggle="tab" href="#businessDetails" role="tab" aria-selected="true">
+                                                        Contacts
+                                                    </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                    <a class="nav-link" data-bs-toggle="tab" href="#bankDetails" role="tab" aria-selected="false">
+                                                        Details
+                                                    </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                    <a class="nav-link" id="note" data-bs-toggle="tab" href="#Notes" role="tab" aria-selected="false">
+                                                        Notes
+                                                    </a>
+                                                    </li>
+                                                    </ul>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="tab-content">
+
+                                                <div class="tab-pane active" id="personalDetails" role="tabpanel">
+                                                    <!-- <form action="#" id="personalDetailsForm"> -->
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="mb-3">
+                                                                <label for="companynameInput" class="form-label">Company
+                                                                    Name</label>
+                                                                <input type="text" class="form-control" id="companynameInput" placeholder="Enter company name">
+                                                            </div>
+                                                            </div>
+                                                        <div>
+                                                            <label for="location-field" class="form-label">Location</label>
+                                                            <input type="text" name="location" class="form-control" placeholder="Enter location" required />
+                                                        </div>
+<!--end col-->
+<div class="col-lg-6">
+    <div class="mb-3">
+        <label for="choices-multiple" class="form-label">Company
+            Type</label>
+        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
+            <option value="">Select type</option>
+            <option value="All" selected>All</option>
+            <option value="Merchandising">Merchandising
+            </option>
+            <option value="Manufacturing">Manufacturing
+            </option>
+            <option value="Partnership">Partnership</option>
+            <option value="Corporation">Corporation</option>
+        </select>
+    </div>
+</div>
+                                                        <!--end col-->
+                                                        <div class="col-lg-6">
+                                                            <div class="mb-3">
+                                                                <label for="websiteInput" class="form-label">Website</label>
+                                                                <input type="url" class="form-control" id="websiteInput" placeholder="Enter your URL">
+                                                            </div>
+                                                        </div>
+                                                        <!--end col-->
+                                                        <div class="col-lg-6">
+                                                            <div class="mb-3">
+                                                                <label for="companyemailInput" class="form-label">Email</label>
+                                                                <input type="email" class="form-control" id="companyemailInput" placeholder="Enter your email">
+                                                                </div>
+                                                                </div>
+                                                                <!--end col-->
+                                                                <div class="col-lg-6">
+                                                                    <div class="mb-3">
+                                                                <label for="worknumberInput" class="form-label">Number</label>
+                                                                <input type="number" class="form-control" id="worknumberInput" placeholder="Enter your number">
+                                                                </div>
+                                                                </div>
+                                                                <!--end col-->
+                                                                <div class="col-lg-6">
+                                                                    <div class="mb-3">
+                                                                <label for="companylogoInput" class="form-label">Company
+                                                                    Logo</label>
+                                                                <input type="file" class="form-control" id="companylogoInput">
+                                                                </div>
+                                                                </div>
+                                                                
+                                                                
+                                                                
+                                                                <!--end col-->
+                                                                <!-- <div class="col-lg-12">
+                                                                                                                                                                                                                                    <div class="hstack gap-2 justify-content-end">
+                                                                                                                                                                                                                                        <button class="btn btn-link link-success text-decoration-none fw-medium" data-bs-dismiss="modal"><i class="ri-close-line me-1 align-middle"></i> Close</button>
+                                                                                                                                                                                                                                        <button type="submit"  data-bs-toggle="tab" href="#businessDetails" role="tab" aria-selected="false" class="btn btn-primary"><i class="ri-save-3-line align-bottom me-1"></i> Save</button>
+                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                </div> -->
+                                                                <div class="hstack gap-2 justify-content-end">
+                                                                    <button type="button" class="btn btn-link link-success text-decoration-none fw-medium" data-bs-dismiss="modal">
+                                                                        <i class="ri-close-line me-1 align-middle"></i>
+                                                                        Close
+                                                                    </button>
+                                                                    <button type="button" id="nextToBusiness" class="btn btn-primary">
+                                                                        <i class="ri-save-3-line align-bottom me-1"></i>
+                                                                        Next (Business Details)
+                                                                    </button>
+                                                                </div>
+                                                                <!--end col-->
+                                                                </div>
+                                                                <!--end row-->
+                                                                <!-- </form> -->
+                                                                </div>
+                                                                <div class="tab-pane" id="businessDetails" role="tabpanel">
+                                                                    <form action="#" id="businessDetailsForm">
+                                                                        <div class="row">
+                                                                            <div class="col-lg-12">
+                                                                                <div class="mb-3">
+                                                                                    <label for="companyname-field" class="form-label">Name</label>
+                                                                                    <input type="text" name="company_name" class="form-control" placeholder="Enter company name"
+                                                                                        required />
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--end col-->
+                                                                            <div class="col-lg-6">
+                                                                                <div class="mb-3">
+                                                                    <label for="phonenumberInput" class="form-label">Phone Number</label>
+                                                                    <input type="number" class="form-control" id="phonenumberInput" placeholder="Enter your number">
+                                                                    </div>
+                                                                    </div>
+                                                                    <!--end col-->
+                                                                    <div class="col-lg-6">
+                                                                        <div class="mb-3">
+                                                                    <label for="emailidInput" class="form-label">Email</label>
+                                                                    <input type="email" class="form-control" id="emailidInput" placeholder="Enter your email">
+                                                                    </div>
+                                                                    </div>
+                                                                    <!--end col-->
+                                                                    <div class="col-lg-4">
+                                                                        <div class="mb-3">
+                                                                    <label for="cityidInput" class="form-label">City</label>
+                                                                    <input type="text" class="form-control" id="cityidInput" placeholder="Enter your city">
+                                                                    </div>
+                                                                    </div>
+                                                                    <!--end col-->
+                                                                    <div class="col-lg-4">
+                                                                        <div class="mb-3">
+                                                                    <label for="zipcodeidInput" class="form-label">State
+                                                                    </label>
+                                                                    <input type="text" class="form-control" id="zipcodeidInput" placeholder="Enter your zipcode">
+                                                                    </div>
+                                                                    </div>
+                                                                    <!--end col-->
+                                                                    <div class="col-lg-4">
+                                                                        <div class="mb-3">
+                                                                    <label for="countryidInput" class="form-label">Country</label>
+                                                                    <input type="text" class="form-control" id="countryidInput" placeholder="Enter your country">
+                                                                    </div>
+                                                                    </div>
+                                                                    <!--end col-->
+                                                                    <div class="col-lg-12">
+                                                                        <div class="mb-3">
+                                                                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter description"></textarea>
+                                                                    </div>
+                                                                    </div>
+
+                                                            <!--end col-->
+                                                            <!-- <div class="col-lg-12">
+                                                                                                                                                                                            <div class="hstack gap-2 justify-content-end">
+                                                                                                                                                                                            <button class="btn btn-link link-success text-decoration-none fw-medium" data-bs-dismiss="modal"><i class="ri-close-line me-1 align-middle"></i> Close</button>
+                                                                    <button type="submit" class="btn btn-primary"><i class="ri-save-3-line align-bottom me-1"></i> Save</button>
+                                                                    </div>
+                                                                    </div> -->
+                                                                    <div class="hstack gap-2 justify-content-end">
+                                                                <button type="button" id="prevToPersonal" class="btn btn-primary">
+                                                                    <i class="ri-arrow-left-line align-bottom me-1"></i>
+                                                                    Previous (Personal Deta++ils)
+                                                                </button>
+                                                                <button type="button" id="nextToBank" class="btn btn-primary">
+                                                                    <i class="ri-save-3-line align-bottom me-1"></i>
+                                                                    Next (Bank Details)
+                                                                </button>
+                                                                </div>
+                                                                <!--end col-->
+                                                                </div>
+                                                                <!--end row-->
+                                                                </form>
+                                                                </div>
+                                                <div class="tab-pane" id="bankDetails" role="tabpanel">
+                                                    <!-- <form action="#" id="bankDetailsForm"> -->
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="mb-3">
+                                                                <label for="banknameInput" class="form-label">Bank
+                                                                    Name</label>
+                                                                <input type="text" class="form-control" id="banknameInput" placeholder="Enter your bank name">
+                                                                </div>
+                                                                </div>
+                                                                <!--end col-->
+                                                                <div class="col-lg-6">
+                                                                    <div class="mb-3">
+                                                                <label for="branchInput" class="form-label">Branch</label>
+                                                                <input type="text" class="form-control" id="branchInput" placeholder="Branch">
+                                                                </div>
+                                                                </div>
+                                                                <!--end col-->
+                                                        <div class="col-lg-12">
+                                                            <div class="mb-3">
+                                                                <label for="accountnameInput" class="form-label">Account
+                                                                    Holder Name</label>
+                                                                <input type="text" class="form-control" id="accountnameInput" placeholder="Enter account holder name">
+                                                                </div>
+                                                                </div>
+                                                                <!--end col-->
+                                                                <div class="col-lg-6">
+                                                                    <div class="mb-3">
+                                                                <label for="accountnumberInput" class="form-label">Account Number</label>
+                                                                <input type="number" class="form-control" id="accountnumberInput" placeholder="Enter account number">
+                                                                </div>
+                                                                </div>
+                                                                <!--end col-->
+                                                                <div class="col-lg-6">
+                                                                    <div class="mb-3">
+                                                                <label for="ifscInput" class="form-label">IFSC</label>
+                                                                <input type="number" class="form-control" id="ifscInput" placeholder="IFSC">
+                                                                </div>
+                                                                </div>
+                                                                <!--end col-->
+                                                                <!-- <div class="col-lg-12">
+                                                                                                    <div class="hstack gap-2 justify-content-end">
+                                                                                                        <button class="btn btn-link link-success text-decoration-none fw-medium" data-bs-dismiss="modal"><i class="ri-close-line me-1 align-middle"></i> Close</button>
+                                                                                                        <button type="submit" class="btn btn-primary"><i class="ri-save-3-line align-bottom me-1"></i> Save</button>
+                                                                                                    </div>
+                                                                                                </div> -->
+                                                        <div class="hstack gap-2 justify-content-end">
+                                                            <button class="btn btn-link link-success text-decoration-none fw-medium" data-bs-dismiss="modal">
+                                                                <i class="ri-close-line me-1 align-middle"></i>
+                                                                Close
+                                                            </button>
+                                                            <button type="button" id="prevToBusiness" class="btn btn-primary">
+                                                                <i class="ri-arrow-left-line align-bottom me-1"></i>
+                                                                Previous (Business Details)
+                                                            </button>
+                                                            <button type="submit" class="btn btn-primary">
+                                                                <i class="ri-save-3-line align-bottom me-1"></i>
+                                                                Next (Notes)
+                                                            </button>
+                                                            
+                                                            <!--end col-->
+                                                            </div>
+                                                            <!--end row-->
+                                                        <!-- </form> -->
+                                                        </div>
+                                                </div>
+                                                <div class="tab-pane" id="Notes" role="tabpanel">
+                                                    <!-- <form action="#" id="bankDetailsForm"> -->
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="mb-3">
+                                                                <label for="banknameInput" class="form-label">Bank
+                                                                    Name</label>
+                                                                <input type="text" class="form-control" id="banknameInput" placeholder="Enter your bank name">
+                                                                </div>
+                                                                </div>
+                                                                <!--end col-->
+                                                                <div class="col-lg-6">
+                                                                    <div class="mb-3">
+                                                                <label for="branchInput" class="form-label">Branch</label>
+                                                                <input type="text" class="form-control" id="branchInput" placeholder="Branch">
+                                                                </div>
+                                                                </div>
+                                                                <!--end col-->
+                                                                <div class="col-lg-12">
+                                                                    <div class="mb-3">
+                                                                <label for="accountnameInput" class="form-label">Account
+                                                                    Holder Name</label>
+                                                                <input type="text" class="form-control" id="accountnameInput" placeholder="Enter account holder name">
+                                                                </div>
+                                                                </div>
+                                                                <!--end col-->
+                                                                <div class="col-lg-6">
+                                                                    <div class="mb-3">
+                                                                <label for="accountnumberInput" class="form-label">Account Number</label>
+                                                                <input type="number" class="form-control" id="accountnumberInput" placeholder="Enter account number">
+                                                                </div>
+                                                                </div>
+                                                                <!--end col-->
+                                                                <div class="col-lg-6">
+                                                                    <div class="mb-3">
+                                                                        <label for="ifscInput" class="form-label">IFSC</label>
+                                                                <input type="number" class="form-control" id="ifscInput" placeholder="IFSC">
+                                                                </div>
+                                                                </div>
+                                                                <!--end col-->
+                                                                <!-- <div class="col-lg-12">
+                                                                                                                                                </div> -->
+                                                                                                                                                <div class="hstack gap-2 justify-content-end">
+                                                            <button class="btn btn-link link-success text-decoration-none fw-medium" data-bs-dismiss="modal">
+                                                                <i class="ri-close-line me-1 align-middle"></i>
+                                                                Close
+                                                                </button>
+                                                            <button type="button" id="prevToBusiness" class="btn btn-primary">
+                                                                <i class="ri-arrow-left-line align-bottom me-1"></i>
+                                                                Previous ( Details )
+                                                            </button>
+                                                            
+                                                            <button type="submit" class="btn btn-primary">
+                                                                <i class="ri-save-3-line align-bottom me-1"></i>
+                                                                Save
+                                                                </button>
+                                                                
+                                                                <!--end col-->
+                                                                </div>
+                                                                <!--end row-->
+                                                    </div>
+                                                    </div>
+                                                    </div>
+                                                    </div>
+                                                    </div>
+
+
+
+
+
+                                    <!-- OldForm -->
+                                    <div class="modal fade" id="showModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-lg">
+                                            <div class="modal-content border-0">
+                                                <div class="modal-header bg-info-subtle p-3">
+                                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
+                                                    </div>
+                                                <form action="{% url 'apps:crm.companies' %}" method="POST" enctype="multipart/form-data">
+                                                    {% csrf_token %}
+                                                    <div class="modal-body">
+                                                        <input type="hidden" id="id-field" />
+                                                        <div class="row g-3">
+                                                            <div class="col-lg-12">
+                                                                <!-- <div class="text-center">
+                                                                        <div class="position-relative d-inline-block">
+                                                                            <div class="position-absolute bottom-0 end-0">
+                                                                                <label for="company-logo-input" class="mb-0" data-bs-toggle="tooltip" data-bs-placement="right" title="Select Image">
+                                                                                    <div class="avatar-xs cursor-pointer">
+                                                                                        <div class="avatar-title bg-light border rounded-circle text-muted">
+                                                                                            <i class="ri-image-fill"></i>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </label>
+                                                                                <input class="form-control d-none" value="" name="logo" id="company-logo-input" type="file" accept="image/png, image/gif, image/jpeg">
+                                                                            </div>
+                                                                            <div class="avatar-lg p-1">
+                                                                                <div class="avatar-title bg-light rounded-circle">
+                                                                                    <img src="{% static 'images/users/multi-user.jpg' %}" name="logo" id="companylogo-img" class="avatar-md rounded-circle object-fit-cover" />
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <h5 class="fs-13 mt-3">Company Logo</h5>
+                                                                    </div> -->
+                                                                <div>
+                                                                    <label for="companyname-field" class="form-label">Name</label>
+                                                                    <input type="text" name="company_name" class="form-control" placeholder="Enter company name" required />
+                                                                    </div>
+                                                                    </div>
+                                                                    <!-- <div class="col-lg-6">
+                                                                    <div>
+                                                                        <label for="owner-field" class="form-label">Owner Name</label>
+                                                                        <input type="text" name="owner_name" class="form-control" placeholder="Enter owner name" required />
+                                                                    </div>
+                                                                </div> -->
+                                                            <!-- <div class="col-lg-12">
+                                                                    <div>
+                                                                        <label for="location-field" class="form-label">Location</label>
+                                                                        <input type="text" name="location" class="form-control" placeholder="Enter location" required />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4">
+                                                                    <div>
+                                                                        <label for="owner-field" class="form-label">Country</label>
+                                                                        <input type="text" name="country" class="form-control" placeholder="Country" required />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4">
+                                                                    <div>
+                                                                        <label for="owner-field" class="form-label">State</label>
+                                                                        <input type="text" name="state" class="form-control" placeholder="Country" required />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4">
+                                                                    <div>
+                                                                        <label for="owner-field" class="form-label">City</label>
+                                                                            <input type="text" name="city" class="form-control" placeholder="City" required />
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-lg-6">
+                                                                    <div>
+                                                                        <label for="website-field" class="form-label">Website</label>
+                                                                        <input type="text" name="company_website" class="form-control" placeholder="Enter website" required />
+                                                                    </div>
+                                                                </div> -->
+                                                            <!-- <div class="col-lg-6">
+                                                                    <div>
+                                                                        <label for="contact_email-field" class="form-label">Contact Email</label>
+                                                                        <input type="text" name="email" class="form-control" placeholder="Enter contact email" required />
+                                                                    </div>
+                                                                </div> -->
+                                                            <!-- <div class="col-lg-6">
+                                                                    <div>
+                                                                        <label for="contact_email-field" class="form-label">Contact Person</label>
+                                                                        <input type="text" name="name" class="form-control" placeholder="Enter contact email" required />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div>
+                                                                        <label for="Role_type-field" class="form-label">Role</label>
+                                                                        <select class="form-select" id="Role_type-field" name="role">
+                                                                            <option value="">Select Role</option>
+                                                                            <option value="Computer Industry">Presedent</option>
+                                                                            <option value="Chemical Industries">Sales</option>
+                                                                            <option value="Health Services">Engineer</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div>
+                                                                        <label for="phone-number-field" class="form-label">Phone Number</label>
+                                                                        <input type="text" name="phone_no" class="form-control" placeholder="Contact Phone Number" required />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div>
+                                                                        <label for="contact_email-field" class="form-label">Email</label>
+                                                                        <input type="text" name="email" class="form-control" placeholder="Enter contact email" required />
+                                                                    </div>
+                                                                </div> -->
+
+                                                            <!-- <div class="col-lg-4">
+                                                                    <div>
+                                                                        <label for="star_value-field" class="form-label">Rating</label>
+                                                                        <input type="text" name="rating" class="form-control" placeholder="Enter rating" required />
+                                                                    </div>
+                                                                </div> -->
+                                                            <!-- <div class="col-lg-4">
+                                                                    <div>
+                                                                        <label for="location-field" class="form-label">Location</label>
+                                                                        <input type="text" name="location" class="form-control" placeholder="Enter location" required />
+                                                                    </div>
+                                                                </div> -->
+                                                            <!-- <div class="col-lg-6">
+                                                                    <div>
+                                                                        <label for="since-field" class="form-label">Year Funded</label>
+                                                                        <input type="text" name="since" class="form-control" placeholder="Year Funded" required />
+                                                                    </div>
+                                                                </div> -->
+                                                            <!-- 
+                                                                <div class="col-lg-6">
+                                                                    <div>
+                                                                        <label for="industry_type-field" class="form-label">Industry Type</label>
+                                                                        <select class="form-select" id="industry_type-field" name="industry_type">
+                                                                            <option value="">Select industry type</option>
+                                                                            <option value="Computer Industry">Computer Industry</option>
+                                                                            <option value="Chemical Industries">Chemical Industries</option>
+                                                                            <option value="Health Services">Health Services</option>
+                                                                            <option value="Telecommunications Services">Telecommunications Services</option>
+                                                                            <option value="Textiles: Clothing, Footwear">Textiles: Clothing, Footwear</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div> -->
+
+                                                            <!-- <div class="col-lg-12">
+                                                                    <div>
+                                                                        <label for="since-field" class="form-label">Notes/Description</label>
+                                                                        <input type="text" name="since" class="form-control" placeholder="Notes/Description" required />
+                                                                    </div>
+                                                                </div> -->
+                                                        </div>
+                                                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <div class="hstack gap-2 justify-content-end">
+                                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                                            <button type="submit" class="btn btn-success" id="add-btn">Add
+                                                                Company</button>
+                                                            <!--<button type="button" class="btn btn-success" id="edit-btn">Update</button> -->
+                                                            </div>
+                                                            </div>
+                                                            
+                                                            </form>
+                                                            </div>
+                                                            </div>
+                                                            </div>
+                                                            <!--end add modal-->
+
+                                    {% for company in companies %}
+                                    <div class="modal fade" id="showModal-{{ forloop.counter }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-lg">
+                                            <div class="modal-content border-0">
+                                                <div class="modal-header bg-primary-subtle p-3">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Company</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
+                                                    </div>
+                                                <form method="POST" action="{% url 'apps:crm.update_companies' company.pk %}" enctype="multipart/form-data">
+                                                    {% csrf_token %}
+                                                    <div class="modal-body">
+                                                        <input type="hidden" id="id-field" />
+                                                        <div class="row g-3">
+                                                            <div class="col-lg-12">
+                                                                <!-- <div class="text-center">
+                                                                        <div class="position-relative d-inline-block">
+                                                                            <div class="position-absolute bottom-0 end-0">
+                                                                                <label for="company-logo-input" class="mb-0" data-bs-toggle="tooltip" data-bs-placement="right" title="Select Image">
+                                                                                    <div class="avatar-xs cursor-pointer">
+                                                                                        <div class="avatar-title bg-light border rounded-circle text-muted">
+                                                                                            <i class="ri-image-fill"></i>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </label>
+                                                                                {% comment %} <input class="form-control" value="{{ company.logo.url }}" name="logo" id="company-logo-input" type="file" accept="image/png, image/gif, image/jpeg"> {% endcomment %}
+                                                                            </div>
+                                                                            <div class="avatar-lg p-1">
+                                                                                <div class="avatar-title bg-light rounded-circle">
+                                                                                    {% comment %} <img src="{{ company.logo.url }}" name="logo" id="companylogo-img" class="avatar-md rounded-circle object-fit-cover" /> {% endcomment %}
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <h5 class="fs-13 mt-3">Company Logo</h5>
+                                                                    </div> -->
+                                                                <div>
+                                                                    <label for="companyname-field" class="form-label">Name</label>
+                                                                    <input type="text" name="name" value="{{ company.company_name }}" class="form-control" placeholder="Enter company name"
+                                                                        required />
+                                                                    </div>
+                                                                    </div>
+                                                                    <!-- <div class="col-lg-6">
+                                                                    <div>
+                                                                        <label for="owner-field" class="form-label">Owner Name</label>
+                                                                        <input type="text" name="owner_name" value="{{ company.owner_name }}" class="form-control" placeholder="Enter owner name" required />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div>
+                                                                        <label for="industry_type-field" class="form-label">Industry Type</label>
+                                                                        <select class="form-select" id="industry_type-field" name="industry_type">
+                                                                            {% if company.industry_type == "Computer Industry" %}
+                                                                            <option value="Computer Industry" selected>Computer
+                                                                                Industry</option>
+                                                                            {% else %}
+                                                                            <option value="Computer Industry" selected>Computer
+                                                                                Industry</option>
+                                                                            {% endif %}
+                                                                            {% if company.industry_type == "Chemical Industries" %}
+                                                                            <option value="Chemical Industries" selected>Chemical
+                                                                                Industries</option>
+                                                                            {% else %}
+                                                                            <option value="Chemical Industries">Chemical
+                                                                                Industries</option>
+                                                                            {% endif %}
+                                                                            {% if company.industry_type == "Health Services" %}
+                                                                            <option value="Health Services" selected>Health Services
+                                                                            </option>
+                                                                            {% else %}
+                                                                            <option value="Health Services">Health Services
+                                                                            </option>
+                                                                            {% endif %}
+                                                                            {% if company.industry_type == "Telecommunications Services" %}
+                                                                                <option value="Telecommunications Services" selected>
+                                                                                Telecommunications Services</option>
+                                                                            {% else %}
+                                                                                <option value="Telecommunications Services">
+                                                                                    Telecommunications Services</option>
+                                                                            {% endif %}
+                                                                            {% if company.industry_type == "Textiles: Clothing, Footwear" %}
+                                                                            <option value="Textiles: Clothing, Footwear" selected>
+                                                                                Textiles: Clothing, Footwear</option>
+                                                                            {% else %}
+                                                                            <option value="Textiles: Clothing, Footwear">
+                                                                                Textiles: Clothing, Footwear</option>
+                                                                            {% endif %}
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4">
+                                                                    <div>
+                                                                        <label for="star_value-field" class="form-label">Rating</label>
+                                                                        <input type="text" name="rating" value="{{ company.rating }}" class="form-control" placeholder="Enter rating" required />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4">
+                                                                    <div>
+                                                                        <label for="location-field" class="form-label">Location</label>
+                                                                        <input type="text" name="location" value="{{ company.location }}" class="form-control" placeholder="Enter location" required />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4">
+                                                                    <div>
+                                                                        <label for="employee-field" class="form-label">Employee</label>
+                                                                        <input type="text" name="employee" value="{{ company.employee }}" class="form-control" placeholder="Enter employee" required />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div>
+                                                                        <label for="website-field" class="form-label">Website</label>
+                                                                        <input type="text" name="website" value="{{ company.website }}" class="form-control" placeholder="Enter website" required />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div>
+                                                                        <label for="contact_email-field" class="form-label">Contact Email</label>
+                                                                        <input type="text" name="contact_email" value="{{ company.contact_email }}" class="form-control" placeholder="Enter contact email" required />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12">
+                                                                    <div>
+                                                                        <label for="since-field" class="form-label">Since</label>
+                                                                        <input type="text" name="since" value="{{ company.since }}" class="form-control" placeholder="Enter since" required />
+                                                                    </div>
+                                                                </div> -->
+                                                        </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <div class="hstack gap-2 justify-content-end">
+                                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                                            <button type="submit" class="btn btn-success" id="add-btn">Update</button>
+                                                            <!-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> -->
+                                                            </div>
+                                                            </div>
+                                                            </form>
+                                                            </div>
+                                                            </div>
+                                                            </div>
+                                                            <!--end edit modal-->
+
+                                    {% endfor %}
+                                    <!--end delete modal -->
+                                    
+                                    </div>
+                                    </div>
+                                    <!--end card-->
+                                    </div>
+                                    <!--end col-->
+</div>
+<!--end row-->
+
+</div>
+                {% if company %}
+                <div class="col-xxl-3">
+                    <div class="card" id="company-view-detail">
+                        <div class="card-body text-center">
+                            <div class="position-relative d-inline-block">
+                                <div class="avatar-md">
+                                    <div class="avatar-title bg-light rounded-circle">
+                
+                                    </div>
+                                </div>
+                            </div>
+                            <h5 class="mt-3 mb-1">{{ company.company_name }}</h5>
+                            <p class="text-muted">{{ company.owner_name }}</p>
+                
+                            <ul class="list-inline mb-0">
+                                <li class="list-inline-item avatar-xs">
+                                    <a href="javascript:void(0);" class="avatar-title bg-success-subtle text-success fs-15 rounded">
+                                        <i class="ri-global-line"></i>
+                                    </a>
+                                    </li>
+                                    <li class="list-inline-item avatar-xs">
+                                    <a href="javascript:void(0);" class="avatar-title bg-danger-subtle text-danger fs-15 rounded">
+                                        <i class="ri-mail-line"></i>
+                                    </a>
+                                    </li>
+                                    <li class="list-inline-item avatar-xs">
+                                    <a href="javascript:void(0);" class="avatar-title bg-primary-subtle text-primary fs-15 rounded">
+                                        <i class="ri-question-answer-line"></i>
+                                    </a>
+                                    </li>
+                                    </ul>
+                                    </div>
+                                    <div class="card-body">
+                                        <h6 class="text-muted text-uppercase fw-semibold mb-3">Information</h6>
+                            <p class="text-muted mb-4">A company incurs fixed and variable costs such as the
+                                purchase of
+                                raw materials, salaries and overhead, as explained by AccountingTools, Inc.
+                                Business
+                                owners have the discretion to determine the actions.</p>
+                            <div class="table-responsive table-card">
+                                <table class="table table-borderless mb-0">
+                                    <tbody>
+                                        <tr>
+                                            <td class="fw-medium" scope="row">Industry Type</td>
+                                            <td>{{ company.company_details.type_of_construction }}</td>
+                                            </tr>
+                                            <tr>
+                                            <td class="fw-medium" scope="row">Locatiertwetweon</td>
+                                            <td>{{ company.company_address.location }}</td>
+                                            </tr>
+                                            <tr>
+                                            <td class="fw-medium" scope="row">Contractor Type</td>
+                                            <td>{{ company.contractor_type }}</td>
+                                            </tr>
+                                            <tr>
+                                            <td class="fw-medium" scope="row">Type OF construction</td>
+                                            <td>{{ company.company_details.type_of_construction }} <i class="ri-star-fill text-warning align-bottom"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium" scope="row">Website</td>
+                                                <td>
+                                                <a href="javascript:void(0);" class="link-primary text-decoration-underline">{{
+                                                    company.company_website
+                                                    }}</a>
+                                                </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="fw-medium" scope="row">Contact Email</td>
+                                            <td>{{ company.contact_person.email }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-medium" scope="row">Since</td>
+                                            <td>{{ company.company_details.year_founded }}</td>
+                                            </tr>
+                                            </tbody>
+                                            </table>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            <!--end card-->
+                                            </div>
+                                            {% else %}
+                                            <div class="col-xxl-3">
+                                                <div class="card" id="company-view-detail">
+                                                    <div class="card-body text-center">
+                                                        <div class="position-relative d-inline-block">
+                                                            <div class="avatar-md">
+                                                                <div class="avatar-title bg-light rounded-circle">
+                                        <img src="{% static 'images/brands/mail_chimp.png' %}" alt="" class="avatar-sm rounded-circle object-fit-cover">
+                                        </div>
+                                        </div>
+                                        </div>
+                                        <h5 class="mt-3 mb-1">Syntyce Solution</h5>
+                                        <p class="text-muted">Michael Morris</p>
+                                        
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item avatar-xs">
+                                    <a href="javascript:void(0);" class="avatar-title bg-success-subtle text-success fs-15 rounded">
+                                        <i class="ri-global-line"></i>
+                                    </a>
+                                    </li>
+                                    <li class="list-inline-item avatar-xs">
+                                    <a href="javascript:void(0);" class="avatar-title bg-danger-subtle text-danger fs-15 rounded">
+                                        <i class="ri-mail-line"></i>
+                                    </a>
+                                    </li>
+                                    <li class="list-inline-item avatar-xs">
+                                    <a href="javascript:void(0);" class="avatar-title bg-warning-subtle text-warning fs-15 rounded">
+                                        <i class="ri-question-answer-line"></i>
+                                    </a>
+                                    </li>
+                                    </ul>
+                                    </div>
+                                    <div class="card-body">
+                                        <h6 class="text-muted text-uppercase fw-semibold mb-3">Information</h6>
+                            <p class="text-muted mb-4">A company incurs fixed and variable costs such as the
+                                purchase of
+                                raw materials, salaries and overhead, as explained by AccountingTools, Inc.
+                                Business
+                                owners have the discretion to determine the actions.</p>
+                            <div class="table-responsive table-card">
+                                <table class="table table-borderless mb-0">
+                                    <tbody>
+                                        <tr>
+                                            <td class="fw-medium" scope="row">Industry Type</td>
+                                            <td>Chemical Industries</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-medium" scope="row">Location</td>
+                                            <td>Damascus, Syria</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-medium" scope="row">Employee</td>
+                                            <td>10-50</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-medium" scope="row">Rating</td>
+                                            <td>4.0 <i class="ri-star-fill text-warning align-bottom"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-medium" scope="row">Website</td>
+                                            <td>
+                                                <a href="javascript:void(0);" class="link-primary text-decoration-underline">www.syntycesolution.com</a>
+                                                </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="fw-medium" scope="row">Contact Email</td>
+                                                    <td>info@syntycesolution.com</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="fw-medium" scope="row">Since</td>
+                                                    <td>1995</td>
+                                                </tr>
+                                                </tbody>
+                                                </table>
+                                                </div>
+                                                </div>
+                                                </div>
+                                                <!--end card-->
+                                                </div>
+                                                {% endif %}
+                                                <!--end col-->
+                <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
+                
+                {% block footer %}
+                {% include "partials/footer.html" %}
+                {% endblock footer %}
+                </div>
+                <!-- end main content-->
+                {% endblock content %}
+{% block extra_content %}
+{% for company in companies %}
+<!-- removeProjectModal -->
+<div class="modal fade zoomIn" id="deleteRecordModal-{{ forloop.counter }}" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    id="deleteRecord-close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mt-2 text-center">
+                    <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop"
+                        colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
+                    <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
+                        <h4>Are you sure ?</h4>
+                        <p class="text-muted mx-4 mb-0">Are you sure you want to
+                            remove this record ?</p>
+                    </div>
+                </div>
+                <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
+                    <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
+                    <a type="button" class="btn w-sm btn-danger " id="delete-record" href="{% url 'apps:delete_companies' pk=company.company_id %}">Yes, Delete It!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock extra_content %}
+        {% block extra_js %}
+        <!-- list.js min js -->
+        <script src="{% static 'libs/list.js/dist/list.min.js'%}"></script>
+        <script src="{% static 'libs/list.pagination.js/dist/list.pagination.min.js'%}"></script>
+
+        <script src="{% static 'js/pages/crm-companies.init.js'%}"></script>
+        <!-- Sweet Alerts js -->
+        <script src="{% static 'libs/sweetalert2/dist/sweetalert2.min.js' %}"></script>
+        <!-- Add jQuery library -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                // Next button for Personal Details to Business Details
+                $("#nextToBusiness").on("click", function (e) {
+                    e.preventDefault();
+                    $("#personalDetails").removeClass("active");
+                    $("#businessDetails").addClass("active");
+                    $("#Personal_Details").removeClass("active");
+                    $("#Business_Details").addClass("active");
+                });
+
+                // Next button for Business Details to Bank Details
+                $("#nextToBank").on("click", function (e) {
+                    e.preventDefault();
+                    $("#businessDetails").removeClass("active");
+                    $("#bankDetails").addClass("active");
+                    $("#Business_Details").removeClass("active");
+                    $("#Bank_details").addClass("active");
+                });
+
+                // Previous button for Business Details to Personal Details
+                $("#prevToPersonal").on("click", function (e) {
+                    e.preventDefault();
+                    $("#businessDetails").removeClass("active");
+                    $("#personalDetails").addClass("active");
+                    $("#Business_Details").removeClass("active");
+                    $("#Personal_Details").addClass("active");
+                });
+
+                // Previous button for Bank Details to Business Details
+                $("#prevToBusiness").on("click", function (e) {
+                    e.preventDefault();
+                    $("#bankDetails").removeClass("active");
+                    $("#businessDetails").addClass("active");
+                    $("#Bank_details").removeClass("active");
+                    $("#Business_Details").addClass("active");
+                });
+            });
+
+</script>
+        {% for message in messages %}
+        {% if message.tags == 'alert-success' %}
+        <!-- sweetalert js -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            var m = "{{ message }}";
+            Swal.fire({
+                icon: 'success',
+                title: m,
+                showConfirmButton: false,
+                timer: 1500,
+            })
+        </script>
+        {% else %}
+        <!-- sweetalert js -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            var m = "{{ message }}";
+            Swal.fire({
+                icon: 'error',
+                title: m,
+                showConfirmButton: false,
+                timer: 1500,
+            })
+        </script>
+        {% endif %}
+        {% endfor %}
+        {% endblock extra_js %}

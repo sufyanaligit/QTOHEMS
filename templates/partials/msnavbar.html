@@ -1,0 +1,162 @@
+{% load static %}
+{% block msnavbar%}
+<div class="row mininav">
+    <div class="NewP col-sm-12 col-md-6 col-lg-7">
+        <div>
+            
+            <div>
+                <img src="{% static 'images/msimages/icon2.png'%}" alt="Image 0">
+            </div>
+          
+        </div>
+        <div class="newproject">
+            <span>
+                Coney Island Head Start Daycare Center (Brooklyn) : Bid Date : 02-06-2023
+            </span>
+        </div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="NewPR col-sm-12 col-md-6 col-lg-5">
+        <div class="navul">
+            <a href="/Login" class="nav-link active">
+                <button type="button" class="btn loginb vertical-align-btn">
+                    Login
+                </button>
+            </a>
+        </div>
+        <div>
+            <button type="button" class="btn cartb vertical-align-btn">
+                <div key="image1" class="CI">
+                    <img src="{% static 'images/msimages/carticon.png'%}" alt="Image 2">
+                </div>
+                <span>No Item</span>
+                <div key="image1">
+                    <img src="{% static 'images/msimages/dropdown.png'%}" alt="Image 3">
+                </div>
+            </button>
+        </div>
+        <div class="mni bdg">
+            
+            <div >
+                <img src="{% static 'images/msimages/noti.png'%}" alt="Image 4">
+                <span class="notifi">4</span>
+            </div>
+        </div>
+        <div class="mni">
+            <div >
+                <img src="{% static 'images/msimages/mail.png'%}" alt="Image 5">
+            </div>
+        </div>
+        <div></div>
+    </div>
+</div>
+
+<div>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <div class="logd">
+                <a class="navbar-brand" href="#">
+                   
+                    <div key="image6" class="">
+                        <img class="logo" src="{% static 'images/msimages/logo1.png'%}" alt="Image 6">
+                    </div>
+                   
+                </a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <form class="d-flex navf" onsubmit="handleFormSubmit(event)">
+                    <input class="form-control me-2" type="search" placeholder="Search Projects" aria-label="Search"
+                        value="{{ searchQuery }}" onchange="setSearchQuery(event.target.value)">
+                    <button class="btn" type="submit">
+                        
+                        <div key="image7" class="">
+                            <img class="logo" src="{% static 'images/msimages/search.png'%}" alt="Image 7">
+                        </div>
+                        
+                    </button>
+                </form>
+                <ul class="right-aligned-list navbar-nav ml-auto mb-2 mb-lg-0 flex-grow-0 navul">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/Services">
+                            Services
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/Projects">
+                            Projects
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/ContactUs">
+                            Contact Us
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/AboutUs">
+                            About Us
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Register">
+                            <button type="button" class="btn loginb NB vertical-align-btn">
+                                Register now
+                            </button>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/quote">
+                            <button type="button" class="btn loginb NB vertical-align-btn">
+                                Get a Quote
+                            </button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<section>
+    <div class="container_fluid">
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="carousel-caption">
+                        <div class="search-bar-container">
+                            <div>
+                                <span class="srchspn">Keywords</span>
+                                <input type="text" class="form-control" placeholder="Windows,Roof etc '">
+                            </div>
+                            <div>
+                                <span class="srchspn">Locations</span>
+                                <select class="form-select" aria-label="Location Select">
+                                    <option value="1">Select Region</option>
+                                    <option value="2">Location 2</option>
+                                    <!-- Add more options for locations as needed -->
+                                </select>
+                            </div>
+                            <div>
+                                <button type="button" class="btn loginb">
+                                    Search
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock msnavbar%}

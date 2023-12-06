@@ -1,0 +1,576 @@
+{% extends "partials/base.html" %}
+{% load static %}
+{% block title %}Create Project{% endblock title %}
+{% block extra_css %}
+<!-- Plugins css -->
+<link href="{% static 'libs/dropzone/dist/dropzone.css'%}" rel="stylesheet" type="text/css" />
+{% endblock extra_css %}
+{% block content %}
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+<div class="main-content">
+
+    <div class="page-content">
+        <div class="container-fluid">
+
+            {% block pagetitle %}
+            {% include "partials/page-title.html" with pagetitle="Projects" title="Create Project" %}
+            {% endblock pagetitle %}
+            <form method="POST" action="{% url 'apps:projects.create' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body row">
+                                <div class="mb-3">
+                                    <label class="form-label" for="project-title-input">Project Title</label>
+                                    <input type="text" class="form-control" id="project-title-input"
+                                        placeholder="Enter project title" name="project_name">
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="mb-3">
+                                        <label for="location-field" class="form-label">Location</label>
+                                        <input type="text" name="city" class="form-control"
+                                            placeholder="Enter location" required />
+                                    </div>
+                                </div>
+                                <!-- 
+                                <div class="col-md-5 mb-3">
+                                    <label for="country" class="form-label">Country</label>
+                                    <select class="form-select" id="country" name="country">
+                                        <option value="">United States</option>
+                                        <option>United States</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Please select a country
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="state" class="form-label">State</label>
+                                    <select class="form-select" id="state" name="state">
+                                        <option value="">Choose...</option>
+                                        <option>California</option>
+                                        <option>Newyork</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Please select a state
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="zip" class="form-label">Zip</label>
+                                    <input type="text" class="form-control" id="zip" placeholder="" name="zip_code" />
+                                </div> -->
+                                <!-- 
+                                <div class="mb-3">
+                                    <label class="form-label" for="project-thumbnail-img">Thumbnail Image</label>
+                                    <input class="form-control" id="project-thumbnail-img" type="file" accept="image/png, image/gif, image/jpeg">
+                                    </div> -->
+
+                                <div class="col-12 mb-3">
+                                    <label for="address" class="form-label">Project Description</label>
+                                    <textarea class="form-control" id="VertimeassageInput" rows="3"
+                                        placeholder="Project Descrilption" name="state"></textarea>
+                                    <div class="invalid-feedback">
+                                        Write Project Description
+                                    </div>
+                                </div>
+
+
+                                <div class="row mb-3">
+                                    <!-- <div class="col-lg-4">
+                                                                        <div class="mb-3 mb-lg-0">
+                                                                            <label for="choices-priority-input" class="form-label">Priority</label>
+                                                                            <select class="form-select" data-choices data-choices-search-false
+                                                                                id="choices-priority-input">
+                                                                                <option value="High" selected>High</option>
+                                                                                <option value="Medium">Medium</option>
+                                                                                <option value="Low">Low</option>
+                                                                            </select>
+                                                                        </div>
+                                    </div> -->
+                                    <div class="col-lg-4">
+                                        <div class="mb-4 mb-lg-0">
+                                            <label for="choices-status-input" class="form-label">Status</label>
+                                            <select class="form-select" data-choices data-choices-search-false
+                                                id="choices-status-input" name="status">
+                                                <option value="Started" selected>Started</option>
+                                                <option value="pending">Pending</option>
+                                                <option value="in_progress" selected>Inprogress</option>
+                                                <option value="completed">Completed</option>
+                                                <option value="Closed">Closed</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mb-3">
+                                        <label class="form-label" for="project-title-input">Soliocitation Title</label>
+                                        <input type="text" class="form-control" id="project-title-input"
+                                            placeholder="Enter project title" name="notes">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="liquidated_damages" class="form-label">Liquidated Damages</label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control" id="bid_bonds" placeholder="Enter bid bonds percentage"
+                                                name="liquidated_damages" >
+                                            <span class="input-group-text">$ Per CCD's</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- <div class="col-lg-4">
+                                                                            <div>
+                                            <label for="datepicker-deadline-input" class="form-label">Bid Date</label>
+                                            <input type="text" class="form-control" id="datepicker-deadline-input" placeholder="Enter due date"
+                                                data-provider="flatpickr">
+                                            </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <!-- end card body -->
+                        </div>
+                        <!-- end card -->
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Attached files</h5>
+                            </div>
+                            <div class="card-body">
+                                <div>
+                                    <p class="text-muted">Add Attached files here.</p>
+
+                                    <div class="dropzone">
+                                        <div class="fallback">
+                                            <input name="project_files" type="file" multiple="multiple">
+                                        </div>
+                                        <div class="dz-message needsclick">
+                                            <div class="mb-3">
+                                                <i class="display-4 text-muted ri-upload-cloud-2-fill"></i>
+                                            </div>
+
+                                            <h5>Drop files here or click to upload.</h5>
+                                        </div>
+                                    </div>
+
+                                    <ul class="list-unstyled mb-0" id="dropzone-preview">
+                                        <li class="mt-2" id="dropzone-preview-list">
+                                            <!-- This is used as the file preview template -->
+                                            <div class="border rounded">
+                                                <div class="d-flex p-2">
+                                                    <div class="flex-shrink-0 me-3">
+                                                        <div class="avatar-sm bg-light rounded">
+                                                            <img src="#" alt="Project-Image" data-dz-thumbnail
+                                                                class="img-fluid rounded d-block" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <div class="pt-1">
+                                                            <h5 class="fs-14 mb-1" data-dz-name>&nbsp;</h5>
+                                                            <p class="fs-13 text-muted mb-0" data-dz-size></p>
+                                                            <strong class="error text-danger"
+                                                                data-dz-errormessage></strong>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-shrink-0 ms-3">
+                                                        <button data-dz-remove
+                                                            class="btn btn-sm btn-danger">Delete</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <!-- end dropzon-preview -->
+                                </div>
+                            </div>
+                        </div>  
+                        <!-- end card -->
+                        <div class="text-end mb-4">
+                            <button class="btn btn-danger w-sm">Delete</button>
+                            <button class="btn btn-secondary w-sm">Draft</button>
+                            <button type="submit" class="btn btn-success w-sm">Create</button>
+                        </div>
+                    </div>
+                    <!-- end col -->
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Bid Information</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="choices-privacy-status-input" class="form-label">Bidding
+                                            Method</label>
+                                        <select class="form-select" data-choices data-choices-search-false
+                                            id="choices-privacy-status-input" name="bidding_method">
+                                            <option value="Open" selected>Open</option>
+                                            <option value="Closed">Closed</option>
+                                            <option value="Selective">Selective</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="choices-privacy-status-input" class="form-label">Bidding
+                                            Phase</label>
+                                        <select class="form-select" data-choices data-choices-search-false
+                                            id="choices-privacy-status-input" name="bid_phase">
+                                            <option value="Pre-Bid" selected>Pre-Bid</option>
+                                            <option value="Bidding">Bidding</option>
+                                            <option value="Post-Bid">Post-Bid</option>
+                                            <option value="Open-Solicitation">Open Solicitation</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="zip" class="form-label">Project Completion Time</label>
+                                        <input type="text" class="form-control" id="zip" placeholder=""
+                                            name="project_completion_time" />
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="pre_bid_meeting_date" class="form-label">Pre Bid Meeting Date</label>
+                                        <input type="date" name="pre_bid_meeting_date" class="form-control"
+                                            placeholder="DD-MM-YYYY" id="pre_bid_meeting_date">
+                                        <div class="invalid-feedback">
+                                            Please enter Date
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="ammount" class="form-label">Bid Ammount</label>
+                                        <input type="text" class="form-control" id="zip" placeholder=""
+                                            name="project_completion_time">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="address" class="form-label">Bid Date</label>
+                                        <input type="date" name="   " class="form-control"
+                                            placeholder="DD-MM-YYYY" id="cleave-date">
+                                        <div class="invalid-feedback">
+                                            Please enter Date
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="bid_bonds" class="form-label">Bid Bonds (%)</label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control" id="bid_bonds"
+                                                placeholder="Enter bid bonds percentage" name="bid_bonds" min="0"
+                                                max="100" step="10">
+                                            <span class="input-group-text">%</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="performance_bond" class="form-label">Performance Bonds (%)</label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control" id="performance_bond"
+                                                placeholder="Enter bid bonds percentage" name="performance_bond" min="0"
+                                                max="100" step="10">
+                                            <span class="input-group-text">%</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="payment_bond_percentage" class="form-label">Payment Bonds (%)</label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control" id="payment_bond_percentage"
+                                                placeholder="Enter bid bonds percentage" name="payment_bond_percentage" min="0"
+                                                max="100" step="10">
+                                            <span class="input-group-text">%</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="mb-3">
+                                            <label for="bid_location" class="form-label">Bid Location</label>
+                                            <input type="text" name="bid_location" class="form-control"
+                                                placeholder="Enter bid_location" >
+                                        </div>
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <label for="pre_bid_meeting_note" class="form-label">Bid Notes</label>
+                                        <textarea class="form-control" id="VertimeassageInput" rows="3"
+                                            placeholder="Project Descrilption" name="pre_bid_meeting_note"></textarea>
+                                        <div class="invalid-feedback">
+                                            Write Project Description
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end card body -->
+                        </div>
+                        <!-- end card -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">MWSEBs and SDVOBs</h5>
+                            </div>
+                            <div class="card-body row">
+                                <div class="col-md-3 mb-3">
+                                    <label for="MBE" class="form-label">MBE (%)</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="MBE"
+                                            placeholder="Enter bid bonds percentage" name="MBE" min="0" max="100"
+                                            step="10">
+                                        <span class="input-group-text">%</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="mwsebs" class="form-label">WBE (%)</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="mwsebs"
+                                            placeholder="Enter bid bonds percentage" name="mwsebs" min="0" max="100"
+                                            step="10">
+                                        <span class="input-group-text">%</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="sdvobs" class="form-label">SDVOB (%)</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="sdvobs"
+                                            placeholder="Enter bid bonds percentage" name="sdvobs" min="0" max="100"
+                                            step="10">
+                                        <span class="input-group-text">%</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="EEO" class="form-label">EEO (%)</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="EEO"
+                                            placeholder="Enter bid bonds percentage" name="EEO" min="0" max="100"
+                                            step="10">
+                                        <span class="input-group-text">%</span>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <!-- end card body -->
+                        </div>
+
+                        <!-- end card -->
+
+                        <!-- <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Members</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label for="choices-lead-input" class="form-label">Team Lead</label>
+                                    <select class="form-select" data-choices data-choices-search-false
+                                        id="choices-lead-input">
+                                        <option value="Brent Gonzalez" selected>Brent Gonzalez</option>
+                                        <option value="Darline Williams">Darline Williams</option>
+                                        <option value="Sylvia Wright">Sylvia Wright</option>
+                                        <option value="Ellen Smith">Ellen Smith</option>
+                                        <option value="Jeffrey Salazar">Jeffrey Salazar</option>
+                                        <option value="Mark Williams">Mark Williams</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="form-label">Team Members</label>
+                                    <div class="avatar-group">
+                                        <a href="javascript: void(0);" class="avatar-group-item"
+                                            data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top"
+                                            title="Brent Gonzalez">
+                                            <div class="avatar-xs">
+                                                <img src="{% static 'images/users/avatar-3.jpg'%}" alt=""
+                                                    class="rounded-circle img-fluid">
+                                            </div>
+                                        </a>
+                                        <a href="javascript: void(0);" class="avatar-group-item"
+                                            data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top"
+                                            title="Sylvia Wright">
+                                            <div class="avatar-xs">
+                                                <div class="avatar-title rounded-circle bg-secondary">
+                                                    S
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="javascript: void(0);" class="avatar-group-item"
+                                            data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top"
+                                            title="Ellen Smith">
+                                            <div class="avatar-xs">
+                                                <img src="{% static 'images/users/avatar-4.jpg'%}" alt=""
+                                                    class="rounded-circle img-fluid">
+                                            </div>
+                                        </a>
+                                        <a href="javascript: void(0);" class="avatar-group-item"
+                                            data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top"
+                                            title="Add Members">
+                                            <div class="avatar-xs" data-bs-toggle="modal"
+                                                data-bs-target="#inviteMembersModal">
+                                                <div
+                                                    class="avatar-title fs-16 rounded-circle bg-light border-dashed border text-primary">
+                                                    +
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div> -->
+                        <!-- end card -->
+                    </div>
+                    <!-- end col -->
+
+                </div>
+            </form>
+            <!-- end row -->
+
+        </div>
+        <!-- container-fluid -->
+    </div>
+    <!-- End Page-content -->
+
+    {% block footer %}
+    {% include "partials/footer.html" %}
+    {% endblock footer %}
+</div>
+<!-- end main content-->
+{% endblock content %}
+
+{% block extra_content %}
+<!-- Modal -->
+<div class="modal fade" id="inviteMembersModal" tabindex="-1" aria-labelledby="inviteMembersModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header p-3 ps-4 bg-success-subtle">
+                <h5 class="modal-title" id="inviteMembersModalLabel">Members</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                <div class="search-box mb-3">
+                    <input type="text" class="form-control bg-light border-light" placeholder="Search here...">
+                    <i class="ri-search-line search-icon"></i>
+                </div>
+
+                <div class="mb-4 d-flex align-items-center">
+                    <div class="me-2">
+                        <h5 class="mb-0 fs-13">Members :</h5>
+                    </div>
+                    <div class="avatar-group justify-content-center">
+                        <a href="javascript: void(0);" class="avatar-group-item" data-bs-toggle="tooltip"
+                            data-bs-trigger="hover" data-bs-placement="top" title="Brent Gonzalez">
+                            <div class="avatar-xs">
+                                <img src="{% static 'images/users/avatar-3.jpg'%}" alt=""
+                                    class="rounded-circle img-fluid">
+                            </div>
+                        </a>
+                        <a href="javascript: void(0);" class="avatar-group-item" data-bs-toggle="tooltip"
+                            data-bs-trigger="hover" data-bs-placement="top" title="Sylvia Wright">
+                            <div class="avatar-xs">
+                                <div class="avatar-title rounded-circle bg-secondary">
+                                    S
+                                </div>
+                            </div>
+                        </a>
+                        <a href="javascript: void(0);" class="avatar-group-item" data-bs-toggle="tooltip"
+                            data-bs-trigger="hover" data-bs-placement="top" title="Ellen Smith">
+                            <div class="avatar-xs">
+                                <img src="{% static 'images/users/avatar-4.jpg'%}" alt=""
+                                    class="rounded-circle img-fluid">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="mx-n4 px-4" data-simplebar style="max-height: 225px;">
+                    <div class="vstack gap-3">
+                        <div class="d-flex align-items-center">
+                            <div class="avatar-xs flex-shrink-0 me-3">
+                                <img src="{% static 'images/users/avatar-2.jpg'%}" alt=""
+                                    class="img-fluid rounded-circle">
+                            </div>
+                            <div class="flex-grow-1">
+                                <h5 class="fs-13 mb-0"><a href="#" class="text-body d-block">Nancy Martino</a></h5>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <button type="button" class="btn btn-light btn-sm">Add</button>
+                            </div>
+                        </div>
+                        <!-- end member item -->
+                        <div class="d-flex align-items-center">
+                            <div class="avatar-xs flex-shrink-0 me-3">
+                                <div class="avatar-title bg-danger-subtle text-danger rounded-circle">
+                                    HB
+                                </div>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h5 class="fs-13 mb-0"><a href="#" class="text-body d-block">Henry Baird</a></h5>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <button type="button" class="btn btn-light btn-sm">Add</button>
+                            </div>
+                        </div>
+                        <!-- end member item -->
+                        <div class="d-flex align-items-center">
+                            <div class="avatar-xs flex-shrink-0 me-3">
+                                <img src="{% static 'images/users/avatar-3.jpg'%}" alt=""
+                                    class="img-fluid rounded-circle">
+                            </div>
+                            <div class="flex-grow-1">
+                                <h5 class="fs-13 mb-0"><a href="#" class="text-body d-block">Frank Hook</a></h5>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <button type="button" class="btn btn-light btn-sm">Add</button>
+                            </div>
+                        </div>
+                        <!-- end member item -->
+                        <div class="d-flex align-items-center">
+                            <div class="avatar-xs flex-shrink-0 me-3">
+                                <img src="{% static 'images/users/avatar-4.jpg'%}" alt=""
+                                    class="img-fluid rounded-circle">
+                            </div>
+                            <div class="flex-grow-1">
+                                <h5 class="fs-13 mb-0"><a href="#" class="text-body d-block">Jennifer Carter</a></h5>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <button type="button" class="btn btn-light btn-sm">Add</button>
+                            </div>
+                        </div>
+                        <!-- end member item -->
+                        <div class="d-flex align-items-center">
+                            <div class="avatar-xs flex-shrink-0 me-3">
+                                <div class="avatar-title bg-success-subtle text-success rounded-circle">
+                                    AC
+                                </div>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h5 class="fs-13 mb-0"><a href="#" class="text-body d-block">Alexis Clarke</a></h5>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <button type="button" class="btn btn-light btn-sm">Add</button>
+                            </div>
+                        </div>
+                        <!-- end member item -->
+                        <div class="d-flex align-items-center">
+                            <div class="avatar-xs flex-shrink-0 me-3">
+                                <img src="{% static 'images/users/avatar-7.jpg'%}" alt=""
+                                    class="img-fluid rounded-circle">
+                            </div>
+                            <div class="flex-grow-1">
+                                <h5 class="fs-13 mb-0"><a href="#" class="text-body d-block">Joseph Parker</a></h5>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <button type="button" class="btn btn-light btn-sm">Add</button>
+                            </div>
+                        </div>
+                        <!-- end member item -->
+                    </div>
+                    <!-- end list -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light w-xs" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-success w-xs">Invite</button>
+            </div>
+        </div>
+        <!-- end modal-content -->
+    </div>
+    <!-- modal-dialog -->
+</div>
+<!-- end modal -->
+{% endblock extra_content %}
+{% block extra_js %}
+<!-- ckeditor -->
+<script src="{% static 'libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js'%}"></script>
+
+<!-- dropzone js -->
+<script src="{% static 'libs/dropzone/dist/dropzone-min.js'%}"></script>
+<!-- project-create init -->
+<script src="{% static 'js/pages/project-create.init.js'%}"></script>
+{% endblock extra_js %}
