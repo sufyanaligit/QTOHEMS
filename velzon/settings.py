@@ -55,7 +55,9 @@ LOCAL_APPS = [
     "pages",
     "directories",
     "project",
+    "knox",
     "rest_framework",
+    "reactapp",
     ] 
 THIRDPARTY_APPS = [
     
@@ -114,16 +116,22 @@ TEMPLATES = [
 ]
 
 AUTHENTICATION_BACKENDS = [
-    'django_auth_ldap.backend.LDAPBackend',
-    # Needed to login by username in Django admin, regardless of `allauth`
-    'django.contrib.auth.backends.ModelBackend',
-    # `allauth` specific authentication methods, such as login by e-mail
+    # other backends...
     'allauth.account.auth_backends.AuthenticationBackend',
+    # other backends...
+]
+
+# AUTHENTICATION_BACKENDS = [
+#     'django_auth_ldap.backend.LDAPBackend',
+#     # Needed to login by username in Django admin, regardless of `allauth`
+#     'django.contrib.auth.backends.ModelBackend',
+#     # `allauth` specific authentication methods, such as login by e-mail
+#     'allauth.account.auth_backends.AuthenticationBackend',
 
     
 
 
-]
+# ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
@@ -262,43 +270,43 @@ SOCIALACCOUNT_PROVIDERS = {
 
 
 
-# LDAP Configuration
+# # LDAP Configuration
 
-from django_auth_ldap.config import LDAPSearch
+# from django_auth_ldap.config import LDAPSearch
 
-# LDAP server URI
-AUTH_LDAP_SERVER_URI = "ldap://192.168.31.250:389"
+# # LDAP server URI
+# AUTH_LDAP_SERVER_URI = "ldap://192.168.31.250:389"
 
-# Bind DN and password (the account used to connect to the LDAP server)
-AUTH_LDAP_BIND_DN = "CN=Administrator,CN=Users,DC=qtoh,DC=local"
-AUTH_LDAP_BIND_PASSWORD = "Cow&Gate"
+# # Bind DN and password (the account used to connect to the LDAP server)
+# AUTH_LDAP_BIND_DN = "CN=Administrator,CN=Users,DC=qtoh,DC=local"
+# AUTH_LDAP_BIND_PASSWORD = "Cow&Gate"
 
-# User search configuration
-AUTH_LDAP_USER_SEARCH = LDAPSearch(
-    "OU=Estimators,DC=qtoh,DC=local",
-    ldap.SCOPE_SUBTREE,
-    "(sAMAccountName=%(user)s)"
-)
+# # User search configuration
+# AUTH_LDAP_USER_SEARCH = LDAPSearch(
+#     "OU=Estimators,DC=qtoh,DC=local",
+#     ldap.SCOPE_SUBTREE,
+#     "(sAMAccountName=%(user)s)"
+# )
 
-# User attribute mapping (LDAP attribute to Django User model field)
-AUTH_LDAP_USER_ATTR_MAP = {
-    "first_name": "givenName",
-    "last_name": "sn",
-    "mail":"mail",
-}
+# # User attribute mapping (LDAP attribute to Django User model field)
+# AUTH_LDAP_USER_ATTR_MAP = {
+#     "first_name": "givenName",
+#     "last_name": "sn",
+#     "mail":"mail",
+# }
 
 
-def user_post_save(user, ldap_user, **kwargs):
-    if ldap_user.get("department") == "Estimators":
-        user.is_staff = True
-    user.save()
-AUTH_LDAP_USER_POST_SAVE = "myapp.user_post_save"
-# Hook this function to the AUTH_LDAP_USER_MIRROR_CALLBACK
-AUTH_LDAP_USER_MIRROR_CALLBACK = user_post_save
+# def user_post_save(user, ldap_user, **kwargs):
+#     if ldap_user.get("department") == "Estimators":
+#         user.is_staff = True
+#     user.save()
+# AUTH_LDAP_USER_POST_SAVE = "myapp.user_post_save"
+# # Hook this function to the AUTH_LDAP_USER_MIRROR_CALLBACK
+# AUTH_LDAP_USER_MIRROR_CALLBACK = user_post_save
 
-logger = logging.getLogger('django_auth_ldap')
-logger.addHandler(logging.StreamHandler())
-logger.setLevel(logging.DEBUG)
+# logger = logging.getLogger('django_auth_ldap')
+# logger.addHandler(logging.StreamHandler())
+# logger.setLevel(logging.DEBUG)
 
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ALLOW_ALL_ORIGINS = True  
@@ -312,14 +320,14 @@ CORS_ALLOWED_ORIGINS = [
 
 
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        # 'rest_framework.authentication.BasicAuthentication',
-        # 'rest_framework.authentication.SessionAuthentication',
-        'Knox.auth.TokenAuthentication'
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': [
+#         # 'rest_framework.authentication.BasicAuthentication',
+#         # 'rest_framework.authentication.SessionAuthentication',
+#         'Knox.auth.TokenAuthentication'
 
-    ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated'
-    ]
-}
+#     ],
+#     'DEFAULT_PERMISSION_CLASSES': [
+#         'rest_framework.permissions.IsAuthenticated'
+#     ]
+# }

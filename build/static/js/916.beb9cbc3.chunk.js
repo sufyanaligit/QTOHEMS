@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkapna_cart=self.webpackChunkapna_cart||[]).push([[916],{2916:function(a,c,e){a.exports=e.p+"static/media/comercial.4e94fc5fe52b7fd9031a.png"}}]);

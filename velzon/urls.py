@@ -46,6 +46,8 @@ urlpatterns = [
     ),
     # All Auth 
     path('account/', include('allauth.urls')),
+    # reactapppp used for authentication of  React Frontend 
+    path('reactapp/', include('reactapp.urls')),
 ]
 
 if settings.DEBUG:

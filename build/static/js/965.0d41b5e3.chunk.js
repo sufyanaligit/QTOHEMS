@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkapna_cart=self.webpackChunkapna_cart||[]).push([[965],{2965:function(a,e,c){a.exports=c.p+"static/media/Rectangle 78.274e28ea06f11cc3582b.png"}}]);

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkapna_cart=self.webpackChunkapna_cart||[]).push([[210],{1210:function(a,c,e){a.exports=e.p+"static/media/login-bac-img.b3c7d495cbed1e55d151.png"}}]);
