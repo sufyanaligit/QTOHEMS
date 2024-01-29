@@ -1,6 +1,18 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
 from apps.models import Project
+from .models import GetQuote, ContactUs
+
+
+class ContactUsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ContactUs
+        fields = '__all__'
+
+class GetAQuoteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GetQuote
+        fields = '__all__'
 
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:

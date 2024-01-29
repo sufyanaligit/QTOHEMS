@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import ldap
+import django_heroku
 import logging
 
 import os
@@ -30,7 +31,7 @@ SECRET_KEY = 'django-insecure-j%^*y0krq5^-#3lggoecxw!d7ad_gqkab3t5w17&0w06+qf8+8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.31.191', '127.0.0.1', 'localhost','192.168.0.100']
+ALLOWED_HOSTS = ['192.168.31.191', '127.0.0.1', 'localhost','192.168.0.100', '.vercel.app', '.now.sh']
 
 
 # Application definition
@@ -194,6 +195,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,"static_cdn"),
     os.path.join(BASE_DIR,'build','static'),
+    os.path.join(BASE_DIR,'staticfiles_build','static'),
     # os.path.join(BASE_DIR,"static"),
 
 ]
@@ -331,3 +333,5 @@ CORS_ALLOWED_ORIGINS = [
 #         'rest_framework.permissions.IsAuthenticated'
 #     ]
 # }
+
+# urlpatterns += statuc(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,5 +1,6 @@
 # views.py
 from rest_framework import generics
+from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
@@ -10,6 +11,7 @@ from django.views import View
 from django.http import HttpResponse
 from rest_framework import viewsets
 from apps.models import Project
+from rest_framework.decorators import api_view
 
 
 
@@ -17,6 +19,18 @@ from apps.models import Project
 
 from .serializers import UserSerializer
 from .serializers import ProjectSerializer
+from .serializers import GetAQuoteSerializer
+from .serializers import ContactUsSerializer
+
+from .models import ContactUs,GetQuote
+
+
+class ContactUsListCreate(generics.ListCreateAPIView):
+    queryset = ContactUs.objects.all()
+    serializer_class = ContactUsSerializer
+class create_quote_request(generics.ListCreateAPIView):
+    queryset = GetQuote.objects.all()
+    serializer_class = GetAQuoteSerializer
 
 
 
