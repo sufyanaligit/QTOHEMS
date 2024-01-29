@@ -10,8 +10,8 @@ dbus-python==1.2.18
 defusedxml==0.7.1
 distlib==0.3.4
 distro==1.7.0
-distro-info==1.1+ubuntu0.1
 Django==4.2.6
+django
 django-allauth==0.57.0
 django-auth-ldap==4.6.0
 django-cors-headers==4.3.1
