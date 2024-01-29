@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkapna_cart=self.webpackChunkapna_cart||[]).push([[405],{4405:function(a,c,e){a.exports=e.p+"static/media/fedral.73f78957cbaa9cb04b9e.png"}}]);
