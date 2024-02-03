@@ -1,0 +1,1 @@
+web: gunicorn velzon.wsgi --log-file -

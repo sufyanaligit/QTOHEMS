@@ -143,14 +143,28 @@ WSGI_APPLICATION = 'velzon.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+       
+#     }
+# }
+import environ
+
+env = environ.Env()
+env.read_env()
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-       
+        'NAME': 'mydatabase.db',
+        'USER': env.str('DB_USER', default=''),
+        'PASSWORD': env.str('DB_PASSWORD', default=''),
+        'HOST': env.str('DB_HOST', default=''),
+        'PORT': env.int('DB_PORT', default=5432),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
