@@ -211,6 +211,7 @@ class Company(models.Model):
         return self.company_name
 class Person(models.Model):
     person_id = models.AutoField(primary_key=True)
+    # profile_pic = models.ImageField(upload_to="images/contact",blank=True,null=True)
     name = models.CharField(max_length=200)
     email = models.EmailField(max_length=254)
     address = models.ForeignKey('Address', on_delete=models.SET_NULL, null=True, blank=True)
@@ -291,7 +292,7 @@ class Company_Details(models.Model):
 )
 
     csi_division = MultiSelectField(max_length=200,choices=TAG_CHOICES,max_choices=50)
-    year_founded = models.DateTimeField(null=True, blank=True)
+    year_founded = models.IntegerField(null=True, blank=True)
     size = models.CharField(max_length=100)
     equipment_and_resources = models.TextField()
     insurance_information = models.TextField()

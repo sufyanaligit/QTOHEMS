@@ -31,6 +31,7 @@ from apps.views import(
     apps_tasks_list_view,
     apps_tasks_details_view,
     apps_crm_contacts_view,
+    apps_crm_persons_view,
     apps_crm_add_contacts_view,
     apps_crm_update_contacts_view,
     apps_crm_delete_contacts_view,
@@ -116,7 +117,7 @@ urlpatterns = [
     # path("projects/overview/<int:pk>", view=apps_projects_overview_view, name="projects.overview"),
     path("projects/create", view=apps_projects_create_view, name="projects.create"),
     # Companies
-    path("companies/list", view=apps_Companies_list_view, name="companies.list"),
+    path("companies/list", view=apps_Companies_list_view, name="companies.list"), 
     path("companies/Create", view=apps_Companies_Create_view, name="companies.Create"),
     path("companies/overview/<int:pk>/", view=apps_Companies_overview_view, name="companies.overview"),
     # Crm Companies Url
@@ -143,6 +144,7 @@ urlpatterns = [
     # CRM Contacts Url
     path("crm/contacts/<int:pk>", view=apps_crm_contacts_view, name="crm.contacts_details"),
     path("crm/contacts", view=apps_crm_add_contacts_view, name="crm.contacts"),
+    path("crm/persons", view=apps_crm_persons_view, name="crm.persons"),
     path("crm/update-contacts/<int:pk>", view=apps_crm_update_contacts_view, name="crm.update_contacts"),
     path("crm/delete-contacts/<int:pk>", view=apps_crm_delete_contacts_view, name="crm.delete_contacts"),
     

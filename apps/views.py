@@ -117,6 +117,11 @@ def apps_crm_contacts_view(request,pk):
     if contacts:
         contact = CrmContact.objects.get(pk=pk)
     return render(request,"apps/crm/apps-crm-contacts.html",{'contacts':contacts,'contact':contact})
+def apps_crm_persons_view(request):
+    persons = Person.objects.all().order_by('-person_id')
+
+    return render(request,"apps/crm/apps-crm-persons.html",{'persons':persons})
+
 
 @login_required
 def apps_crm_add_contacts_view(request):
