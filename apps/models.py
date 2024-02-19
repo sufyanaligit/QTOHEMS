@@ -210,8 +210,8 @@ class Company(models.Model):
     def __str__(self):
         return self.company_name
 class Person(models.Model):
-    person_id = models.AutoField(primary_key=True)
-    # profile_pic = models.ImageField(upload_to="images/contact",blank=True,null=True)
+    person_id = models.AutoField(primary_key=True) 
+    # profile_pic = models.ImageField(upload_to='profile_pics/', blank=True) 
     name = models.CharField(max_length=200)
     email = models.EmailField(max_length=254)
     address = models.ForeignKey('Address', on_delete=models.SET_NULL, null=True, blank=True)
