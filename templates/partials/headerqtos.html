@@ -1,0 +1,130 @@
+{% load static %}
+{% block header %}
+
+<div class="icon-bar">
+    <a href="https://www.linkedin.com/company/71647097/admin/feed/posts/" class="linkedin">
+        <img class="fixed-sidebar-image" alt="" src="/static/imagesqtosol/twitter-circled@2x.png" />
+    </a>
+    <a href="https://www.instagram.com/qto_solutions/" class="instagram">
+        <img class="fixed-sidebar-image" alt="" src="/static/imagesqtosol/instagram@2x.png" />
+    </a>
+    <a href="https://twitter.com/QtoSol" class="twitter">
+        <img class="fixed-sidebar-image" alt="" src="/static/imagesqtosol/twitter-circled@2xx.png" />
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=100064318140416" class="facebook">
+        <img class="fixed-sidebar-image" alt="" src="/static/imagesqtosol/facebook@2x.png" />
+    </a>
+</div>
+
+<div class="row mininav">
+    <div class="NewP col-sm-12 col-md-12 col-lg-12 ">
+        <div class="mni ml-auto">
+            <!-- Image 9 -->
+            <div key="image9">
+                <a class="" href="tel: 571-748-4366">
+                    <img src="{% static 'imagesqtosol/contact.png'%}" alt="mail" />
+                    <div class="newproject">
+                        <span>(312)-544-0023</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="mni ml-auto">
+            <!-- Image 5 -->
+            <div key="image5">
+                <a href="mailto:info@qtosol.com">
+                    <img src="{% static 'imagesqtosol/mail.png'%}" alt="Image 5" />
+                    <div class="newproject">
+                        <span>info@qtosol.com</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Navbar section -->
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img class="logo nav_logo" src="{% static 'imagesqtosol/QTO SOLUTION LOGO MAIN.png'%}" alt="Image 6" />
+            </a>
+
+            <!-- Navbar toggle button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar content -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="container teal borderYtoX">
+                    <div class="justify-content-end">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="float: right;">
+                            <li class="nav-item ">
+                                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/AboutUs">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Services">Solutions</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/career">Career</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/ContactUs">Contact Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Sample">Sample</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="/quote" class="nav-link">
+                    <button type="button" class="btn loginb NB vertical-align-btn">
+                        Get Free Quote
+                    </button>
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<section>
+    <!-- Carousel section -->
+    <div class="container_fluid">
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+            <!-- Carousel background image -->
+            <div class="carousel-inner">
+                <div class="carousel-item">
+                    <!-- Search bar with location selection -->
+                    <div class="carousel-caption">
+                        <div class="search-bar-container">
+                            <div>
+                                <span class="srchspn">Keywords</span>
+                                <input type="text" class="form-control" placeholder="Windows,Roof etc'" />
+                            </div>
+                            <div>
+                                <span class="srchspn">Locations</span>
+                                <select class="form-select" aria-label="Location Select">
+                                    <option value="1">Select Region</option>
+                                    <option value="2">Location 2</option>
+                                    <!-- Add more options for locations as needed -->
+                                </select>
+                            </div>
+                            <div>
+                                <button type="button" class="btn loginb">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock header %}

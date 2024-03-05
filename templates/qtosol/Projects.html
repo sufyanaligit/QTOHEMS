@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <!-- Add your CSS and JS files here -->
+</head>
+
+<body>
+    <div class="container projects">
+        <div class="projectHeading">
+            <h2>Projects</h2>
+            <span>Home</span>/<span>projects</span>
+        </div>
+        <div class="container aUp">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 sidnav ">
+                    <div class="sidenavecontent border">
+                        <div class="heading">
+                            <span>Show Results By</span>
+                        </div>
+                        <div>
+                            <nav class="sidebar card">
+                                <ul class="nav flex-column">
+                                    <li>
+                                        <span>Search Results by Keyword</span>
+                                        <input type="text" placeholder="Window, roof, etc" />
+                                    </li>
+                                    <li class="nav-item has-submenu">
+                                        <span>Location</span>
+                                        <input type="text" placeholder="Location" />
+                                    </li>
+                                    <li>
+                                        <span>Date Range</span>
+                                        <div class="date">
+                                            <form action="/action_page.php">
+                                                <input class="left-input" type="date" id="birthday" name="birthday" />
+                                                <span class="center-span">to</span>
+                                                <input class="right-input" type="date" id="birthday" name="birthday" />
+                                            </form>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span>Bid Amount</span>
+                                        <div class="amount">
+                                            <input class="left-input" type="number" placeholder="100   $" />
+                                            <span class="center-span">to</span>
+                                            <input class="right-input" type="number" placeholder="5000000  $" />
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span>Status</span>
+                                        <div class="status">
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option value="">Solicicated</option>
+                                                <option value="Alabama">UnSolicicated</option>
+                                                <option value="Alaska">None</option>
+                                            </select>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span>Division</span>
+                                        <div class="dropdown-manue">Division</div>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-9 projectSection">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-12 col-xl-12 sort  detail">
+                            <div>
+                                <span class="detail-manue">Active Projects</span>
+                            </div>
+                            <div>
+                                <span class="detail-manue">Past Projects</span>
+                            </div>
+                            <div>
+                                <span class="detail-manue">Featured Projects</span>
+                            </div>
+                            <div>
+                                <span class="detail-manue">Favorites</span>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-12 col-xl-12 project-card ">
+                            <!-- Content goes here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

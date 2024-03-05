@@ -22,9 +22,10 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
+    path('', include('qtosol.urls')),
     path('admin/', admin.site.urls),
     # Dashboard
-    path('',include('dashboards.urls')),
+    path('dashboard/',include('dashboards.urls')),
     # Apps
     path('apps/',include('apps.urls')),
     # main_site
@@ -49,6 +50,7 @@ urlpatterns = [
     path('account/', include('allauth.urls')),
     # reactapppp used for authentication of  React Frontend 
     path('reactapp/', include('reactapp.urls')),
+    
 ]
 
 if settings.DEBUG:
