@@ -1,42 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "partials/qtosolbase.html" %}
+{% load static %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get Free Quote</title>
-    <!-- Add your CSS and any necessary scripts here -->
-</head>
+{% block html %}data-layout="vertical" data-layout-style="detached" data-layout-position="fixed" data-topbar="light"
+data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock html %}
 
-<body>
-    <div class="login-p">
-        <div class="register-form-quote">
-            <h2 class="pageheading">Get Free Quote</h2>
-            <div class="container">
-                <form class="form-inline" id="quoteForm" action="https://qto.solutions/reactapp/create-quote/"
-                    method="post">
-                    <div class="row">
-                        <div class="form-group-quote">
-                            <img class="user" alt="" src="./images/user.png" />
-                            <input class="from-placeholder" type="text" placeholder="First Name" name="first_name"
-                                required />
-                        </div>
-                        <!-- Add other form groups for Last Name, Email, Phone Number, Address, Company Name, Number of Drawings, Target Number of Days, Specification Files -->
-                        <div class="form-group-quote">
-                            <!-- Repeat this structure for other input fields -->
-                        </div>
-                        <div class="form-group-quote-file">
-                            <img class="upload-img" alt="" src="./images/upload.png" />
-                            <input type="file" class="from-placeholder" name="specification_files" accept=".pdf"
-                                required />
-                            <span>only pdf files are allowed</span>
+{% block title %}QTO SOL{% endblock title %}
+{% block extra_css %}
+{% endblock extra_css %}
+{% block content %}
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+<div class="login-p">
+    <div class="register-form-quote">
+        <h2 class="pageheading">Get Free Quote</h2>
+        <div class="container">
+            <form class="form-inline" id="quoteForm" action="https://qto.solutions/reactapp/create-quote/"
+                method="post">
+                <div class="row">
+                    <div class="form-group-quote">
+                        <img class="user" alt="" src="./images/user.png" />
+                        <input class="from-placeholder" type="text" placeholder="First Name" name="first_name"
+                            required />
+                    </div>
+                    <!-- Add other form groups for Last Name, Email, Phone Number, Address, Company Name, Number of Drawings, Target Number of Days, Specification Files -->
+                    <div class="form-group-quote">
+                        <!-- Repeat this structure for other input fields -->
+                    </div>
+                    <div class="form-group-quote-file">
+                        <img class="upload-img" alt="" src="./images/upload.png" />
+                        <input type="file" class="from-placeholder" name="specification_files" accept=".pdf" required />
+                        <span>only pdf files are allowed</span>
                         </div>
                         <button type="submit" class="regist-but-quote">Get Free Quote</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</body>
+                        </div>
+                        </form>
+                        </div>
+                        </div>
+                        </div>
+<!-- end main content-->
+{% endblock content %}
 
-</html>
+{% block extra_js %}
+<!-- apexcharts -->
+<script src="{% static 'libs/apexcharts/dist/apexcharts.min.js'%}"></script>
+
+<!-- Dashboard init -->
+<script src="{% static 'js/pages/dashboard-crm.init.js'%}"></script>
+{% endblock extra_js %}
+

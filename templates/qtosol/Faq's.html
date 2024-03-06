@@ -1,40 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQs</title>
-    <!-- Add your CSS stylesheet link here -->
-    <style>
-        /* Define your CSS styles here */
-        /* You can copy the CSS styles from your React component */
-    </style>
-</head>
-
-<body>
-    <h2 class="pageheading-faq">FAQs</h2>
-    <div class="accordion faq" id="accordionExample">
-        <br>
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                    aria-expanded="true" aria-controls="collapseOne">
-                    What information is needed to provide an accurate estimation?
-                </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <p>
-                        Detailed project plans, specification, site surveys, material requirements, labor rates, project
-                        timelines, and any relevant historical data are essential for accurate estimation.
-                    </p>
-                </div>
+{% load static %}
+<h2 class="pageheading-faq">FAQs</h2>
+<div class="accordion faq" id="accordionExample">
+    <br>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                aria-expanded="true" aria-controls="collapseOne">
+                What information is needed to provide an accurate estimation?
+            </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <p>
+                    Detailed project plans, specification, site surveys, material requirements, labor rates, project
+                    timelines, and any relevant historical data are essential for accurate estimation.
+                </p>
             </div>
         </div>
-        <!-- Add other accordion items similarly -->
     </div>
-</body>
-
-</html>
+    <!-- Add other accordion items similarly -->
+</div>

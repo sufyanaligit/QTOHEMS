@@ -1,100 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<div class="icon-bar">
+    <a href="https://www.instagram.com/qto_solutions/" class="instagram">
+        <img class="fixed-sidebar-image" alt="" src="./images/instagram@2x.png" title="Instagram" />
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=100064318140416" class="facebook">
+        <img class="fixed-sidebar-image" alt="" src="./images/facebook@2x.png" title="Facebook" />
+    </a>
+    <a href="https://www.linkedin.com/in/qto-solutions-9a689a204/" class="linkedin">
+        <img class="fixed-sidebar-image" alt="" src="./images/twitter-circled@2x.png" title="linkedin" />
+    </a>
+</div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MiniNav</title>
-    <!-- Add your CSS stylesheet link here -->
-    <style>
-        /* Define your CSS styles here */
-        /* You can copy the CSS styles from your React component and paste them here */
-    </style>
-</head>
-
-<body>
-    <div class="icon-bar">
-        <a href="https://www.instagram.com/qto_solutions/" class="instagram">
-            <img class="fixed-sidebar-image" alt="" src="./images/instagram@2x.png" title="Instagram" />
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=100064318140416" class="facebook">
-            <img class="fixed-sidebar-image" alt="" src="./images/facebook@2x.png" title="Facebook" />
-        </a>
-        <a href="https://www.linkedin.com/in/qto-solutions-9a689a204/" class="linkedin">
-            <img class="fixed-sidebar-image" alt="" src="./images/twitter-circled@2x.png" title="linkedin" />
-        </a>
+<div class="row mininav">
+    <div class="NewP col-sm-12 col-md-6 col-lg-7">
+        <!-- Image 0 -->
+        <div>
+            <img src="[Replace with image URL]" alt="Image 0" />
+        </div>
+        <!-- Example text -->
+        <div class="newproject">
+            <span>Coney Island Head Start Daycare Center (Brooklyn) : Bid Date : 02-06-2023</span>
+        </div>
     </div>
-
-    <div class="row mininav">
-        <div class="NewP col-sm-12 col-md-6 col-lg-7">
-            <!-- Image 0 -->
-            <div>
-                <img src="[Replace with image URL]" alt="Image 0" />
-            </div>
-            <!-- Example text -->
+    <div class="NewPR col-sm-12 col-md-6 col-lg-5">
+        <!-- Login button -->
+        <div class="navul">
+            <a href="/Login">
+                <button type="button" class="btn loginb vertical-align-btn">Login</button>
+            </a>
+        </div>
+        <!-- Cart button with images -->
+        <div>
+            <button type="button" class="btn cartb vertical-align-btn">
+                <!-- Image 2 -->
+                <img src="[Replace with image URL]" alt="Image 2" />
+                <span>No Item</span>
+                <!-- Image 3 -->
+                <img src="[Replace with image URL]" alt="Image 3" />
+            </button>
+        </div>
+        <!-- Notification badge with image -->
+        <div class="mni bdg">
+            <img src="[Replace with image URL]" alt="Image 4" />
+            <span class="notifi">4</span>
+        </div>
+        <!-- Contact info with image -->
+        <div class="mni">
+            <img src="[Replace with image URL]" alt="Image 5" />
             <div class="newproject">
-                <span>Coney Island Head Start Daycare Center (Brooklyn) : Bid Date : 02-06-2023</span>
-            </div>
-        </div>
-        <div class="NewPR col-sm-12 col-md-6 col-lg-5">
-            <!-- Login button -->
-            <div class="navul">
-                <a href="/Login">
-                    <button type="button" class="btn loginb vertical-align-btn">Login</button>
-                </a>
-            </div>
-            <!-- Cart button with images -->
-            <div>
-                <button type="button" class="btn cartb vertical-align-btn">
-                    <!-- Image 2 -->
-                    <img src="[Replace with image URL]" alt="Image 2" />
-                    <span>No Item</span>
-                    <!-- Image 3 -->
-                    <img src="[Replace with image URL]" alt="Image 3" />
-                </button>
-            </div>
-            <!-- Notification badge with image -->
-            <div class="mni bdg">
-                <img src="[Replace with image URL]" alt="Image 4" />
-                <span class="notifi">4</span>
-            </div>
-            <!-- Contact info with image -->
-            <div class="mni">
-                <img src="[Replace with image URL]" alt="Image 5" />
-                <div class="newproject">
-                    <span>info@qtosol.com</span>
-                </div>
+                <span>info@qtosol.com</span>
             </div>
         </div>
     </div>
+</div>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <!-- Navbar content -->
-        <!-- Add your navbar content here -->
-    </nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Navbar content -->
+    <!-- Add your navbar content here -->
+</nav>
 
-    <section>
-        <!-- Carousel section -->
-        <div class="container_fluid">
-            <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-                <!-- Carousel background image -->
-                <div class="carousel-inner">
-                    <div class="carousel-item ">
-                        <!-- Image 8 -->
-                        <div>
-                            <img class="opacity-75" src="[Replace with image URL]" alt="Image 8" />
-                        </div>
-                        <!-- Search bar with location selection -->
-                        <div class="carousel-caption">
-                            <div class="search-bar-container">
-                                <!-- Add your search bar and location selection HTML here -->
-                            </div>
+<section>
+    <!-- Carousel section -->
+    <div class="container_fluid">
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+            <!-- Carousel background image -->
+            <div class="carousel-inner">
+                <div class="carousel-item ">
+                    <!-- Image 8 -->
+                    <div>
+                        <img class="opacity-75" src="[Replace with image URL]" alt="Image 8" />
+                    </div>
+                    <!-- Search bar with location selection -->
+                    <div class="carousel-caption">
+                        <div class="search-bar-container">
+                            <!-- Add your search bar and location selection HTML here -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-</body>
+    </div>
+</section>
 
 </html>

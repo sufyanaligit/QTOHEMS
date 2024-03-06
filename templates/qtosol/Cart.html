@@ -1,134 +1,121 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-</head>
-
-<body>
-    <div class="container padding-bottom-3x mb-1">
-        <!-- Alert -->
-        <div class="alert alert-info alert-dismissible fade show text-center"
-            style="margin-bottom: 30px; background-color: #fdc022;">
-            <span class="alert-close" data-dismiss="alert"></span>
-            <img class="d-inline align-center" src="./images/badge.png" width="20" height="20" alt="Medal icon">
-            &nbsp;&nbsp;With this purchase you will earn <strong>290</strong> Reward Points.
-        </div>
-        <!-- Shopping Cart -->
-        <div class="table-responsive shopping-cart">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Project Name</th>
-                        <th class="text-center">Subtotal</th>
-                        <th class="text-center">Discount</th>
-                        <th class="text-center">
-                            <a class="btn btn-sm btn-outline-danger" href="#">Clear Cart</a>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Cart Items -->
-                    <!-- Item 1 -->
-                    <tr>
-                        <td>
-                            <div class="product-item">
-                                <a class="product-thumb" href="#">
-                                    <img src="./images/drywall-1.png" alt="drywall image">
-                                </a>
-                                <div class="product-info">
-                                    <h4 class="product-title"><a href="#">SCP 24SO Southerly West Primary Control (WPC)
-                                            Roof Replacement</a></h4>
-                                    <span><em>Size:</em> Small</span>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="text-center text-lg text-medium">$43.90</td>
-                        <td class="text-center text-lg text-medium">$18.00</td>
-                        <td class="text-center">
-                            <a class="remove-from-cart" href="#" data-toggle="tooltip" title=""
-                                data-original-title="Remove item">
-                                <i class="fa fa-trash"></i>
+{% load static %}
+<div class="container padding-bottom-3x mb-1">
+    <!-- Alert -->
+    <div class="alert alert-info alert-dismissible fade show text-center"
+        style="margin-bottom: 30px; background-color: #fdc022;">
+        <span class="alert-close" data-dismiss="alert"></span>
+        <img class="d-inline align-center" src="./images/badge.png" width="20" height="20" alt="Medal icon">
+        &nbsp;&nbsp;With this purchase you will earn <strong>290</strong> Reward Points.
+    </div>
+    <!-- Shopping Cart -->
+    <div class="table-responsive shopping-cart">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Project Name</th>
+                    <th class="text-center">Subtotal</th>
+                    <th class="text-center">Discount</th>
+                    <th class="text-center">
+                        <a class="btn btn-sm btn-outline-danger" href="#">Clear Cart</a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Cart Items -->
+                <!-- Item 1 -->
+                <tr>
+                    <td>
+                        <div class="product-item">
+                            <a class="product-thumb" href="#">
+                                <img src="./images/drywall-1.png" alt="drywall image">
                             </a>
-                        </td>
-                    </tr>
-                    <!-- Item 2 -->
-                    <tr>
-                        <td>
-                            <div class="product-item">
-                                <a class="product-thumb" href="#">
-                                    <img src="./images/masonry-1.png" alt="drywall image">
-                                </a>
-                                <div class="product-info">
-                                    <h4 class="product-title"><a href="#">SCP 24SO Southerly West Primary Control (WPC)
-                                            Roof Replacement</a></h4>
-                                    <span><em>Size:</em> Medium</span>
-                                </div>
+                            <div class="product-info">
+                                <h4 class="product-title"><a href="#">SCP 24SO Southerly West Primary Control (WPC)
+                                        Roof Replacement</a></h4>
+                                <span><em>Size:</em> Small</span>
                             </div>
-                        </td>
-                        <td class="text-center text-lg text-medium">$24.89</td>
-                        <td class="text-center">—</td>
-                        <td class="text-center">
-                            <a class="remove-from-cart" href="#" data-toggle="tooltip" title=""
-                                data-original-title="Remove item">
-                                <i class="fa fa-trash"></i>
+                        </div>
+                    </td>
+                    <td class="text-center text-lg text-medium">$43.90</td>
+                    <td class="text-center text-lg text-medium">$18.00</td>
+                    <td class="text-center">
+                        <a class="remove-from-cart" href="#" data-toggle="tooltip" title=""
+                            data-original-title="Remove item">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+                <!-- Item 2 -->
+                <tr>
+                    <td>
+                        <div class="product-item">
+                            <a class="product-thumb" href="#">
+                                <img src="./images/masonry-1.png" alt="drywall image">
                             </a>
-                        </td>
-                    </tr>
-                    <!-- Item 3 -->
-                    <tr>
-                        <td>
-                            <div class="product-item">
-                                <a class="product-thumb" href="#">
-                                    <img src="./images/lumber-1.png" alt="drywall image">
-                                </a>
-                                <div class="product-info">
-                                    <h4 class="product-title"><a href="#">SCP 24SO Southerly West Primary Control (WPC)
-                                            Roof Replacement</a></h4>
-                                    <span><em>Size:</em> Large</span>
-                                </div>
+                            <div class="product-info">
+                                <h4 class="product-title"><a href="#">SCP 24SO Southerly West Primary Control (WPC)
+                                        Roof Replacement</a></h4>
+                                <span><em>Size:</em> Medium</span>
                             </div>
-                        </td>
-                        <td class="text-center text-lg text-medium">$200.00</td>
-                        <td class="text-center">—</td>
-                        <td class="text-center">
-                            <a class="remove-from-cart" href="#" data-toggle="tooltip" title=""
-                                data-original-title="Remove item">
-                                <i class="fa fa-trash"></i>
+                        </div>
+                    </td>
+                    <td class="text-center text-lg text-medium">$24.89</td>
+                    <td class="text-center">—</td>
+                    <td class="text-center">
+                        <a class="remove-from-cart" href="#" data-toggle="tooltip" title=""
+                            data-original-title="Remove item">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+                <!-- Item 3 -->
+                <tr>
+                    <td>
+                        <div class="product-item">
+                            <a class="product-thumb" href="#">
+                                <img src="./images/lumber-1.png" alt="drywall image">
                             </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <!-- Shopping Cart Footer -->
-        <div class="shopping-cart-footer">
-            <div class="column text-lg">
-                Subtotal: <span class="text-medium">$289.68</span>
-            </div>
-        </div>
-        <!-- Shopping Cart Footer Buttons -->
-        <div class="shopping-cart-footer">
-            <div class="column">
-                <a class="btn btn-outline-secondary" href="/Projects">
-                    <i class="icon-arrow-left"></i>&nbsp;Back to Shopping
-                </a>
-            </div>
-            <div class="column">
-                <a class="btn btn-primary" href="#" data-toast="" data-toast-type="success"
-                    data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Your cart"
-                    data-toast-message="is updated successfully!">
-                    Update Cart
-                </a>
-                <a class="btn btn-success" href="CheckOut">
-                    Checkout
-                </a>
-            </div>
+                            <div class="product-info">
+                                <h4 class="product-title"><a href="#">SCP 24SO Southerly West Primary Control (WPC)
+                                        Roof Replacement</a></h4>
+                                <span><em>Size:</em> Large</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="text-center text-lg text-medium">$200.00</td>
+                    <td class="text-center">—</td>
+                    <td class="text-center">
+                        <a class="remove-from-cart" href="#" data-toggle="tooltip" title=""
+                            data-original-title="Remove item">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Shopping Cart Footer -->
+    <div class="shopping-cart-footer">
+        <div class="column text-lg">
+            Subtotal: <span class="text-medium">$289.68</span>
         </div>
     </div>
-</body>
-
-</html>
+    <!-- Shopping Cart Footer Buttons -->
+    <div class="shopping-cart-footer">
+        <div class="column">
+            <a class="btn btn-outline-secondary" href="/Projects">
+                <i class="icon-arrow-left"></i>&nbsp;Back to Shopping
+            </a>
+        </div>
+        <div class="column">
+            <a class="btn btn-primary" href="#" data-toast="" data-toast-type="success" data-toast-position="topRight"
+                data-toast-icon="icon-circle-check" data-toast-title="Your cart"
+                data-toast-message="is updated successfully!">
+                Update Cart
+            </a>
+            <a class="btn btn-success" href="CheckOut">
+                Checkout
+            </a>
+        </div>
+    </div>
+</div>

@@ -37,6 +37,15 @@
         {% block header %}
            {% include "partials/headerqtos.html" %}
         {% endblock header %}
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+
+        {% block footer %}
+        {% include "partials/footerqtos.html" %}
+        {% endblock footer %}
+
+
 
 
     </div>

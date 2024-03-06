@@ -1,66 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
+{% load static %}
+!-- Buttons for sorting -->
+<div>
+    <button onclick="sortProjects('bidDate')">Sort by Bid Date</button>
+    <button onclick="sortProjects('title')">Sort by Title</button>
+    <button onclick="sortProjects('amount')">Sort by Amount</button>
+</div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Cards</title>
-    <!-- Add your CSS link or styles here -->
-</head>
+<!-- Project Cards Container -->
+<div id="projectCardsContainer">
+    <!-- Project Cards will be rendered here -->
+</div>
 
-<body>
-    <!-- Buttons for sorting -->
-    <div>
-        <button onclick="sortProjects('bidDate')">Sort by Bid Date</button>
-        <button onclick="sortProjects('title')">Sort by Title</button>
-        <button onclick="sortProjects('amount')">Sort by Amount</button>
-    </div>
+<script>
+    // JavaScript logic for sorting and rendering project cards
+    function sortProjects(sortBy) {
+        let sortedProjects = document.querySelectorAll('.cardcontainer');
+        sortedProjects = Array.from(sortedProjects);
 
-    <!-- Project Cards Container -->
-    <div id="projectCardsContainer">
-        <!-- Project Cards will be rendered here -->
-    </div>
-
-    <script>
-        // JavaScript logic for sorting and rendering project cards
-        function sortProjects(sortBy) {
-            let sortedProjects = document.querySelectorAll('.cardcontainer');
-            sortedProjects = Array.from(sortedProjects);
-
-            switch (sortBy) {
-                case 'bidDate':
-                    sortedProjects.sort((a, b) => {
-                        const dateA = new Date(a.querySelector('.bidDate').innerText);
-                        const dateB = new Date(b.querySelector('.bidDate').innerText);
-                        return dateA - dateB;
-                    });
-                    break;
-                case 'title':
-                    sortedProjects.sort((a, b) => {
-                        const titleA = a.querySelector('.projectTitle').innerText;
-                        const titleB = b.querySelector('.projectTitle').innerText;
-                        return titleA.localeCompare(titleB);
-                    });
-                    break;
-                case 'amount':
-                    sortedProjects.sort((a, b) => {
-                        const amountA = parseFloat(a.querySelector('.bidAmount').innerText.split('$')[1]);
-                        const amountB = parseFloat(b.querySelector('.bidAmount').innerText.split('$')[1]);
-                        return amountA - amountB;
-                    });
-                    break;
-                // Add more sorting options as needed
-                default:
-                    break;
-            }
-
-            const projectCardsContainer = document.getElementById('projectCardsContainer');
-            projectCardsContainer.innerHTML = '';
-            sortedProjects.forEach(project => {
-                projectCardsContainer.appendChild(project);
-            });
+        switch (sortBy) {
+            case 'bidDate':
+                sortedProjects.sort((a, b) => {
+                    const dateA = new Date(a.querySelector('.bidDate').innerText);
+                    const dateB = new Date(b.querySelector('.bidDate').innerText);
+                    return dateA - dateB;
+                });
+                break;
+            case 'title':
+                sortedProjects.sort((a, b) => {
+                    const titleA = a.querySelector('.projectTitle').innerText;
+                    const titleB = b.querySelector('.projectTitle').innerText;
+                    return titleA.localeCompare(titleB);
+                });
+                break;
+            case 'amount':
+                sortedProjects.sort((a, b) => {
+                    const amountA = parseFloat(a.querySelector('.bidAmount').innerText.split('$')[1]);
+                    const amountB = parseFloat(b.querySelector('.bidAmount').innerText.split('$')[1]);
+                    return amountA - amountB;
+                });
+                break;
+            // Add more sorting options as needed
+            default:
+                break;
         }
-    </script>
-</body>
 
-</html>
+        const projectCardsContainer = document.getElementById('projectCardsContainer');
+        projectCardsContainer.innerHTML = '';
+        sortedProjects.forEach(project => {
+            projectCardsContainer.appendChild(project);
+        });
+    }
+</script>
