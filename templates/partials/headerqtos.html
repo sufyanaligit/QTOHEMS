@@ -21,6 +21,23 @@
         <div class="mni ml-auto">
             <!-- Image 9 -->
             <div key="image9">
+                <div class="newproject">
+                    {% if user.is_authenticated %}
+
+                    <span>Hello {{ user.username }}</span>
+                    {% else %}
+
+
+                    {% endif %}
+
+
+                </div>
+
+            </div>
+        </div>
+        <div class="mni ml-auto">
+            <!-- Image 9 -->
+            <div key="image9">
                 <a class="" href="tel: 571-748-4366">
                     <img src="{% static 'imagesqtosol/contact.png'%}" alt="mail" />
                     <div class="newproject">
@@ -69,6 +86,15 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/AboutUs">About Us</a>
                             </li>
+                            {% if user.is_authenticated %}
+
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" href="/Projects">Projects</a>
+                                                        </li>
+                            {% else %}
+
+
+                            {% endif %}
                             <li class="nav-item">
                                 <a class="nav-link" href="/Services">Solutions</a>
                             </li>
@@ -89,6 +115,21 @@
                         Get Free Quote
                     </button>
                 </a>
+
+                {% if user.is_authenticated %}
+                <a href="/Logout" class="nav-link">
+                    <button type="button" class="btn loginb NB vertical-align-btn">
+                        Logout
+                    </button>
+                </a>
+                {% else %}
+                <a href="/Login" class="nav-link">
+                    <button type="button" class="btn loginb NB vertical-align-btn">
+                        Login
+                    </button>
+                </a>
+                {% endif %}
+
             </div>
         </div>
     </nav>
