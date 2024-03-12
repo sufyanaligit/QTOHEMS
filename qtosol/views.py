@@ -7,6 +7,7 @@ from django.contrib.auth import login,logout
 from django.views.generic import FormView
 from django.contrib.auth.forms import AuthenticationForm
 from apps.models import Project
+from .models import Cart,CartItem
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -68,5 +69,83 @@ def project_detail_view(request, pk):
     projects = get_object_or_404(Project, project_id=pk)
     return render(request, "qtosol/ProjectDetail.html", {'projects': projects})
 
+
+
+
+
+
+# cart functions
+
+def cart(request,):
+    # tax = 0
+    # grand_total = 0
+    # try:
+    #     if request.user.is_authenticated:
+    #         cart_items = CartItem.objects.filter(user=request.user, is_active=True)
+    #     else:
+    #         cart = Cart.objects.get(cart_id=_cart_id(request))
+    #         cart_items = CartItem.objects.filter(cart=cart, is_active=True)
+        
+    #     for cart_item in cart_items:
+    #         total += (cart_item.product.price * cart_item.quantity)
+    #         quantity += cart_item.quantity
+
+    #     tax = (2 * total) / 100
+    #     grand_total = total + tax
+    # except ObjectDoesNotExist:
+    #     pass
+
+    # context = {
+    #     'total': total,
+    #     'quantity': quantity,
+    #     'cart_items': cart_items,
+    #     'tax': tax,
+    #     'grand_total': grand_total,
+    # }
+
+    return render(request, 'qtosol/Cart.html')
+def add_to_cart(request, pk):
+    # Get the project object based on the provided primary key
+    project = get_object_or_404(Project, project_id=pk)
+    
+    # Ensure that the user is authenticated
+    if request.user.is_authenticated:
+        # Get or create the user's cart
+        user_cart, created = Cart.objects.get_or_create(user=request.user)
+        
+        # Create a cart item associated with the user's cart and the project
+        cart_item, created = CartItem.objects.get_or_create(cart=user_cart, product=project, user=request.user, defaults={'quantity': 1})
+        
+        # If the cart item already exists, increment the quantity
+        if not created:
+            cart_item.quantity += 1
+            cart_item.save()
+        
+        # Redirect the user to the cart page after adding the item
+        return redirect('Cart.html')
+    else:
+        # Handle cases where the user is not authenticated
+        # Redirect the user to the login page or display an error message
+        return redirect('login')
+
+# def add_to_cart(request, pk):
+#     # Get the project object based on the provided primary key
+#     project = get_object_or_404(Project, project_id=pk)
+    
+#     # Get or create the user's cart
+#     user_cart, created = Cart.objects.get_or_create(user=request.user)
+    
+#     # Check if the project is already in the user's cart
+#     cart_item = CartItem.objects.filter(cart=user_cart, product=project).first()
+    
+#     # If the item is already in the cart, increase the quantity
+#     if cart_item:
+#         cart_item.quantity += 1
+#         cart_item.save()
+#     else:
+#         # If the item is not in the cart, create a new cart item
+#         cart_item = CartItem.objects.create(cart=user_cart, product=project, quantity=1)
+    
+#     return redirect('cart')
 
 

@@ -41,6 +41,13 @@ urlpatterns = [
     path('Login/', views.login_view, name='login'),
     path('Logout/', views.logout_view, name='logout'),
 
+
+    # Cart paths
+    path('cart/', views.cart, name='cart'),
+    path('add/<int:pk>/', views.add_to_cart, name='add_to_cart'),
+
+   
+
     # # Horizontal
     # path("horizontal", view=layouts_horizontal_view, name="horizontal"),
     # # Detached

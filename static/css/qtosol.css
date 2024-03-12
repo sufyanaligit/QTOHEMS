@@ -55,7 +55,7 @@ a{
   margin-right: 10px;
 }
 .mininav {
-  height: 34px;
+  height: 40px !important;
   background-color: #6d6d6d;
 }
 
@@ -70,10 +70,11 @@ a{
   background-color: #fdc022 !important;
   padding-top: 1px !important;
   position: relative;
-  height: 35px;
+  height: 30px;
   width: 95px;
   font-weight: bold !important;
   font-size: 13.24px !important;
+  margin-right: 10px !important;
 }
 .num {
   font-size: 3em
@@ -1809,7 +1810,7 @@ margin-top: 30px;
 
 .form-group {
   display: flex;
-  background-color: #eeeeee;
+  background-color: #eee !important;
   color: #b1b1b1;
   height: 54px;
   border: 1px solid #b1b1b1;
@@ -1826,7 +1827,7 @@ margin-top: 30px;
   height: 54px;
   border: 1px solid #b1b1b1;
   border-radius: 20px;
-  width: 40% !important ;
+  /* width: 40% !important ; */
   align-items: center; /* Center items horizontally */
   margin: 5px 18px 28px 18px;
   margin-left: 30px;
@@ -1876,6 +1877,7 @@ margin-top: 30px;
   height: 15.36px;
   width: 13.66;
   margin-left: 15px;
+  margin-right: 15px;
 }
 .contact-textarea {
   height: auto;
@@ -2070,7 +2072,7 @@ padding: 20px;
 }
   .mininav {
 
-    height: 34px;
+    height: 50px !important;
     background-color: #6d6d6d;
   }
 
@@ -2083,6 +2085,7 @@ padding: 20px;
 
   .loginb {
     height: 25px;
+    
   }
   .cartb {
     height: 26px;

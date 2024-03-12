@@ -1,10 +1,23 @@
+{% extends "partials/qtosolbase.html" %}
 {% load static %}
+
+{% block html %}data-layout="vertical" data-layout-style="detached" data-layout-position="fixed" data-topbar="light"
+data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock html %}
+
+{% block title %}QTO SOL{% endblock title %}
+{% block extra_css %}
+{% endblock extra_css %}
+{% block content %}
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+
 <div class="container padding-bottom-3x mb-1">
     <!-- Alert -->
     <div class="alert alert-info alert-dismissible fade show text-center"
         style="margin-bottom: 30px; background-color: #fdc022;">
         <span class="alert-close" data-dismiss="alert"></span>
-        <img class="d-inline align-center" src="./images/badge.png" width="20" height="20" alt="Medal icon">
+        <img class="d-inline align-center" src="{% static 'imagesqtosol/badge.png'%}" width="20" height="20" alt="Medal icon">
         &nbsp;&nbsp;With this purchase you will earn <strong>290</strong> Reward Points.
     </div>
     <!-- Shopping Cart -->
@@ -27,7 +40,7 @@
                     <td>
                         <div class="product-item">
                             <a class="product-thumb" href="#">
-                                <img src="./images/drywall-1.png" alt="drywall image">
+                                {% static 'imagesqtosol/Cal 1.png'%}./images/drywall-1.png" alt="drywall image">
                             </a>
                             <div class="product-info">
                                 <h4 class="product-title"><a href="#">SCP 24SO Southerly West Primary Control (WPC)
@@ -50,7 +63,7 @@
                     <td>
                         <div class="product-item">
                             <a class="product-thumb" href="#">
-                                <img src="./images/masonry-1.png" alt="drywall image">
+                                <img src="{% static 'imagesqtosol/masonry-1.png'%}" alt="drywall image">
                             </a>
                             <div class="product-info">
                                 <h4 class="product-title"><a href="#">SCP 24SO Southerly West Primary Control (WPC)
@@ -73,7 +86,7 @@
                     <td>
                         <div class="product-item">
                             <a class="product-thumb" href="#">
-                                <img src="./images/lumber-1.png" alt="drywall image">
+                                <img src="{% static 'imagesqtosol/lumber-1.png'%}" alt="drywall image">
                             </a>
                             <div class="product-info">
                                 <h4 class="product-title"><a href="#">SCP 24SO Southerly West Primary Control (WPC)
@@ -119,3 +132,14 @@
         </div>
     </div>
 </div>
+<!-- end main content-->
+{% endblock content %}
+
+{% block extra_js %}
+<!-- apexcharts -->
+<script src="{% static 'libs/apexcharts/dist/apexcharts.min.js'%}"></script>
+
+<!-- Dashboard init -->
+<script src="{% static 'js/pages/dashboard-crm.init.js'%}"></script>
+{% endblock extra_js %}
+

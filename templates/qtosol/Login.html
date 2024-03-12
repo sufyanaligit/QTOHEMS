@@ -32,16 +32,16 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                     {% endif %}
                     <div class="row">
                         <div class="form-group form-group-register">
-                            <img class="user" alt="" src="./images/user.png" />
+                            <img class="user" alt="" src="{% static 'imagesqtosol/user.png'%}" />
                             <input class="from-placeholder" type="text" placeholder="User Name" name="username" id="id_username" required>
                         </div>
 
                         <div class="form-group form-group-register">
-                            <img class="user" alt="" src="./images/user.png" />
+                            <img class="user" alt="" src="{% static 'imagesqtosol/user.png'%}" />
                             <input type="password" placeholder="Password" class="from-placeholder" name="password" id="id_password" required>
                         </div>
 
-                        <button type="submit" class="regist-but">Login</button>
+                        <button type="submit" class="regist-but btn btn-primary">Login</button>
                     </div>
                 </form>
 

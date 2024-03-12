@@ -23,6 +23,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('', include('qtosol.urls')),
+    path('cart/', include('carts.urls')),
     path('admin/', admin.site.urls),
     # Dashboard
     path('dashboard/',include('dashboards.urls')),

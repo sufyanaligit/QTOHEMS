@@ -104,7 +104,7 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                                             <h2>{{ project.project_name }}</h2>
                                         </a>
                                         <div class="loc">
-                                            <img class="pdf" alt="" src="./images/location.png" />
+                                            <img class="pdf" alt="" src="{% static 'imagesqtosol/'%}" />
                                             <span class="">{{ project.project_address }}</span>
                                         </div>
 
@@ -127,8 +127,12 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                                     <a href=:>
                                         <button class="NB smd">See More Details</button>
                                     </a>
-
-                                    <button class="adtocart">Add to Cart</button>
+                                    <a href="{% url 'add_to_cart' pk=project.project_id %}"><button type="submit">Add to Cart</button></a>
+                                    <!-- <form action="{% url 'add_to_cart' pk=project.project_id %}" method="post">
+                                        {% csrf_token %}
+                                        <button type="submit">Add to Cart</button>
+                                    </form> -->
+                                    
                                 </div>
                             </div>
                         </div>

@@ -1,0 +1,4 @@
+.bid-ammout {
+  /* margin-top: 31px; */
+  margin-left: 2px;
+}
