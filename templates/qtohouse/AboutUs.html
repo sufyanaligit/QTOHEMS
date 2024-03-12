@@ -1,0 +1,87 @@
+{% extends "partials/qtosolbase.html" %}
+{% load static %}
+
+{% block html %}data-layout="vertical" data-layout-style="detached" data-layout-position="fixed" data-topbar="light"
+data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock html %}
+
+{% block title %}QTO SOL{% endblock title %}
+{% block extra_css %}
+{% endblock extra_css %}
+{% block content %}
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+
+<!-- end main content-->
+<div class="about about-us-img">
+    <div class="colorgradientonimage">
+        <h2>Welcome to QTO Solutions</h2>
+    </div>
+</div>
+
+<div class="about-us">
+    <img class="hat" alt="" src="{% static 'imagesqtosol/hart 2.png'%}" />
+
+    <p>
+    <h2 class="pageheading-test pageheading-contact">About Us</h2>
+    Welcome to QTO Solutions, your trusted partner in the construction industry. We are a leading provider of
+    pre-construction bidding services, streamlining operations for general contractors, delivering cost-competitive
+    estimates, and helping contractors win bids with our innovative solutions. With a strong presence in New York State
+    and territories, we are committed to professionalism, accuracy, and customer satisfaction. <br> <br> At QTO
+    Solutions, we have a team of versatile estimators and advanced software tools that enable us to provide online
+    services to the highest professional standards. We take pride in protecting the best interests of our customers and
+    approach each task with absolute responsibility and care. With our unsurpassed professional estimating and take-off
+    services, we strive to exceed your expectations. <br> <br> Our skilled team utilizes the latest software in the
+    industry to ensure the most accurate cost estimates for your projects. We understand the importance of time and
+    efficiency, which is why our clients enjoy the fastest turnaround time in the industry at fees that are extremely
+    competitive. As a team of specialized individuals with different skill sets, we are dedicated to staying at the
+    forefront of construction estimation innovations, providing you with the latest industry insights. <br> <br> <br>
+    <br> <br>
+    <div class="pageheading">CSI Divisions</div>
+    <div class="csidivsions csdaboutus container">
+        <ul>
+            <li>
+                <span>01&nbsp;</span>-&nbsp;<span>General Requirnments</span>
+            </li>
+            <li>
+                <span>02&nbsp;</span>-&nbsp;<span>Existing Conditions</span>
+            </li>
+            <!-- Other list items omitted for brevity -->
+        </ul>
+    </div>
+    </p>
+
+    <img class="cal" alt="" src="{% static 'imagesqtosol/Cal 1.png'%}" />
+</div>
+<div class="container-fluid aUp">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"></div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"></div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"></div>
+    </div>
+</div>
+<WhyChooseQto />
+<Weworkwith />
+
+
+
+
+{% block CSI-Division %}
+{% include "qtosol/CsiDvisions.html" %}
+{% endblock CSI-Division %}
+{% block Weworkwith %}
+{% include "qtosol/WeWorkWith.html" %}
+{% endblock Weworkwith %}
+
+
+
+{% endblock content %}
+
+{% block extra_js %}
+<!-- apexcharts -->
+<script src="{% static 'libs/apexcharts/dist/apexcharts.min.js'%}"></script>
+
+<!-- Dashboard init -->
+<script src="{% static 'js/pages/dashboard-crm.init.js'%}"></script>
+{% endblock extra_js %}
+

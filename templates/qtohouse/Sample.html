@@ -1,0 +1,61 @@
+{% extends "partials/qtosolbase.html" %}
+{% load static %}
+
+{% block html %}data-layout="vertical" data-layout-style="detached" data-layout-position="fixed" data-topbar="light"
+data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock html %}
+
+{% block title %}QTO SOL{% endblock title %}
+{% block extra_css %}
+{% endblock extra_css %}
+{% block content %}
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+<div class="register login-p">
+    <div class="log-back-sample">
+        <div>
+            <br>
+        </div>
+        <h2 class="pageheading">Download Our Samples</h2>
+        <p class="top-bar">
+            Do you want to see how good our work is? Get our sample for free
+            right now.
+        </p>
+
+        <div class="container">
+            <form class="form-inline" id="sampleForm" action="/download-samples" method="post">
+                <div class="row">
+                    <div class="form-group col-5">
+                        <img class="user" alt="" src="{% static 'imagesqtosol/search.png'%}">
+                        <span class="location-icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </span>
+                        <select class="form-select" aria-label="Default select example"
+                            style="border: none; background-color: #eeeeee;">
+                            <option value=""> Select Sample</option>
+                            <option value="Alabama">New Construction</option>
+                            <option value="Alaska">Renovation/Remodeling/Retrofitting</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                    </div>
+                    <!-- Add other form groups for Name, Email, and Company Name -->
+                    <div class="form-group col-5">
+                        <!-- Repeat this structure for other input fields -->
+                    </div>
+                    <button type="submit" class="regist-but btn btn-primary">Send Samples</button>
+                </div>
+            </form>
+        </div>
+        </div>
+        </div>
+<!-- end main content-->
+{% endblock content %}
+
+{% block extra_js %}
+<!-- apexcharts -->
+<script src="{% static 'libs/apexcharts/dist/apexcharts.min.js'%}"></script>
+
+<!-- Dashboard init -->
+<script src="{% static 'js/pages/dashboard-crm.init.js'%}"></script>
+{% endblock extra_js %}
+
