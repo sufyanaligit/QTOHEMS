@@ -14,17 +14,195 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
 
 <!-- end main content-->
 
+<section class="services">
+    <div class="main-div">
+      <div class="backimg">
+        <div class="colorgradientonimage">
+          <h2>Welcome to QTO Solutions</h2>
+          <p style="text-align: center; font-family: Poppins-SemiBold; font-size: 16px;">
+            "Trust QTO Solutions to fine-tune your estimates, providing the
+            edge you need to win lucrative contracts confidently"
+          </p>
+        </div>
+      </div>
+      <div class="container what-is-qto">
+        <div class="row border-2">
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-5 WIQTO">
+            <h1>WHAT IS QTO?</h1>
+            <p style="text-align: justify;">
+              Numerous contractors are currently preoccupied with ongoing
+              projects, leaving them with insufficient time to bid on new
+              jobs. Consequently, failing to bid on potential projects could
+              result in loss for your company. A rough approximation
+              suggests that contractors lose roughly $150,000 yearly due to
+              inaccurate estimates and missed bids.
+              <br /><br />
+              For small contractors, employing a full-time construction
+              estimator can prove to be financially challenging. To solve
+              your construction cost estimation requirements, consider
+              utilizing a QTO solutions service tailored for builders.
+            </p>
+          </div>
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-7 qto_benifits">
+            <div class="row benifit-container">
+              <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 benifit-container">
+                <div class="benifit-a">
+                  <img class="fl" alt="" src="./images/savemoney.png" />
+                  <h2>Save Money</h2>
+                </div>
+                <p style="text-align: justify;">
+                  You can save money by getting help with estimating your
+                  construction costs from us instead of hiring a full-time
+                  estimator. Our services are offered at a nominal fee for
+                  both full and trade-specific estimates, allowing you to
+                  save money.
+                </p>
+                
+              </div>
+              <!-- More benifit-container divs with similar structure -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <!-- Empty container divs -->
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="ourServices container">
+      <h2 class="pageheading">Our Solutions</h2>
+      <p style="text-align: justify;">
+        QTO Solutions provides a range of accurate and affordable quantity
+        takeoff services and construction estimating support services to
+        organizations across the construction industry. We specialize in all
+        construction trades and CSI divisions related to:
+      </p>
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 OSThree">
+          <!-- Image divs with empty classes -->
+        </div>
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 OSThree">
+          <!-- Image divs with empty classes -->
+        </div>
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 OSThree">
+          <!-- Image divs with empty classes -->
+        </div>
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="hiv container">
+      <h1>How it works</h1>
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <p>
+            Our certified take-off specialists use a structured process to
+            accurately calculate the quantities of various construction
+            materials required for each project. Here's a brief overview of
+            how our construction take-off services work:
+          </p>
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 WCUS p-estimates">
+              <ul>
+                <li>
+                <div className="imghead"> 
+                  <img className="WCUSimg" alt="" src="{% static 'imagesqtosol/Project Management.png'%}" />
+                  <h2>Strategic Analysis of Project Plans:</h2>
+                </div>
 
+                <p className="p-estimates">
+                  Our Quantity take-off estimators first review all relevant
+                  plans and drawings for the project, including civil plans,
+                  architectural plans, structural plans and specifications. 
+                  We review the takeoff scope as detail by our customers and
+                  check the plans for that scope.
+                </p>
+              </li>
+              <li>
+                <div className="imghead">
+                  <img
+                    className="WCUSimg"
+                    alt=""
+                    src="{% static 'imagesqtosol/quantity.png'%}"
+                  />
+                  <h2>Streamlined Quantity Take-Off:</h2>
+                </div>
 
-{% block Estimation-services %}
-{% include "qtosol/EstimationServices.html" %}
-{% endblock Estimation-services %}
-{% block FAQS %}
-{% include "qtosol/Faq's.html" %}
-{% endblock FAQS %}
-{% block CSI-Division %}
+                <p className="p-estimates" >
+                  Our material takeoff specialists load the PDF plans into
+                  our take-off software such as planswift or bluebeam.
+                  Drawings are scaled and the quantity take-off is performed. 
+                  It invloves measuring, counting and quantifying various materials
+                  required for the construction project. Material such as concrete,
+                  masonry, structural steel, lumber framing,
+                  roofing, siding painting, flooring etc, are taken off one by one. 
+                </p>
+              </li>
+              <li>
+                <div className="imghead">
+                  <img
+                    className="WCUSimg"
+                    alt=""
+                    src="{% static 'imagesqtosol/savemoney.png'%}"
+                  />
+                  <h2>Project Cost Overview:</h2>
+                </div>
+
+                <p className="p-estimates">
+                  We put all the materials and their quantities 
+                  as per their CSI trates into the excel spreadsheet.
+                   Stable wastage factors and considered for the materials and the final quantities are 
+                  listed with appropriate unit of measures. We also price the material,
+                   labour and equipment costs if required by our customer.  
+                </p>
+              </li>
+              <li>
+                <div className="imghead">
+                  <img className="WCUSimg" alt="" src="{% static 'imagesqtosol/deliverables.png'%}" />
+                  <h2>Construction Take-Off Deliverables:</h2>
+                </div>
+                              
+                <p  className="p-estimates">
+                  Our final construction take-off deliverables include material estimate in excel,
+                   color-coded markups in PDF and notes/RFIS related to the project. Our client gets full ownership of all 
+                  deliverables. The files can edit, modified or shared as needed by the customer. <br /><br/>
+                  Our take-off estimating services have been utilized in a variety of mega construction projects,
+                   From commercial buildings to residential appartments and public infrastructure projects.
+                  For Example, Our take-off services were used during the construction of the Hudson yards 
+                  development in New York city to manage the projects cost management requirements. 
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 estimator">
+          <img class="fl" alt="" src="{% static 'imagesqtosol/Mask group.png'%}" />
+          <img class="f2" alt=""  src="{% static 'imagesqtosol/Maskgroup.png'%}" />
+        </div>
+      </div>
+    </div>
+    <div class="WCU"><!-- Why Chose US --></div>
+    <!-- <Weworkwith /> -->
+  </section>
+  
+
+<!-- {% block Estimation-services %} -->
+<!-- {% include "qtosol/EstimationServices.html" %} -->
+<!-- {% endblock Estimation-services %} -->
+<!-- {% block FAQS %}
+{% include "qtosol/Faq's.html" %} -->
+<!-- {% endblock FAQS %} -->
+<!-- {% block CSI-Division %}
 {% include "qtosol/CsiDvisions.html" %}
-{% endblock CSI-Division %}
+{% endblock CSI-Division %} -->
 {% block Weworkwith %}
 {% include "qtosol/WeWorkWith.html" %}
 {% endblock Weworkwith %}
