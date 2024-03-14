@@ -88,7 +88,12 @@ class Project_Create_Form(forms.ModelForm):
     MBE = forms.DecimalField(max_digits=5, decimal_places=2, required=False, validators=[validate_percentage])
     EEO = forms.DecimalField(max_digits=5, decimal_places=2, required=False, validators=[validate_percentage])
     location = forms.CharField(max_length=100, required=False)
+    project_files = forms.FileField(required=False)
 
+    # Add the form-control class to the widget attributes
+    def __init__(self, *args, **kwargs):
+        super(Project_Create_Form, self).__init__(*args, **kwargs)
+        self.fields['project_files'].widget.attrs.update({'class': 'form-control'})
 
 
     def save(self, commit=True, user=None):
@@ -128,7 +133,7 @@ class Project_Create_Form(forms.ModelForm):
                 EEO=self.cleaned_data['EEO'],
             )
             mwseb.save()
-
+ 
         return project
 
 class Company_create_Form(forms.ModelForm):

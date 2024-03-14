@@ -192,7 +192,7 @@ urlpatterns = [
     path("job/categories", view=apps_job_categories_view, name="job.categories"),
     path("job/details", view=apps_job_details_view, name="job.details"),
     path("job/grid-lists", view=apps_job_grid_lists_view, name="job.grid_lists"),
-    path("job/lists", view=apps_job_lists_view, name="job.lists"),
+    path("job/lists", view=apps_job_lists_view, name="job.lists"), 
     path("job/new", view=apps_job_new_view, name="job.new"),
     path("job/statistic", view=apps_job_statistics_view, name="job.statistics"),
     
