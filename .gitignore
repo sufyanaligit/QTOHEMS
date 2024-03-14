@@ -9,3 +9,6 @@ __pycache__/
 
 #settings.py file
 velzon/settings.py
+
+
+mydatabase.db

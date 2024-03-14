@@ -1,0 +1,1082 @@
+{% extends "partials/qtohousebase.html" %}
+{% load static %}
+
+{% block html %}data-layout="vertical" data-layout-style="detached" data-layout-position="fixed" data-topbar="light"
+data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock html %}
+
+{% block title %}QTO SOL{% endblock title %}
+{% block extra_css %}
+{% endblock extra_css %}
+{% block content %}
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+<div class="container projects project-detail">
+    <div class="projectHeading">
+        <h2>Project Detail</h2>
+        <div>
+            <span>Home</span>/<span>projects</span>/<span>Project Detail</span>
+        </div>
+    </div>
+    <div class="pro-heading">
+        <div class=" ">
+            <div>
+                <h2>{{ projects.project_name }} </h2>
+                <span class="location">
+                    {{ projects.project_address }}
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="container detail">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 head-nav">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-12 col-xl-12 sort detail">
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" id="pills-active-projects-tab" data-bs-toggle="pill"
+                                href="#pills-active-projects" role="tab" aria-controls="pills-active-projects"
+                                aria-selected="true">Project Details</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="pills-past-projects-tab" data-bs-toggle="pill"
+                                href="#pills-project-specs" role="tab" aria-controls="pills-project-specs"
+                                aria-selected="false">Specs</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="pills-featured-projects-tab" data-bs-toggle="pill"
+                                href="#pills-featured-projects" role="tab" aria-controls="pills-featured-projects"
+                                aria-selected="false">Plans</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+
+                <!-- <TabList>
+                        <Tab class="">
+                            <span class="detail-manue">Project Details</span>
+                        </Tab>
+                        <Tab>
+                            <span class="detail-manue">Specs</span> <span>35</span>
+                        </Tab>
+                        <Tab>
+                            <span class="detail-manue">Plans</span> <span>2</span>
+                        </Tab>
+                        <Tab>
+                            <span class="detail-manue">QTOs</span> <span>20</span>
+                        </Tab>
+                        <Tab>
+                            <span class="detail-manue">Addendums</span>{" "}
+                            <span>4</span>
+                        </Tab>
+                        <Tab>
+                            <span class="detail-manue">QTO Video</span>{" "}
+                            <span>1</span>
+                        </Tab>
+                        {/* <Tab>
+                            <span class="detail-manue">Plan Holders</span>{" "}
+                            <span>4</span>
+                        </Tab> */}
+                    </TabList> -->
+
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 content-nav">
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-active-projects" role="tabpanel"
+                            aria-labelledby="pills-active-projects-tab">
+                            <!-- Content for Project Details tab -->
+                            <div class="row">
+                                <!-- <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                            <div class="card">
+                                                {/* <img src="..." class="card-img-top" alt="..."> */}
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Card title</h5>
+                                                    <p class="card-text">
+                                                        Some quick example text to build on the card
+                                                        title and make up the bulk of the card's
+                                                        content.
+                                                    </p>
+                                                    <a href="#" class="btn btn-primary">
+                                                        Go somewhere
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                            <div class="card">
+                                                {/* <img src="..." class="card-img-top" alt="..."> */}
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Card title</h5>
+                                                    <p class="card-text">
+                                                        Some quick example text to build on the card
+                                                        title and make up the bulk of the card's
+                                                        content.
+                                                    </p>
+                                                    <a href="#" class="btn btn-primary">
+                                                        Go somewhere
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"></div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-5 left-detail">
+                                    <ul>
+                                        <li class="">
+                                            <h2>Bid Date</h2>
+                                            <span>Wednesday, July 20, 2023</span>
+                                        </li>
+                                        <li class="">
+                                            <h2>Bid Date</h2>
+                                            <span>Wednesday, July 20, 2023</span>
+                                        </li>
+                                        <li class="">
+                                            <h2>Bid Amount</h2>
+                                            <span>$ 1,000,000</span>
+                                        </li>
+
+                                        <li class="">
+                                            <h2>Solicitation</h2>
+                                            <span>46160-C</span>
+                                        </li>
+                                        <li class="">
+                                            <h2>Bidding Method</h2>
+                                            <span>Advertised Bid</span>
+                                        </li>
+                                        <li class="">
+                                            <h2>Bid Phase</h2>
+                                            <span>bid_results</span>
+                                        </li>
+                                        <li class="">
+                                            <h2>Completion Time</h2>
+                                            <span>400 CCDs</span>
+                                        </li>
+                                        <li class="">
+                                            <h2>Liquidated Damages</h2>
+                                            <span>1000</span>
+                                        </li>
+                                        <li class="">
+                                            <h2>Bid Deposit</h2>
+                                            <span>24,0000</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-7 col-xl-7 left-detail right-detail">
+                                    <ul>
+                                        <li class="">
+                                            <h2>Bid Location</h2>
+                                            <span>
+                                                35th Floor, Corning Tower, Empire State Plaza,
+                                                Albany, NY 12242.
+                                            </span>
+                                        </li>
+                                        <li class="">
+                                            <h2>Pre-bid Meeting</h2>
+                                            <span>
+                                                2022-07-12 09:00:00 84 Old Orangeburg Road,
+                                                Orangeburg, NY 10962
+                                            </span>
+                                        </li>
+                                        <li class="CSI-d">
+                                            <h2>CSI Division</h2>
+
+                                            <ul>
+                                                <li>
+                                                    <span> 01</span>
+                                                    <span>-General Requirements</span>
+                                                </li>
+                                                <li>
+                                                    <span> 02</span>
+                                                    <span>-Existing Conditions </span>
+                                                </li>
+                                                <li>
+                                                    <span> 03</span>
+                                                    <span>-Concrete</span>
+                                                </li>
+                                                <li>
+                                                    <span> 04</span>
+                                                    <span>- Masonry</span>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="bondsandMWS">
+                                            <ul class="Bonds">
+                                                <li class="as">
+                                                    <h2>Bonds</h2>
+                                                    <ul>
+                                                        <li class="progess-heading">
+                                                            <span>Bid Bonds</span>
+                                                        </li>
+                                                        <li>
+                                                            <div class="dprogress">
+                                                                <div class="qto-progress">
+                                                                    <span>50%</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="progess-heading">
+                                                            <span>Bid Bonds</span>
+                                                        </li>
+                                                        <li>
+                                                            <div class="dprogress">
+                                                                <div class="qto-progress">
+                                                                    <span>50%</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="progess-heading">
+                                                            <span>Bid Bonds</span>
+                                                        </li>
+                                                        <li>
+                                                            <div class="dprogress">
+                                                                <div class="qto-progress">
+                                                                    <span>50%</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="progess-heading">
+                                                            <span>Bid Bonds</span>
+                                                        </li>
+                                                        <li>
+                                                            <div class="dprogress">
+                                                                <div class="qto-progress">
+                                                                    <span>50%</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="as">
+                                                    <h2>MWSEBs and SDVOBs</h2>
+                                                    <ul>
+                                                        <li class="progess-heading">
+                                                            <span>Bid Bonds</span>
+                                                        </li>
+                                                        <li>
+                                                            <div class="dprogress">
+                                                                <div class="qto-progress">
+                                                                    <span>50%</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="progess-heading">
+                                                            <span>Bid Bonds</span>
+                                                        </li>
+                                                        <li>
+                                                            <div class="dprogress">
+                                                                <div class="qto-progress">
+                                                                    <span>50%</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="progess-heading">
+                                                            <span>Bid Bonds</span>
+                                                        </li>
+                                                        <li>
+                                                            <div class="dprogress">
+                                                                <div class="qto-progress">
+                                                                    <span>50%</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="progess-heading">
+                                                            <span>Bid Bonds</span>
+                                                        </li>
+                                                        <li>
+                                                            <div class="dprogress">
+                                                                <div class="qto-progress">
+                                                                    <span>50%</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                            {/* <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6  as">
+                                                <div class="border">asdf</div>
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6  as">
+                                                <div class="border">asdf</div>
+                                            </div> */}
+                                        </li>
+                                        {/* <li class="MWSEBs"></li> */}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-project-specs" role="tabpanel"
+                            aria-labelledby="pills-past-projects-tab">
+                            <!-- Content for Specs tab -->
+                            <div class="specs">
+                                <ul>
+                                    <li>
+                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                        <h2>46160-Plans</h2>
+                                        <span class="size">2 MB</span>
+                                        <span class="date">Mar 10, 2023</span>
+                                        <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                        <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="specs">
+                                <ul>
+                                    <li>
+                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                        <h2>46160-Plans</h2>
+                                        <span class="size">2 MB</span>
+                                        <span class="date">Mar 10, 2023</span>
+                                        <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                        <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="specs">
+                                <ul>
+                                    <li>
+                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                        <h2>46160-Plans</h2>
+                                        <span class="size">2 MB</span>
+                                        <span class="date">Mar 10, 2023</span>
+                                        <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                        <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="specs">
+                                <ul>
+                                    <li>
+                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                        <h2>46160-Plans</h2>
+                                        <span class="size">2 MB</span>
+                                        <span class="date">Mar 10, 2023</span>
+                                        <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                        <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="specs">
+                                <ul>
+                                    <li>
+                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                        <h2>46160-Plans</h2>
+                                        <span class="size">2 MB</span>
+                                        <span class="date">Mar 10, 2023</span>
+                                        <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                        <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="specs">
+                                <ul>
+                                    <li>
+                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                        <h2>46160-Plans</h2>
+                                        <span class="size">2 MB</span>
+                                        <span class="date">Mar 10, 2023</span>
+                                        <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                        <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="specs">
+                                <ul>
+                                    <li>
+                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                        <h2>46160-Plans</h2>
+                                        <span class="size">2 MB</span>
+                                        <span class="date">Mar 10, 2023</span>
+                                        <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                        <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-featured-projects" role="tabpanel"
+                            aria-labelledby="pills-featured-projects-tab">
+                            <!-- Content for Plans tab -->
+                            <div class="specs">
+                                <ul>
+                                    <li>
+                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                        <h2>46160-Drawing</h2>
+                                        <span class="size">2 MB</span>
+                                        <span class="date">Mar 10, 2023</span>
+                                        <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                        <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="specs">
+                                <ul>
+                                    <li>
+                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                        <h2>46160-Drawing</h2>
+                                        <span class="size">2 MB</span>
+                                        <span class="date">Mar 10, 2023</span>
+                                        <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                        <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="specs">
+                                <ul>
+                                    <li>
+                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                        <h2>46160-Drawing</h2>
+                                        <span class="size">2 MB</span>
+                                        <span class="date">Mar 10, 2023</span>
+                                        <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                        <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="specs">
+                                <ul>
+                                    <li>
+                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                        <h2>46160-Drawing</h2>
+                                        <span class="size">2 MB</span>
+                                        <span class="date">Mar 10, 2023</span>
+                                        <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                        <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="specs">
+                                <ul>
+                                    <li>
+                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                        <h2>46160-Drawing</h2>
+                                        <span class="size">2 MB</span>
+                                        <span class="date">Mar 10, 2023</span>
+                                        <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                        <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="specs">
+                                <ul>
+                                    <li>
+                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                        <h2>46160-Drawing</h2>
+                                        <span class="size">2 MB</span>
+                                        <span class="date">Mar 10, 2023</span>
+                                        <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                        <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="specs">
+                                <ul>
+                                    <li>
+                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                        <h2>46160-Drawing</h2>
+                                        <span class="size">2 MB</span>
+                                        <span class="date">Mar 10, 2023</span>
+                                        <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                        <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 
+                    <TabPanel>
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <div class="row">
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                        <div class="card">
+                                            {/* <img src="..." class="card-img-top" alt="..."> */}
+                                            <div class="card-body">
+                                                <h5 class="card-title">Card title</h5>
+                                                <p class="card-text">
+                                                    Some quick example text to build on the card
+                                                    title and make up the bulk of the card's
+                                                    content.
+                                                </p>
+                                                <a href="#" class="btn btn-primary">
+                                                    Go somewhere
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                        <div class="card">
+                                            {/* <img src="..." class="card-img-top" alt="..."> */}
+                                            <div class="card-body">
+                                                <h5 class="card-title">Card title</h5>
+                                                <p class="card-text">
+                                                    Some quick example text to build on the card
+                                                    title and make up the bulk of the card's
+                                                    content.
+                                                </p>
+                                                <a href="#" class="btn btn-primary">
+                                                    Go somewhere
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"></div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-5 left-detail">
+                                <ul>
+                                    <li class="">
+                                        <h2>Bid Date</h2>
+                                        <span>Wednesday, July 20, 2023</span>
+                                    </li>
+                                    <li class="">
+                                        <h2>Bid Date</h2>
+                                        <span>Wednesday, July 20, 2023</span>
+                                    </li>
+                                    <li class="">
+                                        <h2>Bid Amount</h2>
+                                        <span>$ 1,000,000</span>
+                                    </li>
+
+                                    <li class="">
+                                        <h2>Solicitation</h2>
+                                        <span>46160-C</span>
+                                    </li>
+                                    <li class="">
+                                        <h2>Bidding Method</h2>
+                                        <span>Advertised Bid</span>
+                                    </li>
+                                    <li class="">
+                                        <h2>Bid Phase</h2>
+                                        <span>bid_results</span>
+                                    </li>
+                                    <li class="">
+                                        <h2>Completion Time</h2>
+                                        <span>400 CCDs</span>
+                                    </li>
+                                    <li class="">
+                                        <h2>Liquidated Damages</h2>
+                                        <span>1000</span>
+                                    </li>
+                                    <li class="">
+                                        <h2>Bid Deposit</h2>
+                                        <span>24,0000</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-7 col-xl-7 left-detail right-detail">
+                                <ul>
+                                    <li class="">
+                                        <h2>Bid Location</h2>
+                                        <span>
+                                            35th Floor, Corning Tower, Empire State Plaza,
+                                            Albany, NY 12242.
+                                        </span>
+                                    </li>
+                                    <li class="">
+                                        <h2>Pre-bid Meeting</h2>
+                                        <span>
+                                            2022-07-12 09:00:00 84 Old Orangeburg Road,
+                                            Orangeburg, NY 10962
+                                        </span>
+                                    </li>
+                                    <li class="CSI-d">
+                                        <h2>CSI Division</h2>
+
+                                        <ul>
+                                            <li>
+                                                <span> 01</span>
+                                                <span>-General Requirements</span>
+                                            </li>
+                                            <li>
+                                                <span> 02</span>
+                                                <span>-Existing Conditions </span>
+                                            </li>
+                                            <li>
+                                                <span> 03</span>
+                                                <span>-Concrete</span>
+                                            </li>
+                                            <li>
+                                                <span> 04</span>
+                                                <span>- Masonry</span>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="bondsandMWS">
+                                        <ul class="Bonds">
+                                            <li class="as">
+                                                <h2>Bonds</h2>
+                                                <ul>
+                                                    <li class="progess-heading">
+                                                        <span>Bid Bonds</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="dprogress">
+                                                            <div class="qto-progress">
+                                                                <span>50%</span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="progess-heading">
+                                                        <span>Bid Bonds</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="dprogress">
+                                                            <div class="qto-progress">
+                                                                <span>50%</span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="progess-heading">
+                                                        <span>Bid Bonds</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="dprogress">
+                                                            <div class="qto-progress">
+                                                                <span>50%</span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="progess-heading">
+                                                        <span>Bid Bonds</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="dprogress">
+                                                            <div class="qto-progress">
+                                                                <span>50%</span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="as">
+                                                <h2>MWSEBs and SDVOBs</h2>
+                                                <ul>
+                                                    <li class="progess-heading">
+                                                        <span>Bid Bonds</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="dprogress">
+                                                            <div class="qto-progress">
+                                                                <span>50%</span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="progess-heading">
+                                                        <span>Bid Bonds</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="dprogress">
+                                                            <div class="qto-progress">
+                                                                <span>50%</span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="progess-heading">
+                                                        <span>Bid Bonds</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="dprogress">
+                                                            <div class="qto-progress">
+                                                                <span>50%</span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="progess-heading">
+                                                        <span>Bid Bonds</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="dprogress">
+                                                            <div class="qto-progress">
+                                                                <span>50%</span>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        {/* <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6  as">
+                                            <div class="border">asdf</div>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6  as">
+                                            <div class="border">asdf</div>
+                                        </div> */}
+                                    </li>
+                                    {/* <li class="MWSEBs"></li> */}
+                                </ul>
+                            </div>
+                        </div>
+                    </TabPanel> -->
+                <!-- <TabPanel>
+                        <div class="specs">
+                            <ul>
+                                <li>
+                                    <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                    <h2>46160-Drawing</h2>
+                                    <span class="size">2 MB</span>
+                                    <span class="date">Mar 10, 2023</span>
+                                    <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                    <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="specs">
+                            <ul>
+                                <li>
+                                    <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                    <h2>46160-Drawing</h2>
+                                    <span class="size">2 MB</span>
+                                    <span class="date">Mar 10, 2023</span>
+                                    <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                    <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="specs">
+                            <ul>
+                                <li>
+                                    <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                    <h2>46160-Drawing</h2>
+                                    <span class="size">2 MB</span>
+                                    <span class="date">Mar 10, 2023</span>
+                                    <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                    <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="specs">
+                            <ul>
+                                <li>
+                                    <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                    <h2>46160-Drawing</h2>
+                                    <span class="size">2 MB</span>
+                                    <span class="date">Mar 10, 2023</span>
+                                    <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                    <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="specs">
+                            <ul>
+                                <li>
+                                    <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                    <h2>46160-Drawing</h2>
+                                    <span class="size">2 MB</span>
+                                    <span class="date">Mar 10, 2023</span>
+                                    <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                    <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="specs">
+                            <ul>
+                                <li>
+                                    <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                    <h2>46160-Drawing</h2>
+                                    <span class="size">2 MB</span>
+                                    <span class="date">Mar 10, 2023</span>
+                                    <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                    <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="specs">
+                            <ul>
+                                <li>
+                                    <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                    <h2>46160-Drawing</h2>
+                                    <span class="size">2 MB</span>
+                                    <span class="date">Mar 10, 2023</span>
+                                    <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                    <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                </li>
+                            </ul>
+                        </div>
+                    </TabPanel> -->
+                <!-- <TabPanel>
+                        <div class="specs">
+                            <ul>
+                                <li>
+                                    <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                    <h2>46160-Plans</h2>
+                                    <span class="size">2 MB</span>
+                                    <span class="date">Mar 10, 2023</span>
+                                    <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                    <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="specs">
+                            <ul>
+                                <li>
+                                    <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                    <h2>46160-Plans</h2>
+                                    <span class="size">2 MB</span>
+                                    <span class="date">Mar 10, 2023</span>
+                                    <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                    <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="specs">
+                            <ul>
+                                <li>
+                                    <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                    <h2>46160-Plans</h2>
+                                    <span class="size">2 MB</span>
+                                    <span class="date">Mar 10, 2023</span>
+                                    <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                    <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="specs">
+                            <ul>
+                                <li>
+                                    <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                    <h2>46160-Plans</h2>
+                                    <span class="size">2 MB</span>
+                                    <span class="date">Mar 10, 2023</span>
+                                    <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                    <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="specs">
+                            <ul>
+                                <li>
+                                    <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                    <h2>46160-Plans</h2>
+                                    <span class="size">2 MB</span>
+                                    <span class="date">Mar 10, 2023</span>
+                                    <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                    <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="specs">
+                            <ul>
+                                <li>
+                                    <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                    <h2>46160-Plans</h2>
+                                    <span class="size">2 MB</span>
+                                    <span class="date">Mar 10, 2023</span>
+                                    <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                    <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="specs">
+                            <ul>
+                                <li>
+                                    <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                    <h2>46160-Plans</h2>
+                                    <span class="size">2 MB</span>
+                                    <span class="date">Mar 10, 2023</span>
+                                    <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                    <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                </li>
+                            </ul>
+                        </div>
+                    </TabPanel>
+                    <TabPanel>
+                        <div class="specs">
+                            <ul>
+                                <li>
+                                    <img class="pdf" alt=""
+                                        src="{% static 'imagesqtosol/hart 2.png'%}./images/addendumsheet.png" />
+                                    <h2>46160-QTO's</h2>
+                                    <span class="size">2 MB</span>
+                                    <span class="date">Mar 10, 2023</span>
+                                    <img class="read" alt=""
+                                        src="{% static 'imagesqtosol/hart 2.png'%}./images/cart.png" />
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="specs">
+                            <ul>
+                                <li>
+                                    <img class="pdf" alt=""
+                                        src="{% static 'imagesqtosol/hart 2.png'%}./images/addendumsheet.png" />
+                                    <h2>46160-QTO's</h2>
+                                    <span class="size">2 MB</span>
+                                    <span class="date">Mar 10, 2023</span>
+                                    <img class="read" alt=""
+                                        src="{% static 'imagesqtosol/hart 2.png'%}./images/cart.png" />
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="specs">
+                            <ul>
+                                <li>
+                                    <img class="pdf" alt=""
+                                        src="{% static 'imagesqtosol/hart 2.png'%}./images/addendumsheet.png" />
+                                    <h2>46160-QTO's</h2>
+                                    <span class="size">2 MB</span>
+                                    <span class="date">Mar 10, 2023</span>
+                                    <img class="read" alt=""
+                                        src="{% static 'imagesqtosol/hart 2.png'%}./images/cart.png" />
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="specs">
+                            <ul>
+                                <li>
+                                    <img class="pdf" alt=""
+                                        src="{% static 'imagesqtosol/hart 2.png'%}./images/addendumsheet.png" />
+                                    <h2>46160-QTO's</h2>
+                                    <span class="size">2 MB</span>
+                                    <span class="date">Mar 10, 2023</span>
+                                    <img class="read" alt=""
+                                        src="{% static 'imagesqtosol/hart 2.png'%}./images/cart.png" />
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="specs">
+                            <ul>
+                                <li>
+                                    <img class="pdf" alt=""
+                                        src="{% static 'imagesqtosol/hart 2.png'%}./images/addendumsheet.png" />
+                                    <h2>46160-QTO's</h2>
+                                    <span class="size">2 MB</span>
+                                    <span class="date">Mar 10, 2023</span>
+                                    <img class="read" alt=""
+                                        src="{% static 'imagesqtosol/hart 2.png'%}./images/cart.png" />
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="specs">
+                            <ul>
+                                <li>
+                                    <img class="pdf" alt=""
+                                        src="{% static 'imagesqtosol/hart 2.png'%}./images/addendumsheet.png" />
+                                    <h2>46160-QTO's</h2>
+                                    <span class="size">2 MB</span>
+                                    <span class="date">Mar 10, 2023</span>
+                                    <img class="read" alt=""
+                                        src="{% static 'imagesqtosol/hart 2.png'%}./images/cart.png" />
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="specs">
+                            <ul>
+                                <li>
+                                    <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                    <h2>46160-QTO's</h2>
+                                    <span class="size">2 MB</span>
+                                    <span class="date">Mar 10, 2023</span>
+                                    <img class="read" alt=""
+                                        src="{% static 'imagesqtosol/hart 2.png'%}./images/cart.png" />
+                                </li>
+                            </ul>
+                        </div>
+                    </TabPanel>
+                    <TabPanel>
+                        <div class="specs">
+                            <ul>
+                                <li>
+                                    <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                    <h2>46160-Addendums</h2>
+                                    <span class="size">2 MB</span>
+                                    <span class="date">Mar 10, 2023</span>
+                                    <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                    <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="specs">
+                            <ul>
+                                <li>
+                                    <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                    <h2>46160-Addendums</h2>
+                                    <span class="size">2 MB</span>
+                                    <span class="date">Mar 10, 2023</span>
+                                    <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                    <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="specs">
+                            <ul>
+                                <li>
+                                    <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                    <h2>46160-Addendums</h2>
+                                    <span class="size">2 MB</span>
+                                    <span class="date">Mar 10, 2023</span>
+                                    <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                    <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="specs">
+                            <ul>
+                                <li>
+                                    <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                    <h2>46160-Addendums</h2>
+                                    <span class="size">2 MB</span>
+                                    <span class="date">Mar 10, 2023</span>
+                                    <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                    <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="specs">
+                            <ul>
+                                <li>
+                                    <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                    <h2>46160-Addendums</h2>
+                                    <span class="size">2 MB</span>
+                                    <span class="date">Mar 10, 2023</span>
+                                    <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                    <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="specs">
+                            <ul>
+                                <li>
+                                    <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                    <h2>46160-Addendums</h2>
+                                    <span class="size">2 MB</span>
+                                    <span class="date">Mar 10, 2023</span>
+                                    <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                    <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="specs">
+                            <ul>
+                                <li>
+                                    <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                    <h2>46160-Addendums</h2>
+                                    <span class="size">2 MB</span>
+                                    <span class="date">Mar 10, 2023</span>
+                                    <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
+                                    <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                </li>
+                            </ul>
+                        </div>
+                    </TabPanel> -->
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- end main content-->
+
+{% endblock content %}
+
+{% block extra_js %}
+<!-- apexcharts -->
+<script src="{% static 'libs/apexcharts/dist/apexcharts.min.js'%}"></script>
+
+<!-- Dashboard init -->
+<script src="{% static 'js/pages/dashboard-crm.init.js'%}"></script>
+{% endblock extra_js %}
