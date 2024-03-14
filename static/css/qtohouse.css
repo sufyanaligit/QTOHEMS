@@ -720,7 +720,7 @@ font-size: 25px !important;
   font-family: "Poppins-Medium";
 }
 .projects {
-  height: 5000px;
+  min-height: 1000px;
 }
 
 .projects h2 {
@@ -984,6 +984,10 @@ ul {
 
 .detail-manue {
   padding-right: 35px;
+}
+.tab-content .active {
+  background-color: rgba(var(--vz-light-rgb),var(--vz-bg-opacity))!important;
+  color: #f0f0f0;
 }
 .detail .active {
   background-color: #000000;

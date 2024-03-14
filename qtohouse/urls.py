@@ -33,7 +33,7 @@ urlpatterns = [
     path("Cart", view=qtohouse_Cart_view, name="qtohouseCart"),
     path("CheckOut", view=qtohouse_CheckOut_view, name="qtohouseCheckOut"),
     path("Projects", view=qtohouse_Projects_view, name="qtohouseProjects"),
-    path('project_detail/<int:pk>/', views.project_detail_view, name='project_detail_view'),
+    path('project_detail/<int:pk>/', views.qtohouse_project_detail_view, name='qtohouse_project_detail_view'),
 
 
 

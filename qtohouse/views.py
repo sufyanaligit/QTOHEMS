@@ -49,7 +49,7 @@ def qtohouse_Projects_view(request):
     return render(request, "qtohouse/Projects.html", {'projects': projects})
 
 @login_required
-def project_detail_view(request, pk):
+def qtohouse_project_detail_view(request, pk):
     projects = get_object_or_404(Project, project_id=pk)
     return render(request, "qtohouse/ProjectDetail.html", {'projects': projects})
 
