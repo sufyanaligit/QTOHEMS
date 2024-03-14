@@ -22,8 +22,9 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    path('', include('qtosol.urls')),
-    path('qtohouse/', include('qtohouse.urls')),
+    path('', include('qtohouse.urls')),
+    path('qtosol/', include('qtosol.urls')),
+    
     path('cart/', include('carts.urls')),
     path('admin/', admin.site.urls),
     # Dashboard

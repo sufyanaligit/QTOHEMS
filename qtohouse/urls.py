@@ -18,12 +18,12 @@ from qtohouse.views import(
 
 )
 from . import views
-
+ 
 urlpatterns = [
     path("", view=qtohouse_home_view, name="qtohousehome"),
     path("AboutUs", view=qtohouse_aboutus_view, name="qtohouseabout"),
     path("Services", view=qtohouse_services_view, name="qtohouseservices"),
-    path("career", view=qtohouse_career_view, name="qtohousecareer"),
+    path("career", view=qtohouse_career_view, name="career"),
     path("ContactUs", view=qtohouse_contactus_view, name="qtohousecontact"),
     path("Sample", view=qtohouse_sample_view, name="qtohousesample"),
     path("quote", view=qtohouse_quote_view, name="qtohousequote"),

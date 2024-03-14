@@ -9,7 +9,7 @@
         <img class="fixed-sidebar-image" alt="" src="/static/imagesqtohouse/instagram@2x.png" />
     </a>
     <a href="https://twitter.com/QtoSol" class="twitter">
-        <img class="fixed-sidebar-image" alt="" src="/static/imagesqtohouse/twitter-circled@2xx.png" />
+        <img class="fixed-sidebar-image" alt="" src="/static/imagesqtohouse/twitter-circled@2x.png" />
     </a>
     <a href="https://www.facebook.com/profile.php?id=100064318140416" class="facebook">
         <img class="fixed-sidebar-image" alt="" src="/static/imagesqtohouse/facebook@2x.png" />
@@ -45,7 +45,7 @@
             </a>
             {% endif %}
         </div>
-        <div class="">
+        <!-- <div class="">
             <button type="button" class="btn cartb vertical-align-btn">
                 <div class="CI">
                     <a href="cart/">
@@ -57,13 +57,13 @@
                     <img src="{% static 'imagesqtosol/dropdown.png'%}" alt="Image 4" />
                 </div>
             </button>
-        </div>
-        <div class="mni bdg">
+        </div> -->
+        <!-- <div class="mni bdg">
             <div>
                 <img src="{% static 'imagesqtosol/noti.png'%}" alt="Image 6" />
                 <span class="notifi">4</span>
             </div>
-        </div>
+        </div> -->
         <div class="mni">
             <div>
                 <img src="{% static 'imagesqtosol/mail.png'%}" alt="Image 5" />
@@ -71,6 +71,13 @@
                     <span>info@qtosol.com</span>
                 </div>
             </div>
+        </div>
+        <div class="mni ml-auto">
+            <div><a class="" href="tel: 571-748-4366"><img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGeSURBVHgBrVcBdYQwDA1nYOdgOBgSOgc4OCTgABwcUwBTcBJgDnAAp4A5yNJH+xZ6lALtfy+vkIT8JiR9EAEDIia0JLDEL0kfRdEIoUBEMUmL2yggFCjYgPtwA09EFETQ2qr7nuTL8HkjqdR1R6X9BB8QYcYyyCw+D2WfwBMXmLPSuFr8ntquGsuLcGT3Hxa/jl2n4AvWNIPFLjOblE8LHrio9Uetcjxi04kaRc7iqH0gAGHHdC8lUzOo390TfLFVMklmzKKAEDBOGsH06Bqbs4SCBW4tG8khJNayxPmc1eWefOfQJORZDkyfc/1aJ/uQPljwO9NXW6Rqs3eSEo80llFCNBqoYXrpc8O5w/kmub3dtQFySI0HYwupznYPChdpiZYSGjbuk+BcWln+fsVHuEgbMyCzCWRnMFoaCZcNV4EL+FrCwrDL8l8dMTRq2ANcdqhEiwdG4zCheihfeSf1HuJThOrBGNe7ssaNE+g0IQuQWYgHRZ7qDeByxNxNc5LYBgEhgPOINA7yUvpGEBj4/7sg5R3mX4Vv+kzppP0Pic6y659f7DQAAAAASUVORK5CYII="
+                        alt="Image 9">
+                    <div class="newproject"><span>(312)-544-0023</span></div>
+                </a></div>
         </div>
         <div class=""></div>
     </div>
@@ -101,33 +108,33 @@
                                 <a class="nav-link active" aria-current="page" href="/">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/AboutUs">About Us</a>
+                                <a class="nav-link" href="AboutUs">About Us</a>
                             </li>
                             {% if user.is_authenticated %}
 
                             <li class="nav-item">
-                                <a class="nav-link" href="/Projects">Projects</a>
+                                <a class="nav-link" href="Projects">Projects</a>
                             </li>
                             {% else %}
 
 
                             {% endif %}
                             <li class="nav-item">
-                                <a class="nav-link" href="/Services">Solutions</a>
+                                <a class="nav-link" href="Services">Solutions</a>
+                            </li>
+                            <!-- <li class="nav-item">
+                                <a class="nav-link" href="career">Career</a>
+                            </li> -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="ContactUs">Contact Us</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/career">Career</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/ContactUs">Contact Us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/Sample">Sample</a>
+                                <a class="nav-link" href="Sample">Sample</a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <a href="/quote" class="nav-link">
+                <a href="quote" class="nav-link">
                     <button type="button" class="btn loginb NB vertical-align-btn">
                         Get Free Quote
                     </button>

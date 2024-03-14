@@ -1,4 +1,4 @@
-{% extends "partials/qtosolbase.html" %}
+{% extends "partials/qtohousebase.html" %}
 {% load static %}
 
 {% block html %}data-layout="vertical" data-layout-style="detached" data-layout-position="fixed" data-topbar="light"
@@ -14,10 +14,163 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
 
 <!-- end main content-->
 
+<section class="services">
+    <div class="main-div">
+        <div class="backimg">
+            <div class="colorgradientonimage">
+                <h2 style="font-size: 4rem;">Welcome to Qto House</h2>
 
+                <p style="text-align: center; font-family: Poppins-SemiBold; font-size: 16px;">
+                    "Trust QTO House to fine-tune your estimates, providing the edge
+                    you need to win lucrative contracts confidently"
+                </p>
+            </div>
+        </div>
+        <div class="container what-is-qto">
+            <div class="row border-2">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-5 WIQTO">
+                    <h1>WHAT IS QTO?</h1>
+                    <p style="text-align: justify;">
+
+                        Numerous contractors are currently preoccupied with ongoing
+                        projects, leaving them with insufficient time to bid on new
+                        jobs. Consequently, failing to bid on potential projects could
+                        result in loss for your company. A rough approximation
+                        suggests that contractors lose roughly $150,000 yearly due to
+                        inaccurate estimates and missed bids.
+                        <br />
+                        <br />
+                        For small contractors, employing a full-time construction
+                        estimator can prove to be financially challenging. To solve
+                        your construction cost estimation requirements, consider
+                        utilizing a QTO estimating service tailored for builders.
+                    </p>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-7
+               qto_benifits">
+                    <div class="row benifit-container">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 benifit-container">
+                            <div class="benifit-a">
+                                <img class="fl" alt="" src="{% static 'imagesqtohouse/savemoney.png'%}" />
+                                <h2>Save Money</h2>
+                            </div>
+
+                            <p>
+                                You can save money by getting help with estimating your
+                                construction costs from us instead of hiring a full-time
+                                estimator. Our services are offered at a nominal fee for
+                                both full and trade-specific estimates, allowing you to
+                                save money.
+                            </p>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 benifit-container">
+                            <div class="benifit-a">
+                                <img class="fl" alt="" src="{% static 'imagesqtohouse/savemoney.png'%}" />
+                                <h2>Fast Turnaround</h2>
+                            </div>
+
+                            <p>
+                                Our team of certified estimators specializes in preparing
+                                construction estimates. Working collaboratively allows us
+                                to deliver estimates in a timely manner, ensuring that you
+                                meet your deadline..
+                            </p>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 benifit-container">
+                            <div class="benifit-a">
+                                <img class="fl" alt="" src="{% static 'imagesqtohouse/savemoney.png'%}" />
+                                <h2>Quick Support</h2>
+                            </div>
+
+                            <p>
+                                Our team of professional cost estimators is available 24/7
+                                to address any inquiries you may have via phone or email.
+                                We offer ongoing support and revisions, even after
+                                delivering the estimates to ensure your satisfaction.
+                            </p>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 benifit-container">
+                            <div class="benifit-a">
+                                
+                                <h2>Accuracy Insured</h2>
+                            </div>
+
+                            <p>
+                                Our estimates comply with local construction
+                                specifications, material, and labor rates. By utilizing
+                                state-of-the-art software such as PlanSwift and Bluebeam,
+                                we guarantee our clients receive the most precise cost
+                                estimates for their project.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"></div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"></div>
+        </div>
+    </div>
+    <br></br>
+    <br></br>
+    <br></br>
+    <!-- <div class="ourServices container">
+        <h2 class="pageheading">Our Solutions</h2>
+        <p style="text-align: justify;">
+            QTO House provides a range of accurate and affordable quantity
+            takeoff services and construction estimating support services to
+            organizations across the construction industry. We specialize in all
+            construction trades and CSI divisions related to:
+        </p>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 OSThree ">
+                <div class="commercial-construction cc"></div>
+                <div class="fedral-construction cc"></div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4  OSThree">
+                <div class="residential-construction cc"></div>
+                <div class="hcivil-construction cc"></div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 OSThree ">
+                <div class="indust-construction col-larg"></div>
+            </div>
+        </div>
+    </div> -->
+
+    <CSIDivisions />
+
+    <div class="hiv container">
+        <h1>How it works</h1>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
+                <p>
+                    Our certified take-off specialists use a structured process to
+                    accurately calculate the quantities of various construction
+                    materials required for each project. Here's a brief overview of
+                    how our construction take-off services work:
+                </p>
+                <img class="" alt="" src="{% static 'imagesqtohouse/hiw.png'%}" />
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 estimator">
+                <img class="fl" alt="" src="{% static 'imagesqtohouse/Mask group.png'%}" />
+                <img class="f2" alt="" src="{% static 'imagesqtohouse/Maskgroup.png'%}" />
+            </div>
+        </div>
+    </div>
+    <div class="WCU"></div>
+
+    <EstmationServices />
+    <WhyChooseQto />
+    <Weworkwith />
+</section>
 
 {% block Estimation-services %}
-{% include "qtosol/EstimationServices.html" %}
+{% include "qtohouse/EstimationServices.html" %}
 {% endblock Estimation-services %}
 {% block FAQS %}
 {% include "qtosol/Faq's.html" %}
