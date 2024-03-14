@@ -1699,7 +1699,7 @@ body {
   background-position: center center;
   }
   .about-us-img {
-    background-image: url("{% static 'imagesqtosol/about.png' %}");
+    background-image: url("../imagesqtosol/about.png"); 
     background-position: center center;
   }
   
