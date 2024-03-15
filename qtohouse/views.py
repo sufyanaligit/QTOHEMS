@@ -59,13 +59,16 @@ def qtohouse_Projects_view(request):
     else:
         # User is not a contractor, so show all projects without marking
         return render(request, 'qtohouse/Projects.html', {'projects': projects})
-
+import os
 @login_required
 def qtohouse_project_detail_view(request, pk):
     projects = get_object_or_404(Project, project_id=pk)
     project_specification_files = projects.project_specification_files.all()
+    
+    # Extracting just the file name using os.path.basename()
+    
+    
     return render(request, "qtohouse/ProjectDetail.html", {'projects': projects, 'project_specification_files': project_specification_files})
-
 def cart(request,):
     return render(request, 'qtohouse/Cart.html')
 

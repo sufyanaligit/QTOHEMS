@@ -39,14 +39,19 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                                 aria-selected="true">Project Details</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="pills-past-projects-tab" data-bs-toggle="pill"
+                            <a class="nav-link" id="pills-projects-specs-tab" data-bs-toggle="pill"
                                 href="#pills-project-specs" role="tab" aria-controls="pills-project-specs"
                                 aria-selected="false">Specs</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="pills-featured-projects-tab" data-bs-toggle="pill"
-                                href="#pills-featured-projects" role="tab" aria-controls="pills-featured-projects"
+                            <a class="nav-link" id="pills-plans-projects-tab" data-bs-toggle="pill"
+                                href="#pills-plans-projects" role="tab" aria-controls="pills-plans-projects"
                                 aria-selected="false">Plans</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="pills-Takeoffs-projects-tab" data-bs-toggle="pill"
+                                href="#pills-Takeoffs-projects" role="tab" aria-controls="pills-Takeoffs-projects"
+                                aria-selected="false">Takeoffs</a>
                         </li>
                     </ul>
                 </div>
@@ -85,44 +90,44 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-active-projects" role="tabpanel"
                             aria-labelledby="pills-active-projects-tab">
-                            <!-- Content for Project Details tab -->
+                            <!-- Content for Active Projects Tab -->
                             <div class="row">
                                 <!-- <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                    <div class="row">
-                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                                            <div class="card">
-                                                {/* <img src="..." class="card-img-top" alt="..."> */}
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">
-                                                        Some quick example text to build on the card
-                                                        title and make up the bulk of the card's
-                                                        content.
-                                                    </p>
-                                                    <a href="#" class="btn btn-primary">
-                                                        Go somewhere
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                                            <div class="card">
-                                                {/* <img src="..." class="card-img-top" alt="..."> */}
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">
-                                                        Some quick example text to build on the card
-                                                        title and make up the bulk of the card's
-                                                        content.
-                                                    </p>
-                                                    <a href="#" class="btn btn-primary">
-                                                        Go somewhere
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> -->
+                                                                <div class="row">
+                                                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                                                        <div class="card">
+                                                                            {/* <img src="..." class="card-img-top" alt="..."> */}
+                                                                            <div class="card-body">
+                                                                                <h5 class="card-title">Card title</h5>
+                                                                                <p class="card-text">
+                                                                                    Some quick example text to build on the card
+                                                                                    title and make up the bulk of the card's
+                                                                                    content.
+                                                                                </p>
+                                                                                <a href="#" class="btn btn-primary">
+                                                                                    Go somewhere
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                                                        <div class="card">
+                                                                            {/* <img src="..." class="card-img-top" alt="..."> */}
+                                                                            <div class="card-body">
+                                                                                <h5 class="card-title">Card title</h5>
+                                                                                <p class="card-text">
+                                                                                    Some quick example text to build on the card
+                                                                                    title and make up the bulk of the card's
+                                                                                    content.
+                                                                                </p>
+                                                                                <a href="#" class="btn btn-primary">
+                                                                                    Go somewhere
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                </div> -->
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"></div>
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-5 left-detail">
                                     <ul>
@@ -309,11 +314,11 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                             </div>
                         </div>
                         <div class="tab-pane fade" id="pills-project-specs" role="tabpanel"
-                            aria-labelledby="pills-past-projects-tab">
-                            <!-- Content for Specs tab -->
+                            aria-labelledby="pills-projects-specs-tab">
+                            <!-- Content for Project Specs Tab -->
                             <div class="specs">
                                 <ul>
-                                    
+
                                     <li>
                                         <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
                                         <h2>46160-Plans</h2>
@@ -324,104 +329,47 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                                     </li>
                                 </ul>
                             </div>
-
                         </div>
-                        <div class="tab-pane fade" id="pills-featured-projects" role="tabpanel"
-                            aria-labelledby="pills-featured-projects-tab">
-                            <!-- Content for Plans tab -->
+                        <div class="tab-pane fade" id="pills-plans-projects" role="tabpanel"
+                            aria-labelledby="pills-plans-projects-tab">
+                            <!-- Content for Plans Tab -->
                             <div class="specs">
                                 <ul>
-                                    
-                                        {% for file in project_specification_files %}
-                                        <li>
-                                            <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
-                                            <h2>{{ file.name }}</h2>
-                                            <span class="size">{{ file.file.size|filesizeformat }}</span>
-                                            <span class="date">{{ file.uploaded_at }}</span>
-                                            <a href="" class="download">
-                                                <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
-                                            </a>
-                                        </li>
-                                        {% endfor %}
-                                    
+                                    {% for file in project_specification_files %}
+                                    <li>
+                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                        <h2>{{ file.name }}</h2>
+                                        <span class="size">{{ file.file.size|filesizeformat }}</span>
+                                        <span class="date">{{ file.uploaded_at }}</span>
+                                        <a href="" class="download">
+                                            <img class="download" alt=""
+                                                src="{% static 'imagesqtosol/download.png'%}" />
+                                        </a>
+                                    </li>
+                                    {% endfor %}
 
-                                </ul>
-                            </div>
-                            <div class="specs">
-                                <ul>
-                                    <li>
-                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
-                                        <h2>46160-Drawing</h2>
-                                        <span class="size">2 MB</span>
-                                        <span class="date">Mar 10, 2023</span>
-                                        <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
-                                        <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="specs">
-                                <ul>
-                                    <li>
-                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
-                                        <h2>46160-Drawing</h2>
-                                        <span class="size">2 MB</span>
-                                        <span class="date">Mar 10, 2023</span>
-                                        <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
-                                        <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="specs">
-                                <ul>
-                                    <li>
-                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
-                                        <h2>46160-Drawing</h2>
-                                        <span class="size">2 MB</span>
-                                        <span class="date">Mar 10, 2023</span>
-                                        <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
-                                        <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="specs">
-                                <ul>
-                                    <li>
-                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
-                                        <h2>46160-Drawing</h2>
-                                        <span class="size">2 MB</span>
-                                        <span class="date">Mar 10, 2023</span>
-                                        <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
-                                        <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="specs">
-                                <ul>
-                                    <li>
-                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
-                                        <h2>46160-Drawing</h2>
-                                        <span class="size">2 MB</span>
-                                        <span class="date">Mar 10, 2023</span>
-                                        <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
-                                        <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="specs">
-                                <ul>
-                                    <li>
-                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
-                                        <h2>46160-Drawing</h2>
-                                        <span class="size">2 MB</span>
-                                        <span class="date">Mar 10, 2023</span>
-                                        <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
-                                        <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
-                                    </li>
+
                                 </ul>
                             </div>
                         </div>
-
+                        <div class="tab-pane fade" id="pills-Takeoffs-projects" role="tabpanel"
+                            aria-labelledby="pills-Takeoffs-projects-tab">
+                            <!-- Content for Takeoffs Tab -->
+                            <div class="specs">
+                                <ul>
+                                    <h1>{{ projects.project_name }}</h1>
+                                    <p>Project Files:</p>
+                                    {% if projects.project_files %}
+                                    <a href="{{ projects.project_files.url }}">{{ projects.project_files.name }}</a>
+                                    {% else %}
+                                    <p>No project files uploaded.</p>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
                     </div>
+
+
                 </div>
 
                 <!-- 
