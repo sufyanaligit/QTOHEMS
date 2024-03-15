@@ -356,8 +356,7 @@ class Project(models.Model):
         null=True,
         related_name='restored_Project'
     )
-
-
+    contractors = models.ManyToManyField(User, related_name='projects_as_contractor', blank=True)
 
     def delete(self, *args, **kwargs):
         try:
@@ -377,6 +376,7 @@ class Project(models.Model):
     #To save 
     def __str__(self):
         return self.project_name
+
 
 class Bid(models.Model):
     BIDDING_METHOD_CHOICES = (

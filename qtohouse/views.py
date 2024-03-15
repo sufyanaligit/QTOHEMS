@@ -5,10 +5,12 @@ from allauth.account.views import LoginView
 from django.contrib.auth import login,logout
 from django.views.generic import FormView
 from django.contrib.auth.forms import AuthenticationForm
+from requests import request
 from apps.models import Project
 from qtosol.models import Cart,CartItem
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
+
 class qtohouseView(TemplateView):
     pass
 
@@ -45,14 +47,18 @@ qtohouse_Cart_view = qtohouseView.as_view(template_name="qtohouse/Cart.html")
 
 @login_required
 def qtohouse_Projects_view(request):
-    if request.user.groups.filter(name='Contractor').exists():
-        # If the user belongs to the 'Contractor' group, return an empty queryset
-        projects = Project.objects.none()
+    user = request.user
+    contractor_group = Group.objects.get(name='Contractor')
+
+    projects = Project.objects.all()
+
+    if contractor_group in user.groups.all():
+        # User is a contractor, so show all projects and mark their projects
+        my_projects = user.projects_as_contractor.all()
+        return render(request, 'qtohouse/Projects.html', {'projects': projects, 'my_projects': my_projects,'my_projects': my_projects, 'show_my_projects_tab': True })
     else:
-        # Otherwise, return all projects
-        projects = Project.objects.all().order_by('-project_id')
-    
-    return render(request, "qtohouse/Projects.html", {'projects': projects})
+        # User is not a contractor, so show all projects without marking
+        return render(request, 'qtohouse/Projects.html', {'projects': projects})
 
 @login_required
 def qtohouse_project_detail_view(request, pk):
