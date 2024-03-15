@@ -1,4 +1,3 @@
-
 body {
   /* background-color: #f5f5f5 !important; */
   overflow-x: hidden !important;
@@ -56,7 +55,7 @@ a{
   margin-right: 10px;
 }
 .mininav {
-  height: 34px;
+  height: 40px !important;
   background-color: #6d6d6d;
 }
 
@@ -71,10 +70,11 @@ a{
   background-color: #fdc022 !important;
   padding-top: 1px !important;
   position: relative;
-  height: 35px;
+  height: 30px;
   width: 95px;
   font-weight: bold !important;
   font-size: 13.24px !important;
+  margin-right: 10px !important;
 }
 .num {
   font-size: 3em
@@ -355,7 +355,7 @@ a {
 }
 
 .background-img {
-  background-image: url("components/images/about.png");
+  background-image: url("../imagesqtosol/about.png");
   background-color: rgba(
     0,
     0,
@@ -368,8 +368,8 @@ a {
   color: white;
 }
 .background-img-2 {
-  /* background-image: url("components/images/ci1.jpg"); */
-   background-image: url("{% static 'imagesqtosol/cover.jpg' %}");
+  /* background-image: url("../imagesqtosol/ci1.jpg"); */
+  background-image: url("../imagesqtosol/cover.jpg");
   background-color: rgba(
     0,
     0,
@@ -383,7 +383,7 @@ a {
   color: white;
 }
 .background-img-3 {
-  background-image: url("components/images/ci1.png");
+  background-image: url("../imagesqtosol/ci1.png");
   background-color: rgba(
     0,
     0,
@@ -401,7 +401,7 @@ a {
   height: 536px;
   background-image: linear-gradient(to bottom, rgba(9, 8, 8, 0), rgb(5, 4, 4));
   background-position: center center;
-  /* background-image: url("components/images/ci1.png");   */
+  /* background-image: url("../imagesqtosol/ci1.png");   */
 }
 
 .qna ul {
@@ -1354,29 +1354,29 @@ ul {
   padding: 0px;
 }
 /* .commercial-construction {
-  background-image: url("components/images/comercial.png"); 
+  background-image: url("../imagesqtosol/comercial.png"); 
   background-position: center center;
       background-repeat: no-repeat;
 }
 .residential-construction {
-  background-image: url("components/images/residancial.png"); 
+  background-image: url("../imagesqtosol/residancial.png"); 
   background-position: center center;
       background-repeat: no-repeat;
 }
 .fedral-construction {
-  background-image: url("components/images/fedral.png"); 
+  background-image: url("../imagesqtosol/fedral.png"); 
   background-position: center center;
       background-repeat: no-repeat;
 }
 
 .hcivil-construction {
-  background-image: url("components/images/hcivil.png"); 
+  background-image: url("../imagesqtosol/hcivil.png"); 
   background-position: center center;
       background-repeat: no-repeat;
 }
 
 .indust-construction {
-  background-image: url("components/images/industrial-construction.png"); 
+  background-image: url("../imagesqtosol/industrial-construction.png"); 
   background-position: center center;
   background-repeat: no-repeat;
 } */
@@ -1394,25 +1394,25 @@ ul {
 
 .commercial-construction {
   animation: pulse 3s ease-out 2 ;
-  background-image: url("components/images/comercial.png"); /* Update with your image path */
+  background-image: url("../imagesqtosol/comercial.png"); /* Update with your image path */
 }
 .residential-construction {
   animation: pulse 3s ease-out 2 ;
-  background-image: url("components/images/residancial.png"); /* Update with your image path */
+  background-image: url("../imagesqtosol/residancial.png"); /* Update with your image path */
 }
 .fedral-construction {
   animation: pulse 3s ease-out 2 ;
-  background-image: url("components/images/fedral.png"); /* Update with your image path */
+  background-image: url("../imagesqtosol/fedral.png"); /* Update with your image path */
 }
 
 .hcivil-construction {
   animation: pulse 3s ease-out 2  ;
-  background-image: url("components/images/hcivil.png"); /* Update with your image path */
+  background-image: url("../imagesqtosol/hcivil.png"); /* Update with your image path */
 }
 
 .indust-construction {
   animation: pulse 3s ease-out 2  ;
-  background-image: url("components/images/industrial-construction.png"); /* Update with your image path */
+  background-image: url("../imagesqtosol/industrial-construction.png"); /* Update with your image path */
 }
 .ourServices {
   padding: 0px 337px 0px 337px !important;
@@ -1441,7 +1441,7 @@ ul {
 }
 
 .backimg {
-  background-image: url("components/images/enhanced-image 5.png"); /* Update with your image path */
+  background-image: url("../imagesqtosol/enhanced-image 5.png"); /* Update with your image path */
   background-size: cover; /* Adjust as needed */
   background-repeat: no-repeat; /* Prevent repeating of the image */
   height: 536px;
@@ -1636,11 +1636,11 @@ ul {
   transform: translate(-50%, -50%);
 }
 .contact-us-img{
- background-image: url("components/images/contact-us.png"); /* Update with your image path */
+ background-image: url("../imagesqtosol/contact-us.png"); /* Update with your image path */
 background-position: center center;
 }
 .about-us-img{
-   background-image: url("components/images/about.png"); /* Update with your image path */
+   background-image: url("../imagesqtosol/about.png"); /* Update with your image path */
    background-position: center center;
 }
 .QTO-main-img{
@@ -1665,7 +1665,7 @@ background-position: center center;
   color: white;
 }
 .carrier  {
-  background-image: url("components/images/Career-main.png"); /* Update with your image path */
+  background-image: url("../imagesqtosol/Career-main.png"); /* Update with your image path */
   background-size: cover; /* Adjust as needed */
   background-repeat: no-repeat; /* Prevent repeating of the image */
   height: 536px;
@@ -1759,7 +1759,7 @@ background-position: center center;
 }
 
 .register {
-  background-image: url("components/images/register-background.png"); /* Update with your image path */
+  background-image: url("../imagesqtosol/register-background.png"); /* Update with your image path */
   background-size: cover; /* Adjust as needed */
   background-repeat: no-repeat; /* Prevent repeating of the image */
   height: 1200px;
@@ -1810,7 +1810,7 @@ margin-top: 30px;
 
 .form-group {
   display: flex;
-  background-color: #eeeeee;
+  background-color: #eee !important;
   color: #b1b1b1;
   height: 54px;
   border: 1px solid #b1b1b1;
@@ -1827,7 +1827,7 @@ margin-top: 30px;
   height: 54px;
   border: 1px solid #b1b1b1;
   border-radius: 20px;
-  width: 40% !important ;
+  /* width: 40% !important ; */
   align-items: center; /* Center items horizontally */
   margin: 5px 18px 28px 18px;
   margin-left: 30px;
@@ -1877,6 +1877,7 @@ margin-top: 30px;
   height: 15.36px;
   width: 13.66;
   margin-left: 15px;
+  margin-right: 15px;
 }
 .contact-textarea {
   height: auto;
@@ -1951,7 +1952,7 @@ margin-top: 30px;
 }
 
 .login-p {
-  background-image: url("components/images/login-bac-img.png");
+  background-image: url("../imagesqtosol/login-bac-img.png");
   /* Update with your image path */
   background-size: cover; /* Adjust as needed */
   background-repeat: no-repeat; /* Prevent repeating of the image */
@@ -2071,7 +2072,7 @@ padding: 20px;
 }
   .mininav {
 
-    height: 34px;
+    height: 50px !important;
     background-color: #6d6d6d;
   }
 
@@ -2084,6 +2085,7 @@ padding: 20px;
 
   .loginb {
     height: 25px;
+    
   }
   .cartb {
     height: 26px;

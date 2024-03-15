@@ -1,3 +1,35 @@
+
+
+
+@font-face {
+  font-family: 'Font Name';
+  src: url('/static/css/fonts/Inter-Black.ttf') format('ttf'),
+       url('/static/css/fonts/Inter-ExtraBold.ttf') format('ttf'),
+       url('/static/css/fonts/Inter-ExtraLight.ttf') format('ttf'),
+       url('/static/css/fonts/Inter-Light.ttf') format('ttf'),
+       url('/static/css/fonts/Inter-Medium.ttf') format('ttf'),
+       url('/static/css/fonts/Inter-Regular.ttf') format('ttf'),
+       url('/static/css/fonts/Inter-SemiBold.ttf') format('ttf'),
+       url('/static/css/fonts/Inter-Thin.ttf') format('ttf'),
+       url('/static/css/fonts/Poppins-Black.ttf') format('ttf'),
+       url('/static/css/fonts/Poppins-BlackItalic.ttf') format('ttf'),
+       url('/static/css/fonts/Poppins-Bold.ttf') format('ttf'),
+       url('/static/css/fonts/Poppins-ExtraBold.ttf') format('ttf'),
+       url('/static/css/fonts/Poppins-ExtraBoldItalic.ttf') format('ttf'),
+       url('/static/css/fonts/Poppins-ExtraLight.ttf') format('ttf'),
+       url('/static/css/fonts/Poppins-BlackItalic.ttf') format('ttf'),
+       url('/static/css/fonts/Poppins-Italic.ttf') format('ttf'),
+       url('/static/css/fonts/Poppins-Light.ttf') format('ttf'),
+       url('/static/css/fonts/Poppins-LightItalic.ttf') format('ttf'),
+       url('/static/css/fonts/Poppins-Medium.ttf') format('ttf'),
+       url('/static/css/fonts/Poppins-MediumItalic.ttf') format('ttf'),
+       url('/static/css/fonts/Poppins-Regular.ttf') format('ttf'),
+       url('/static/css/fonts/Poppins-SemiBold.ttf') format('ttf'),
+       url('/static/css/fonts/Poppins-SemiBoldItalic.ttf') format('ttf'),
+       url('/static/css/fonts/Poppins-Thin.ttf') format('ttf'),
+       url('/static/css/fonts/Poppins-ThinItalic.ttf') format('ttf'),
+}
+
 body {
   /* background-color: #f5f5f5 !important; */
   overflow-x: hidden !important;
@@ -368,7 +400,7 @@ a {
   color: white;
 }
 .background-img-2 {
-  /* background-image: url("../imagesqtosol/ci1.jpg"); */../imagesqtohouse
+  /* background-image: url("../imagesqtosol/ci1.jpg"); */
   background-image: url("../imagesqtosol/cover.jpg");
   background-color: rgba(
     0,
