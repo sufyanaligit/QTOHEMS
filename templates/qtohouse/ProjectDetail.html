@@ -313,6 +313,7 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                             <!-- Content for Specs tab -->
                             <div class="specs">
                                 <ul>
+                                    
                                     <li>
                                         <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
                                         <h2>46160-Plans</h2>
@@ -323,92 +324,27 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                                     </li>
                                 </ul>
                             </div>
-                            <div class="specs">
-                                <ul>
-                                    <li>
-                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
-                                        <h2>46160-Plans</h2>
-                                        <span class="size">2 MB</span>
-                                        <span class="date">Mar 10, 2023</span>
-                                        <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
-                                        <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="specs">
-                                <ul>
-                                    <li>
-                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
-                                        <h2>46160-Plans</h2>
-                                        <span class="size">2 MB</span>
-                                        <span class="date">Mar 10, 2023</span>
-                                        <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
-                                        <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="specs">
-                                <ul>
-                                    <li>
-                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
-                                        <h2>46160-Plans</h2>
-                                        <span class="size">2 MB</span>
-                                        <span class="date">Mar 10, 2023</span>
-                                        <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
-                                        <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="specs">
-                                <ul>
-                                    <li>
-                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
-                                        <h2>46160-Plans</h2>
-                                        <span class="size">2 MB</span>
-                                        <span class="date">Mar 10, 2023</span>
-                                        <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
-                                        <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="specs">
-                                <ul>
-                                    <li>
-                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
-                                        <h2>46160-Plans</h2>
-                                        <span class="size">2 MB</span>
-                                        <span class="date">Mar 10, 2023</span>
-                                        <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
-                                        <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="specs">
-                                <ul>
-                                    <li>
-                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
-                                        <h2>46160-Plans</h2>
-                                        <span class="size">2 MB</span>
-                                        <span class="date">Mar 10, 2023</span>
-                                        <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
-                                        <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
-                                    </li>
-                                </ul>
-                            </div>
+
                         </div>
                         <div class="tab-pane fade" id="pills-featured-projects" role="tabpanel"
                             aria-labelledby="pills-featured-projects-tab">
                             <!-- Content for Plans tab -->
                             <div class="specs">
                                 <ul>
-                                    <li>
-                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
-                                        <h2>46160-Drawing</h2>
-                                        <span class="size">2 MB</span>
-                                        <span class="date">Mar 10, 2023</span>
-                                        <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
-                                        <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
-                                    </li>
+                                    
+                                        {% for file in project_specification_files %}
+                                        <li>
+                                            <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
+                                            <h2>{{ file.name }}</h2>
+                                            <span class="size">{{ file.file.size|filesizeformat }}</span>
+                                            <span class="date">{{ file.uploaded_at }}</span>
+                                            <a href="" class="download">
+                                                <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                            </a>
+                                        </li>
+                                        {% endfor %}
+                                    
+
                                 </ul>
                             </div>
                             <div class="specs">

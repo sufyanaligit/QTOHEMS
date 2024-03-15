@@ -63,7 +63,8 @@ def qtohouse_Projects_view(request):
 @login_required
 def qtohouse_project_detail_view(request, pk):
     projects = get_object_or_404(Project, project_id=pk)
-    return render(request, "qtohouse/ProjectDetail.html", {'projects': projects})
+    project_specification_files = projects.project_specification_files.all()
+    return render(request, "qtohouse/ProjectDetail.html", {'projects': projects, 'project_specification_files': project_specification_files})
 
 def cart(request,):
     return render(request, 'qtohouse/Cart.html')

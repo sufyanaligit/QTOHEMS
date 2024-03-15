@@ -308,6 +308,7 @@ class Company_Details(models.Model):
 class Project(models.Model):
     project_id = models.AutoField(primary_key=True)
     project_name = models.CharField(max_length=100)
+    project_specification_files = models.ManyToManyField('ProjectSpecifications', blank=True, related_name='projects')
     project_address = models.ForeignKey('Address', on_delete=models.SET_NULL, null=True, blank=True, default=None)
     # will be using state column for Description
     state = models.CharField(max_length=50,blank=True)
