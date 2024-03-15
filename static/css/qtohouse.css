@@ -1790,7 +1790,9 @@ margin-top: 30px;
   width: 84% !important ;
   align-items: center; /* Center items horizontally */
 }
-
+.get-quote{
+  height: 1032px !important;
+}
 .login-p {
   background-image: url("../imagesqtohouse/login-bac-img.png");
   /* Update with your image path */
