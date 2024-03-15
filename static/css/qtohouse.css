@@ -315,7 +315,7 @@ a {
 }
 .background-img-2 {
   /* background-image: url("../imagesqtohouse/"); */
-  background-image: url("../imagesqtohouse/chicago.jpg");
+  background-image: url("../imagesqtohouse/cover.jpg");
 
   background-color: rgba(
     0,
@@ -343,7 +343,13 @@ a {
   width: auto;
   color: white;
 }
-
+.accordion-item .accordion-button:not(.collapsed) {
+  background-color: #fdc022 !important;
+  border-color: #fdc022 !important;
+}
+.instagram {
+  background: #dd4b39;
+}
 #grad1 {
   height: 536px;
   background-image: linear-gradient(to bottom, rgba(9, 8, 8, 0), rgb(5, 4, 4));
