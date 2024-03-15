@@ -12,32 +12,56 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
 <!-- Start right Content here -->
 <!-- ============================================================== -->
 <div class="login-p">
-    <div class="register-form-quote">
-        <h2 class="pageheading">Get Free Quote</h2>
-        <div class="container">
-            <form class="form-inline" id="quoteForm" action="https://qto.solutions/reactapp/create-quote/"
-                method="post">
-                <div class="row">
-                    <div class="form-group-quote">
-                        <img class="user" alt="" src="{% static 'imagesqtosol/user.png'%}" />
-                        <input class="from-placeholder" type="text" placeholder="First Name" name="first_name"
-                            required />
-                    </div>
-                    <!-- Add other form groups for Last Name, Email, Phone Number, Address, Company Name, Number of Drawings, Target Number of Days, Specification Files -->
-                    <div class="form-group-quote">
-                        <!-- Repeat this structure for other input fields -->
-                    </div>
-                    <div class="form-group-quote-file">
-                        <img class="upload-img" alt="" src="{% static 'imagesqtosol/upload.png'%}" />
-                        <input type="file" class="from-placeholder" name="specification_files" accept=".pdf" required />
-                        <span>only pdf files are allowed</span>
+    <div>
+        <div class="register-form-quote">
+            <h2 class="pageheading">Get Free Quote</h2>
+            <div class="container">
+                <form class="form-inline" onSubmit="handleSubmit(event)">
+                    <div class="row">
+                        <div class="form-group-quote" controlId="formBasicName">
+                            <img class="user" alt="" src="{% static 'imagesqtohouse/user.png'%}">
+                            <input class="from-placeholder" type="text" placeholder="First Name" name="first_name" value="" onChange="handleChange(event)">
+                        </div>
+                        <div class="form-group-quote " controlId="formBasicName">
+                            <img class="user" alt="" src="{% static 'imagesqtohouse/user.png'%}">
+                            <input class="from-placeholder" type="text" placeholder="Last Name" name="last_name" value="" onChange="handleChange(event)">
+                        </div>
+                        <div class="form-group-quote" controlId="formBasicName">
+                            <img class="user" alt="" src="{% static 'imagesqtohouse/mail-black.png'%}">
+                            <input class="from-placeholder" type="text" placeholder="Email" name="email" value="" onChange="handleChange(event)">
+                        </div>
+                        <div class="form-group-quote" controlId="formBasicPassword">
+                            <img class="user" alt="" src="{% static 'imagesqtohouse/phone.png'%}">
+                            <input type="text" placeholder="Phone Number" class="from-placeholder" name="phone_number" value="" onChange="handleChange(event)">
+                        </div>
+                        <div class="form-group-quote" controlId="formBasicPassword">
+                            <img class="user" alt="" src="{% static 'imagesqtohouse/address.png'%}">
+                            <input type="text" placeholder="Address" class="from-placeholder" name="address" value="" onChange="handleChange(event)">
+                        </div>
+                        <div class="form-group-quote" controlId="formBasicPassword">
+                            <img class="user" alt="" src="{% static 'imagesqtohouse/Company.png'%}">
+                            <input type="text" placeholder="Company Name" class="from-placeholder" name="company_name" value="" onChange="handleChange(event)">
+                        </div>
+                        <div class="form-group-quote" controlId="formBasicPassword">
+                            <img class="user" alt="" src="{% static 'imagesqtohouse/NOF.png'%}">
+                            <input type="text" placeholder="No Of Drawings" class="from-placeholder" name="number_of_drawings" value="" onChange="handleChange(event)">
+                        </div>
+                        <div class="form-group-quote" controlId="formBasicPassword">
+                            <img class="user" alt="" src="{% static 'imagesqtohouse/NOF.png'%}">
+                            <input type="text" placeholder="Target No Of Days" class="from-placeholder" name="target_number_of_days" value="" onChange="handleChange(event)">
+                        </div>
+                        <div class="form-group-quote-file ">
+                            <img class="upload-img" alt="" src="{% static 'imagesqtohouse/upload.png'%}">
+                            <input type="" placeholder="Drag your Specification Files Here" class="from-placeholder" name="specification_files" value="" onChange="handleChange(event)">
+                            <span>only pdf files are allowed</span>
                         </div>
                         <button type="submit" class="regist-but-quote">Get Free Quote</button>
-                        </div>
-                        </form>
-                        </div>
-                        </div>
-                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- end main content-->
 {% endblock content %}
 

@@ -43,7 +43,7 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                         For small contractors, employing a full-time construction
                         estimator can prove to be financially challenging. To solve
                         your construction cost estimation requirements, consider
-                        utilizing a QTO estimating service tailored for builders.
+                        utilizing a QTO House service tailored for builders.
                     </p>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-7
@@ -92,6 +92,7 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                         </div>
                         <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 benifit-container">
                             <div class="benifit-a">
+                                <img class="fl" alt="" src="{% static 'imagesqtohouse/savemoney.png'%}" />
                                 
                                 <h2>Accuracy Insured</h2>
                             </div>
@@ -164,12 +165,12 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
     </div>
     <div class="WCU"></div>
 
-    <EstmationServices />
+    <!-- <EstmationServices /> -->
     <WhyChooseQto />
     <Weworkwith />
 </section>
 
-{% block Estimation-services %}
+ <!-- {% block Estimation-services %}
 {% include "qtohouse/EstimationServices.html" %}
 {% endblock Estimation-services %}
 {% block FAQS %}
@@ -177,7 +178,7 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
 {% endblock FAQS %}
 {% block CSI-Division %}
 {% include "qtosol/CsiDvisions.html" %}
-{% endblock CSI-Division %}
+{% endblock CSI-Division %}  -->
 {% block Weworkwith %}
 {% include "qtosol/WeWorkWith.html" %}
 {% endblock Weworkwith %}
