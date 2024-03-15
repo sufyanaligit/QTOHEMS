@@ -357,13 +357,18 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                             <!-- Content for Takeoffs Tab -->
                             <div class="specs">
                                 <ul>
-                                    <h1>{{ projects.project_name }}</h1>
-                                    <p>Project Files:</p>
-                                    {% if projects.project_files %}
-                                    <a href="{{ projects.project_files.url }}">{{ projects.project_files.name }}</a>
-                                    {% else %}
-                                    <p>No project files uploaded.</p>
-                                    {% endif %}
+<li>
+    <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png' %}" />
+    <h2>{{ projects.project_files.name }}</h2>
+    {% if projects.project_files %}
+    <span class="size">{{ projects.project_files.size }}</span>
+    <span class="date">{{ projects.project_files.date }}</span>
+    <a class="read" href="{{ projects.project_files.url }}">Read</a>
+    <a class="download" href="{{ projects.project_files.url }}">Download</a>
+    {% else %}
+    <p>No project files uploaded.</p>
+    {% endif %}
+</li>
                                 </ul>
                             </div>
                         </div>
