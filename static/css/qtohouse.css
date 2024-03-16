@@ -985,7 +985,7 @@ ul {
   border-radius: 5px;
   margin: 0px 5px 0px 5px;
   font-size: 14.76 !important;
-  height: 38.24px !important;
+  height: 40.24px !important;
 }
 
 .detail-manue {
@@ -1016,7 +1016,7 @@ ul {
   padding: 50px !important;
 }
 .left-detail {
-  margin-top: 20px !important;
+  margin-top: 10px !important;
 }
 .left-detail ul {
   margin-left: 0px;
@@ -1028,7 +1028,7 @@ ul {
   border-radius: 5px;
   margin: 0px 5px 20px 0px;
   width: 100% !important;
-  padding: 17px 5px 12px 15px;
+  padding: 3px 5px 12px 15px;
 }
 .left-detail ul li h2 {
   font-size: 16px;
@@ -1047,8 +1047,9 @@ ul {
 .right-detail ul li span {
   margin-right: auto;
 }
-/* .CSI-d {
-} */
+.CSI-d {
+  min-height: 210px;
+}
 .CSI-d ul {
   margin-top: 20px;
   flex-direction: row;
@@ -1080,6 +1081,8 @@ ul {
   padding: 0px !important;
   border: none !important;
   flex-direction: row !important;
+  margin-top: 11px !important;
+ 
 }
 .Bonds li:first-child {
   margin-right: 10px;
@@ -1093,15 +1096,18 @@ ul {
   /* padding-right: 10px; */
   border: 1px solid #e2e2e2;
   margin: 0px;
+  min-height: 160px;
 }
 .Bonds .as ul {
   display: flex;
+  margin-top: 10px;
 }
 .Bonds .as ul li {
   border: none !important;
   padding: 0px !important;
   margin-left: 0px;
-  margin-bottom: 0px;
+  margin-bottom: -22px;
+  margin-top: 0px;
 }
 .progess-heading {
   display: flex !important;
@@ -1668,10 +1674,11 @@ margin-top: 30px;
   height: 54px;
   border: 1px solid #b1b1b1;
   border-radius: 20px;
-  width: 100% !important ;
+  width: 85% !important ;
   align-items: center; /* Center items horizontally */
   margin: 5px 18px 28px 18px;
   margin-left: 30px;
+  outline: none;
 }
 .form-group-quote {
   display: flex;
@@ -1693,7 +1700,7 @@ margin-top: 30px;
 .form-group-quote-file {
   display: block;
   text-align: center;
-  padding-top: 25px;
+  padding-top: 56px;
   background-color: #eeeeee;
   color: #b1b1b1;
   height: 180px;
@@ -1713,6 +1720,9 @@ margin-top: 30px;
   color: #b1b1b1 !important;
   border: none;
   border: 1px #eeeeee !important ;
+  margin-left: 15px !important;
+  outline: none !important;
+  
 }
 .user {
   height: 15.36px;
@@ -1740,12 +1750,13 @@ margin-top: 30px;
   margin: 5px 18px 28px 18px;
   margin-left: 30px;
   display: flex;
-  color: #b1b1b1;
+  color: #ffffff;
   height: 50px;
   border: 1px solid #b1b1b1;
   border-radius: 20px;
   width: 89% !important ;
   align-items: center; /* Center items horizontally */
+  justify-content: center;
 }
 .regist-but-contactus {
   background-color: #f2b918 !important;
@@ -1755,7 +1766,7 @@ margin-top: 30px;
   margin: 5px 18px 28px 18px;
   margin-left: 30px;
   display: flex;
-  color: #b1b1b1;
+  color: #ffffff;
   height: 50px;
   border: 1px solid #b1b1b1;
   border-radius: 20px;
@@ -1770,11 +1781,13 @@ margin-top: 30px;
   margin: 5px 18px 28px 18px;
   margin-left: 30px;
   display: flex;
+  color: #ffffff;
   height: 50px;
   border: 1px solid #b1b1b1;
   border-radius: 20px;
   width: 85% !important ;
   align-items: center; /* Center items horizontally */
+  justify-content: center;
 }
 .regist-but-register {
   background-color: #f2b918 !important;
