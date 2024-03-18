@@ -985,7 +985,7 @@ ul {
   border-radius: 5px;
   margin: 0px 5px 0px 5px;
   font-size: 14.76 !important;
-  height: 40.24px !important;
+  height: 39.24px !important;
 }
 
 .detail-manue {
@@ -1026,7 +1026,7 @@ ul {
   display: flex;
   border: 1px solid #e2e2e2;
   border-radius: 5px;
-  margin: 0px 5px 20px 0px;
+  margin: 2px 5px 20px 0px;
   width: 100% !important;
   padding: 10px 5px 12px 15px;
 }
@@ -1050,10 +1050,10 @@ ul {
 .CSI-d {
   min-height: 210px;
 }
-.bid-left{
-  min-height: 70px;
 
-}
+ .bid-left{
+  min-height: 50px;
+} 
 .CSI-d ul {
   margin-top: 20px;
   flex-direction: row;
@@ -1100,7 +1100,7 @@ ul {
   /* padding-right: 10px; */
   border: 1px solid #e2e2e2;
   margin: 0px;
-  min-height: 160px;
+  min-height: 145px;
 }
 .Bonds .as ul {
   display: flex;
