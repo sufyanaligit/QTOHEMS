@@ -1,0 +1,42 @@
+{% extends "partials/qtosolbase.html" %}
+{% load static %}
+
+{% block html %}data-layout="vertical" data-layout-style="detached" data-layout-position="fixed" data-topbar="light"
+data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock html %}
+
+{% block title %}QTO SOL{% endblock title %}
+{% block extra_css %}
+{% endblock extra_css %}
+{% block content %}
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+
+<!-- end main content-->
+
+
+
+{% block Estimation-services %}
+{% include "qtosol/EstimationServices.html" %}
+{% endblock Estimation-services %}
+{% block FAQS %}
+{% include "qtosol/Faq's.html" %}
+{% endblock FAQS %}
+{% block CSI-Division %}
+{% include "qtosol/CsiDvisions.html" %}
+{% endblock CSI-Division %}
+{% block Weworkwith %}
+{% include "qtosol/WeWorkWith.html" %}
+{% endblock Weworkwith %}
+
+
+
+{% endblock content %}
+
+{% block extra_js %}
+<!-- apexcharts -->
+<script src="{% static 'libs/apexcharts/dist/apexcharts.min.js'%}"></script>
+
+<!-- Dashboard init -->
+<script src="{% static 'js/pages/dashboard-crm.init.js'%}"></script>
+{% endblock extra_js %}

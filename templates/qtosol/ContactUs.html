@@ -1,0 +1,103 @@
+{% extends "partials/qtosolbase.html" %}
+{% load static %}
+
+{% block html %}data-layout="vertical" data-layout-style="detached" data-layout-position="fixed" data-topbar="light"
+data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock html %}
+
+{% block title %}QTO SOL{% endblock title %}
+{% block extra_css %}
+{% endblock extra_css %}
+{% block content %}
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+<div class="about contact-us-img">
+    <div class="colorgradientonimage">
+        <h2>Get In Touch</h2>
+    </div>
+</div>
+
+<div class="about-us">
+    <img class="hat" alt="" src="{% static 'imagesqtosol/hart 2.png'%}" />
+    <form class="form-inline" onSubmit="handleSubmit(event)">
+        <div class="row">
+            <h2 class="pageheading-test pageheading-contact">Contact Us</h2>
+            <div class="form-group">
+                <img class="user" alt="" src="{% static 'imagesqtosol/user.png'%}" />
+                <input class="from-placeholder" type="text" placeholder="Name" name="name">
+            </div>
+            <div class="form-group col-5">
+                <img class="user" alt="" src="{% static 'imagesqtosol/mail-black.png'%}" />
+                <input class="from-placeholder" type="text" placeholder="Email" name="email">
+            </div>
+            <div class="form-group">
+                <img class="user" alt="" src="{% static 'imagesqtosol/phone.png'%}" />
+                <input type="text" placeholder="Phone Number" class="from-placeholder" name="phone_number">
+            </div>
+            <div class="form-group">
+                <img class="user" alt="" src="{% static 'imagesqtosol/city.png'%}" />
+                <input type="text" placeholder="City" class="from-placeholder" name="city">
+            </div>
+            <div class="form-group">
+                <img class="user" alt="" src="{% static 'imagesqtosol/Company.png'%}" />
+                <input type="text" placeholder="Company Name" class="from-placeholder" name="company_name">
+            </div>
+            <div class="form-group contact-textarea">
+                <textarea placeholder="Write your message here ...." class="form-textarea" name="message"></textarea>
+                </div>
+                <button type="submit" class="regist-but-contactus btn btn-primary"">Submit</button>
+                </div>
+                </form>
+                <img class="cal" alt="" src="{% static 'imagesqtosol/Cal 1.png'%}" />
+                </div>
+                <div class="container-fluid aUp">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"></div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"></div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"></div>
+                    </div>
+                </div>
+                <!-- Include the WhyChooseQto component HTML here -->
+                <!-- Include the Weworkwith component HTML here -->
+                <script>
+                    function handleSubmit(event) {
+                        event.preventDefault();
+                        var formData = {
+                            name: event.target.name.value,
+                            email: event.target.email.value,
+                            phone_number: event.target.phone_number.value,
+                            city: event.target.city.value,
+                            company_name: event.target.company_name.value,
+                            message: event.target.message.value
+                        };
+
+                fetch("https://qto.solutions/reactapp/create-contact/", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(formData)
+                })
+                    .then(response => {
+                        if (response.status === 201) {
+                            console.log("Form submitted successfully");
+                        } else {
+                            console.error("Form submission failed");
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Network error:", error);
+                    });
+            }
+        </script>
+<!-- end main content-->
+{% endblock content %}
+
+{% block extra_js %}
+<!-- apexcharts -->
+<script src="{% static 'libs/apexcharts/dist/apexcharts.min.js'%}"></script>
+
+<!-- Dashboard init -->
+<script src="{% static 'js/pages/dashboard-crm.init.js'%}"></script>
+{% endblock extra_js %}
+

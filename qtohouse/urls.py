@@ -18,7 +18,6 @@ from qtohouse.views import(
 
 )
 from . import views
-
 urlpatterns = [
     path("", view=qtohouse_home_view, name="qtohousehome"),
     path("AboutUs", view=qtohouse_aboutus_view, name="qtohouseabout"),

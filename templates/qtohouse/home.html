@@ -1,0 +1,104 @@
+{% extends "partials/qtohousebase.html" %}
+{% load static %}
+
+{% block html %}data-layout="vertical" data-layout-style="detached" data-layout-position="fixed" data-topbar="light"
+data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock html %}
+
+{% block title %}QTO QTO House{% endblock title %}
+{% block extra_css %}
+{% endblock extra_css %}
+{% block content %}
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+<div class="main-content">
+
+    <div class="page-content">
+        <div class="container-fluid">
+
+
+
+           
+
+        </div>
+        <!-- container-fluid -->
+    </div>
+    <!-- End Page-content -->
+
+
+</div>
+<!-- end main content-->
+        {% block advance-search %}
+        {% include "qtosol/advancesearch.html" %}
+        {% endblock advance-search %}
+<section class="container">
+    <section>
+        <!-- Qto Numbering Available -->
+        <div class="container qna">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <ul class="qto-available">
+                        <li class="border">
+                            <img class="" alt="" src="{% static 'imagesqtohouse/group1.svg'%}">
+                            <span class="qtoA">QTO- Available</span>
+                            <span>200</span>
+                        </li>
+                        <div></div>
+                        <li class="border">
+                            <img class="" alt="" src="{% static 'imagesqtohouse/qto-in-progress.png'%}">
+                            <span class="qtoA">QTO- In Progresse</span>
+                            <span>81</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <ul class="qto-available">
+                        <li class="border">
+                            <img class="" alt="" src="{% static 'imagesqtohouse/bid-results.png'%}">
+                            <span class="qtoA">Bid Results</span>
+                            <span>50</span>
+                        </li>
+                        <li class="border">
+                            <img class="" alt="" src="{% static 'imagesqtohouse/group1.svg'%}">
+                            <span class="qtoA">Private project</span>
+                            <span>200</span>
+                        </li>
+                        <li class="border">
+                            <img class="" alt="" src="{% static 'imagesqtohouse/awarded.png'%}">
+                            <span class="qtoA">Awarded</span>
+                            <span>100</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+                {% block Estimation-services %}
+                {% include "qtohouse/EstimationServices.html" %}
+                {% endblock Estimation-services %}
+                {% block FAQS %}
+                {% include "qtohouse/Faq's.html" %}
+                {% endblock FAQS %}
+                {% block CSI-Division %}
+                {% include "qtohouse/CsiDvisions.html" %}
+                {% endblock CSI-Division %}
+                {% block Weworkwith %}
+                {% include "qtosol/WeWorkWith.html" %}
+                {% endblock Weworkwith %}
+
+  
+
+
+
+{% endblock content %}
+
+{% block extra_js %}
+<!-- apexcharts -->
+<script src="{% static 'libs/apexcharts/dist/apexcharts.min.js'%}"></script>
+
+<!-- Dashboard init -->
+<script src="{% static 'js/pages/dashboard-crm.init.js'%}"></script>
+{% endblock extra_js %}

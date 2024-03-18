@@ -1,0 +1,70 @@
+{% extends "partials/qtosolbase.html" %}
+{% load static %}
+
+{% block html %}data-layout="vertical" data-layout-style="detached" data-layout-position="fixed" data-topbar="light"
+data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock html %}
+
+{% block title %}QTO SOL{% endblock title %}
+{% block extra_css %}
+{% endblock extra_css %}
+{% block content %}
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+
+<!-- end main content-->
+<div class="register">
+    <div>
+        <div class="register-form">
+            <h2 class="pageheading">Register Now</h2>
+            <div class="container">
+                <form class="form-inline" onSubmit={handleSubmit}>
+                    <div class="row">
+                        <div class="form-group form-group-register" controlId="formBasicName">
+                            <img class="user" alt="" src="{% static 'imagesqtosol/user.png'%}" />
+                            <input class="from-placeholder" type="text" placeholder="User Name" name="username"
+                                 onChange={handleChange} />
+                        </div>
+
+                        <div class="form-group form-group-register" controlId="formBasicEmail">
+                            <img class="user" alt="" src="{% static 'imagesqtosol/mail-black.png'%}" />
+                            <input class="from-placeholder" type="text" placeholder="Email" name="email"
+                                 onChange={handleChange} />
+                        </div>
+
+                        <div class="form-group form-group-register" controlId="formBasicPassword">
+                            <img class="user" alt="" src="{% static 'imagesqtosol/user.png'%}" />
+                            <input type="password" placeholder="Password" class="from-placeholder" name="password"
+                                 onChange={handleChange} />
+                        </div>
+
+                        <div class="form-group form-group-register" controlId="formBasicPassword">
+                            <img class="user" alt="" src="{% static 'imagesqtosol/user.png'%}" />
+                            <input type="password" placeholder="Confirm Password" class="from-placeholder"
+                                name="confirm_password"  onChange={handleChange} />
+                        </div>
+
+                        <button variant="primary" type="submit" class="regist-but-register btn btn-primary">
+                            Register Now
+                        </button>
+                    </div>
+                </form>
+
+                <p style="text-align: center;">
+                    Already have an account? <a href="/Login">Login</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+
+{% block extra_js %}
+<!-- apexcharts -->
+<script src="{% static 'libs/apexcharts/dist/apexcharts.min.js'%}"></script>
+
+<!-- Dashboard init -->
+<script src="{% static 'js/pages/dashboard-crm.init.js'%}"></script>
+{% endblock extra_js %}

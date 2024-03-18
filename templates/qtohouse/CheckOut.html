@@ -1,0 +1,98 @@
+{% load static %}
+<div class="container">
+    <div class="view-account">
+        <section class="module">
+            <div class="module-inner">
+                <div class="side-bar">
+                    <div class="user-info">
+                        <img class="img-profile img-circle img-responsive center-block"
+                            src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                        <ul class="meta list list-unstyled">
+                            <li class="name">
+                                Rachel Roth
+                                <label class="label label-info">General contractor</label>
+                            </li>
+                            <li class="email">
+                                <a href="#">Roth@outlook.com</a>
+                            </li>
+                            <li class="activity">Last logged in: Today at 2:18pm</li>
+                        </ul>
+                    </div>
+                    <nav class="side-menu">
+                        <ul class="nav">
+                            <li>
+                                <a href="#">
+                                    <span class="fa fa-user"></span> Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="fa fa-cog"></span> Settings
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="#">
+                                    <span class="fa fa-credit-card"></span> Billing
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="fa fa-envelope"></span> Messages
+                                </a>
+                            </li>
+                            <li>
+                                <a href="user-drive.html">
+                                    <span class="fa fa-th"></span> Drive
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="fa fa-clock-o"></span> Reminders
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="content-panel">
+                    <div class="billing">
+                        <div class="secure text-center margin-bottom-md">
+                            <h3 class="margin-bottom-md text-success">
+                                <span class="fs1 icon" aria-hidden="true" data-icon=""></span>
+                                Secure credit card payment
+                                <br>
+                                <small>This is a secure 128-bit SSL encrypted payment</small>
+                            </h3>
+                            <div class="accepted-cards">
+                                <ul class="list-inline">
+                                    <li><img class="" alt="Visa" src="./images/payoneer.png"></li>
+                                    <li><img class="" alt="American Express" src="./images/paypal.png"></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <form id="billing" class="form-horizontal" method="post" action="#" role="form">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Name on Card</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" placeholder="Your name">
+                                    <p class="help-block">As it appears on the card</p>
+                                </div>
+                            </div>
+                            <!-- Other form inputs go here -->
+                            <div class="action-wrapper text-center">
+                                <h4 class="notes margin-bottom-sm">
+                                    You'll be charged <span class="text-stronger">$99</span>
+                                </h4>
+                                <div class="action-btn">
+                                    <button class="btn btn-success btn-lg">
+                                        Make Payment
+                                        <i class="fa fa-chevron-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

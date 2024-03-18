@@ -1,0 +1,155 @@
+{% extends "partials/qtosolbase.html" %}
+{% load static %}
+{% block html %}data-layout="vertical" data-layout-style="detached" data-layout-position="fixed" data-topbar="light"
+data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock html %}
+
+{% block title %}QTO SOL{% endblock title %}
+{% block extra_css %}
+{% endblock extra_css %}
+{% block content %}
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+
+<!-- end main content-->
+<div class="container projects">
+    <div class="projectHeading">
+        <h2>Projects</h2>
+        <span>Home</span>/<span>projects</span>
+    </div>
+    <div class="container aUp">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 sidnav ">
+                <div class="sidenavecontent border">
+                    <div class="heading">
+                        <span>Show Results By</span>
+                    </div>
+                    <div>
+                        <nav class="sidebar card">
+                            <ul class="nav flex-column">
+                                <li>
+                                    <span>Search Results by Keyword</span>
+                                    <input type="text" placeholder="Window, roof, etc" />
+                                </li>
+                                <li class="nav-item has-submenu">
+                                    <span>Location</span>
+                                    <input type="text" placeholder="Location" />
+                                </li>
+                                <li>
+                                    <span>Date Range</span>
+                                    <div class="date">
+                                        <form action="/action_page.php">
+                                            <input class="left-input" type="date" id="birthday" name="birthday" />
+                                            <span class="center-span">to</span>
+                                            <input class="right-input" type="date" id="birthday" name="birthday" />
+                                        </form>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>Bid Amount</span>
+                                    <div class="amount">
+                                        <input class="left-input" type="number" placeholder="100   $" />
+                                        <span class="center-span">to</span>
+                                        <input class="right-input" type="number" placeholder="5000000  $" />
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>Status</span>
+                                    <div class="status">
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option value="">Solicicated</option>
+                                            <option value="Alabama">UnSolicicated</option>
+                                            <option value="Alaska">None</option>
+                                        </select>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>Division</span>
+                                    <div class="dropdown-manue">Division</div>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-9 projectSection">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-12 col-xl-12 sort  detail">
+                        <div>
+                            <span class="detail-manue">Active Projects</span>
+                        </div>
+                        <div>
+                            <span class="detail-manue">Past Projects</span>
+                        </div>
+                        <div>
+                            <span class="detail-manue">Featured Projects</span>
+                        </div>
+                        <div>
+                            <span class="detail-manue">Favorites</span>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-12 col-xl-12 project-card ">
+                        {% for project in projects %}
+                        <div class="cardcontainer ">
+                            <div class="new">
+                                <div>
+                                    <span>New</span>
+                                </div>
+                            </div>
+                            <div class="row border ht">
+                                <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 cardheadingsect">
+                                    <div>
+                                        <span>Bid Date: {project.Project_Bid_Date}</span>
+                                        <a href="{% url 'project_detail_view' pk=project.project_id %}">
+                                            <h2>{{ project.project_name }}</h2>
+                                        </a>
+                                        <div class="loc">
+                                            <img class="pdf" alt="" src="{% static 'imagesqtosol/'%}" />
+                                            <span class="">{{ project.project_address }}</span>
+                                        </div>
+
+                                        <div class="aut-progress">
+                                            <span class="Authority">{project.company}</span>
+                                            <div class="progress-background">
+                                                <div class="qto-progress">
+                                                    <span>
+                                                        QTO in progress <span>{project.progress}%</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 card-right">
+                                    <div class="bid-ammout">
+                                        <span>Bid Amount: $ {project.project_bid_amount}</span>
+                                    </div>
+                                    <a href=:>
+                                        <button class="NB smd">See More Details</button>
+                                    </a>
+                                    <a href="{% url 'add_to_cart' pk=project.project_id %}"><button type="submit">Add to Cart</button></a>
+                                    <!-- <form action="{% url 'add_to_cart' pk=project.project_id %}" method="post">
+                                        {% csrf_token %}
+                                        <button type="submit">Add to Cart</button>
+                                    </form> -->
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block extra_js %}
+<!-- apexcharts -->
+<script src="{% static 'libs/apexcharts/dist/apexcharts.min.js'%}"></script>
+
+<!-- Dashboard init -->
+<script src="{% static 'js/pages/dashboard-crm.init.js'%}"></script>
+{% endblock extra_js %}
