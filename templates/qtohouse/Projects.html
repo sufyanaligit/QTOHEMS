@@ -129,13 +129,13 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                                     <div class="row border ht">
                                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 cardheadingsect">
                                             <div>
-                                                <span>Bid Date: {project.Project_Bid_Date}</span>
+                                                <span>Bid Date: {{ project.Project_Bid_Date }}</span>
                                                 <a
                                                     href="{% url 'qtohouse_project_detail_view' pk=project.project_id %}">
                                                     <h2>{{ project.project_name }}</h2>
                                                 </a>
                                                 <div class="loc">
-                                                    <img class="pdf" alt="" src="{% static 'imagesqtosol/'%}" />
+                                                    <img class="pdf" alt="" src="{% static 'imagesqtohouse/location.png'%}" />
                                                     <span class="">{{ project.project_address }}</span>
                                                 </div>
 
@@ -153,19 +153,16 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 card-right">
                                             <div class="bid-ammout">
-                                                <span>Bid Amount: $ {project.project_bid_amount}</span>
+                                                {% if project.bid_set.all %}
+                                                <span>Bid Amount: $ {{ project.bid_set.first.bid_amount }}</span>
+                                                
+                                                {% else %}
+                                                No bids yet
+                                                {% endif %}
                                             </div>
-                                            <a href=:>
+                                            <a href="{% url 'qtohouse_project_detail_view' pk=project.project_id %}">
                                                 <button class="NB smd">See More Details</button>
                                             </a>
-                                            <!-- <a href="{% url 'add_to_cart' pk=project.project_id %}"><button
-                                                    type="submit">Add to
-                                                    Cart</button></a> -->
-                                            <!-- <form action="{% url 'add_to_cart' pk=project.project_id %}" method="post">
-                                                                                                    {% csrf_token %}
-                                                                                                    <button type="submit">Add to Cart</button>
-                                                                                                </form> -->
-
                                         </div>
                                     </div>
                                 </div>
@@ -184,43 +181,39 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                                     <div class="row border ht">
                                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 cardheadingsect">
                                             <div>
-                                                <span>Bid Date: {project.Project_Bid_Date}</span>
-                                                <a
-                                                    href="{% url 'qtohouse_project_detail_view' pk=project.project_id %}">
+                                                <span>Bid Date: {{ project.Project_Bid_Date }}</span>
+                                                <a href="{% url 'qtohouse_project_detail_view' pk=project.project_id %}">
                                                     <h2>{{ project.project_name }}</h2>
                                                 </a>
                                                 <div class="loc">
-                                                    <img class="pdf" alt="" src="{% static 'imagesqtosol/'%}" />
+                                                    <img class="pdf" alt="" src="{% static 'imagesqtohouse/location.png'%}" />
                                                     <span class="">{{ project.project_address }}</span>
                                                 </div>
-
+                                
                                                 <!-- <div class="aut-progress">
-                                                    <span class="Authority">{project.company}</span>
-                                                    <div class="progress-background">
-                                                        <div class="qto-progress">
-                                                            <span>
-                                                                QTO in progress <span>{project.progress}%</span>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div> -->
+                                                                                    <span class="Authority">{project.company}</span>
+                                                                                    <div class="progress-background">
+                                                                                        <div class="qto-progress">
+                                                                                            <span>
+                                                                                                QTO in progress <span>{project.progress}%</span>
+                                                                                            </span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div> -->
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 card-right">
                                             <div class="bid-ammout">
-                                                <span>Bid Amount: $ {project.project_bid_amount}</span>
+                                                {% if project.bid_set.all %}
+                                                <span>Bid Amount: $ {{ project.bid_set.first.bid_amount }}</span>
+                                
+                                                {% else %}
+                                                No bids yet
+                                                {% endif %}
                                             </div>
-                                            <a href=:>
+                                            <a href="{% url 'qtohouse_project_detail_view' pk=project.project_id %}">
                                                 <button class="NB smd">See More Details</button>
                                             </a>
-                                            <!-- <a href="{% url 'add_to_cart' pk=project.project_id %}"><button
-                                                    type="submit">Add to
-                                                    Cart</button></a> -->
-                                            <!-- <form action="{% url 'add_to_cart' pk=project.project_id %}" method="post">
-                                                                                                                                    {% csrf_token %}
-                                                                                                                                    <button type="submit">Add to Cart</button>
-                                                                                                                                </form> -->
-
                                         </div>
                                     </div>
                                 </div>
@@ -239,46 +232,42 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                                     <div class="row border ht">
                                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 cardheadingsect">
                                             <div>
-                                                <span>Bid Date: {project.Project_Bid_Date}</span>
-                                                <a
-                                                    href="{% url 'qtohouse_project_detail_view' pk=project.project_id %}">
+                                                <span>Bid Date: {{ project.Project_Bid_Date }}</span>
+                                                <a href="{% url 'qtohouse_project_detail_view' pk=project.project_id %}">
                                                     <h2>{{ project.project_name }}</h2>
                                                 </a>
                                                 <div class="loc">
-                                                    <img class="pdf" alt="" src="{% static 'imagesqtosol/'%}" />
+                                                    <img class="pdf" alt="" src="{% static 'imagesqtohouse/location.png'%}" />
                                                     <span class="">{{ project.project_address }}</span>
                                                 </div>
-
+                                
                                                 <!-- <div class="aut-progress">
-                                                                                                            <span class="Authority">{project.company}</span>
-                                                                                                            <div class="progress-background">
-                                                                                                                <div class="qto-progress">
-                                                                                                                    <span>
-                                                                                                                        QTO in progress <span>{project.progress}%</span>
-                                                                                                                    </span>
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div> -->
+                                                                                    <span class="Authority">{project.company}</span>
+                                                                                    <div class="progress-background">
+                                                                                        <div class="qto-progress">
+                                                                                            <span>
+                                                                                                QTO in progress <span>{project.progress}%</span>
+                                                                                            </span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div> -->
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 card-right">
                                             <div class="bid-ammout">
-                                                <span>Bid Amount: $ {project.project_bid_amount}</span>
+                                                {% if project.bid_set.all %}
+                                                <span>Bid Amount: $ {{ project.bid_set.first.bid_amount }}</span>
+                                
+                                                {% else %}
+                                                No bids yet
+                                                {% endif %}
                                             </div>
-                                            <a href=:>
+                                            <a href="{% url 'qtohouse_project_detail_view' pk=project.project_id %}">
                                                 <button class="NB smd">See More Details</button>
                                             </a>
-                                            <!-- <a href="{% url 'add_to_cart' pk=project.project_id %}"><button
-                                                                                                            type="submit">Add to
-                                                                                                            Cart</button></a> -->
-                                            <!-- <form action="{% url 'add_to_cart' pk=project.project_id %}" method="post">
-                                                                                                                                                                                            {% csrf_token %}
-                                                                                                                                                                                            <button type="submit">Add to Cart</button>
-                                                                                                                                                                                        </form> -->
-
                                         </div>
                                     </div>
-                                </div>
+                                </div>      
                                 {% endfor %}
                             </div>
 

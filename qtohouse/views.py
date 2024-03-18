@@ -7,7 +7,7 @@ from django.views.generic import FormView
 from django.contrib.auth.forms import AuthenticationForm
 from requests import request
 from apps.models import Project
-from qtosol.models import Cart,CartItem
+# from qtosol.models import Cart,CartItem
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
 
@@ -69,20 +69,20 @@ def qtohouse_project_detail_view(request, pk):
     
     
     return render(request, "qtohouse/ProjectDetail.html", {'projects': projects, 'project_specification_files': project_specification_files})
-def cart(request,):
-    return render(request, 'qtohouse/Cart.html')
+# def cart(request,):
+#     return render(request, 'qtohouse/Cart.html')
 
-def add_to_cart(request, pk):
-    project = get_object_or_404(Project, project_id=pk)
+# def add_to_cart(request, pk):
+#     project = get_object_or_404(Project, project_id=pk)
     
-    if request.user.is_authenticated:
-        user_cart, created = Cart.objects.get_or_create(user=request.user)
-        cart_item, created = CartItem.objects.get_or_create(cart=user_cart, product=project, user=request.user, defaults={'quantity': 1})
+#     if request.user.is_authenticated:
+#         user_cart, created = Cart.objects.get_or_create(user=request.user)
+#         cart_item, created = CartItem.objects.get_or_create(cart=user_cart, product=project, user=request.user, defaults={'quantity': 1})
         
-        if not created:
-            cart_item.quantity += 1
-            cart_item.save()
+#         if not created:
+#             cart_item.quantity += 1
+#             cart_item.save()
         
-        return redirect('Cart.html')
-    else:
-        return redirect('login')
+#         return redirect('Cart.html')
+#     else:
+#         return redirect('login')
