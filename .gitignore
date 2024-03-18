@@ -11,3 +11,7 @@ __pycache__/
 velzon/settings.py
 
 
+<<<<<<< HEAD
+=======
+mydatabase.db
+>>>>>>> origin/main

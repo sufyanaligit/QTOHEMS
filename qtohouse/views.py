@@ -5,9 +5,11 @@ from allauth.account.views import LoginView
 from django.contrib.auth import login,logout
 from django.views.generic import FormView
 from django.contrib.auth.forms import AuthenticationForm
+from requests import request
 from apps.models import Project
-from qtosol.models import Cart,CartItem
+# from qtosol.models import Cart,CartItem
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import Group
 
 class qtohouseView(TemplateView):
     pass
@@ -45,28 +47,42 @@ qtohouse_Cart_view = qtohouseView.as_view(template_name="qtohouse/Cart.html")
 
 @login_required
 def qtohouse_Projects_view(request):
-    projects = Project.objects.all().order_by('-project_id')
-    return render(request, "qtohouse/Projects.html", {'projects': projects})
+    user = request.user
+    contractor_group = Group.objects.get(name='Contractor')
 
-@login_required
-def project_detail_view(request, pk):
-    projects = get_object_or_404(Project, project_id=pk)
-    return render(request, "qtohouse/ProjectDetail.html", {'projects': projects})
+    projects = Project.objects.all()
 
-def cart(request,):
-    return render(request, 'qtohouse/Cart.html')
-
-def add_to_cart(request, pk):
-    project = get_object_or_404(Project, project_id=pk)
-    
-    if request.user.is_authenticated:
-        user_cart, created = Cart.objects.get_or_create(user=request.user)
-        cart_item, created = CartItem.objects.get_or_create(cart=user_cart, product=project, user=request.user, defaults={'quantity': 1})
-        
-        if not created:
-            cart_item.quantity += 1
-            cart_item.save()
-        
-        return redirect('Cart.html')
+    if contractor_group in user.groups.all():
+        # User is a contractor, so show all projects and mark their projects
+        my_projects = user.projects_as_contractor.all()
+        return render(request, 'qtohouse/Projects.html', {'projects': projects, 'my_projects': my_projects,'my_projects': my_projects, 'show_my_projects_tab': True })
     else:
-        return redirect('login')
+        # User is not a contractor, so show all projects without marking
+        return render(request, 'qtohouse/Projects.html', {'projects': projects})
+import os
+@login_required
+def qtohouse_project_detail_view(request, pk):
+    projects = get_object_or_404(Project, project_id=pk)
+    project_specification_files = projects.project_specification_files.all()
+    
+    # Extracting just the file name using os.path.basename()
+    
+    
+    return render(request, "qtohouse/ProjectDetail.html", {'projects': projects, 'project_specification_files': project_specification_files})
+# def cart(request,):
+#     return render(request, 'qtohouse/Cart.html')
+
+# def add_to_cart(request, pk):
+#     project = get_object_or_404(Project, project_id=pk)
+    
+#     if request.user.is_authenticated:
+#         user_cart, created = Cart.objects.get_or_create(user=request.user)
+#         cart_item, created = CartItem.objects.get_or_create(cart=user_cart, product=project, user=request.user, defaults={'quantity': 1})
+        
+#         if not created:
+#             cart_item.quantity += 1
+#             cart_item.save()
+        
+#         return redirect('Cart.html')
+#     else:
+#         return redirect('login')

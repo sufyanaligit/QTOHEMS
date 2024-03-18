@@ -23,9 +23,15 @@ from django.conf import settings
 
 urlpatterns = [
     path('', include('qtohouse.urls')),
+<<<<<<< HEAD
 #    path('qtosol/', include('qtosol.urls')),
     
 #   path('cart/', include('carts.urls')),
+=======
+    # path('qtosol/', include('qtosol.urls')),
+    
+    # path('cart/', include('carts.urls')),
+>>>>>>> origin/main
     path('admin/', admin.site.urls),
     # Dashboard
     path('dashboard/',include('dashboards.urls')),

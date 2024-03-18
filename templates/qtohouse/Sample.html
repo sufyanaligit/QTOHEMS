@@ -12,42 +12,65 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
 <!-- Start right Content here -->
 <!-- ============================================================== -->
 <div class="register login-p">
-    <div class="log-back-sample">
-        <div>
-            <br>
-        </div>
-        <h2 class="pageheading">Download Our Samples</h2>
-        <p class="top-bar">
-            Do you want to see how good our work is? Get our sample for free
-            right now.
-        </p>
-
-        <div class="container">
-            <form class="form-inline" id="sampleForm" action="/download-samples" method="post">
-                <div class="row">
-                    <div class="form-group col-5">
-                        <img class="user" alt="" src="{% static 'imagesqtosol/search.png'%}">
-                        <span class="location-icon">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </span>
-                        <select class="form-select" aria-label="Default select example"
-                            style="border: none; background-color: #eeeeee;">
-                            <option value=""> Select Sample</option>
-                            <option value="Alabama">New Construction</option>
-                            <option value="Alaska">Renovation/Remodeling/Retrofitting</option>
-                            <!-- Add more options as needed -->
-                        </select>
+    <div>
+        <div class="log-back-sample">
+            <div>
+                <br>
+            </div>
+            <h2 class="pageheading">Download Our Samples</h2>
+            <p class="top-bar">
+                Do you want to see how good our work is? Get our sample for free
+                right now.
+            </p>
+            <div class="container">
+                <form class="form-inline">
+                    <div class="row">
+                        <div class="form-group col-5" controlId="formBasicName">
+                            <img class="user" alt="" src="{% static 'imagesqtohouse/search.png'%}" >
+                            <span class="location-icon">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </span>
+                            <select class="form-select" aria-label="Default select example" style="border: none; background-color: #eeeeee;">
+                                <option value=""> Select Sample</option>
+                                <option value="Alabama">New Construction</option>
+                                <option value="Alaska">Renovation/Remodeling/Retrofitting</option>
+                                <option value="Arizona">New School</option>
+                                <option value="Arkansas">Fire Station/Police Station</option>
+                                <option value="California">Roofing</option>
+                                <option value="Colorado">Site/Civil</option>
+                                <option value="Connecticut">Demolition</option>
+                                <option value="Delaware">Earthwork/Excavation</option>
+                                <option value="District of Columbia">Federal Projects</option>
+                                <option value="Florida">Commercial</option>
+                                <option value="Georgia">Residential</option>
+                                <option value="Hawaii">Electrical</option>
+                                <option value="Idaho">Mechanical/HVAC</option>
+                                <option value="Illinois">Plumbing</option>
+                                <option value="Indiana">Pump Station</option>
+                                <option value="Indiana">Drywall and Framing</option>
+                                <option value="Indiana">Masonry</option>
+                                <option value="Indiana">Concrete</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-5" controlId="formBasicPassword">
+                            <img class="user" alt="" src="{% static 'imagesqtohouse/user.png'%}" >
+                            <input type="text" placeholder="Name" class="from-placeholder" name="name">
+                        </div>
+                        <div class="form-group col-5" controlId="formBasicPassword">
+                            <img class="user" alt="" src="{% static 'imagesqtohouse/mail-black.png'%}" >
+                            <input type="email" placeholder="Enter Your Email" class="from-placeholder" name="email">
+                        </div>
+                        <div class="form-group col-5" controlId="formBasicPassword">
+                            <img class="user" alt="" src="{% static 'imagesqtohouse/company.png'%}" >
+                            <input type="text" placeholder="Enter Your Company Name" class="from-placeholder" name="text">
+                        </div>
+                        <button type="submit" class="regist-but">Send Samples</button>
                     </div>
-                    <!-- Add other form groups for Name, Email, and Company Name -->
-                    <div class="form-group col-5">
-                        <!-- Repeat this structure for other input fields -->
-                    </div>
-                    <button type="submit" class="regist-but btn btn-primary">Send Samples</button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-        </div>
-        </div>
+    </div>
+</div>
 <!-- end main content-->
 {% endblock content %}
 

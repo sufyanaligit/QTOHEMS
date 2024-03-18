@@ -1,0 +1,45 @@
+[1mdiff --git a/mydatabase.db b/mydatabase.db[m
+[1mnew file mode 100644[m
+[1mindex 00000000..b0ea96c7[m
+Binary files /dev/null and b/mydatabase.db differ
+[1mdiff --git a/qtohouse/views.py b/qtohouse/views.py[m
+[1mindex 1f698366..97d2df47 100644[m
+[1m--- a/qtohouse/views.py[m
+[1m+++ b/qtohouse/views.py[m
+[36m@@ -8,7 +8,7 @@[m [mfrom django.contrib.auth.forms import AuthenticationForm[m
+ from apps.models import Project[m
+ from qtosol.models import Cart,CartItem[m
+ from django.contrib.auth.decorators import login_required[m
+[31m-[m
+[32m+[m[32mfrom django.contrib.auth.models import Group[m
+ class qtohouseView(TemplateView):[m
+     pass[m
+ [m
+[36m@@ -45,7 +45,13 @@[m [mqtohouse_Cart_view = qtohouseView.as_view(template_name="qtohouse/Cart.html")[m
+ [m
+ @login_required[m
+ def qtohouse_Projects_view(request):[m
+[31m-    projects = Project.objects.all().order_by('-project_id')[m
+[32m+[m[32m    if request.user.groups.filter(name='Contractor').exists():[m
+[32m+[m[32m        # If the user belongs to the 'Contractor' group, return an empty queryset[m
+[32m+[m[32m        projects = Project.objects.none()[m
+[32m+[m[32m    else:[m
+[32m+[m[32m        # Otherwise, return all projects[m
+[32m+[m[32m        projects = Project.objects.all().order_by('-project_id')[m
+[32m+[m[41m    [m
+     return render(request, "qtohouse/Projects.html", {'projects': projects})[m
+ [m
+ @login_required[m
+[1mdiff --git a/templates/partials/footer.html b/templates/partials/footer.html[m
+[1mindex dbabfa48..52236db1 100644[m
+[1m--- a/templates/partials/footer.html[m
+[1m+++ b/templates/partials/footer.html[m
+[36m@@ -8,7 +8,7 @@[m
+                         </div>[m
+                         <div class="col-sm-6">[m
+                             <div class="text-sm-end d-none d-sm-block">[m
+[31m-                                <!-- Design & Developed by QTO Solutions -->[m
+[32m+[m[32m                                Design & Developed by QTO Solutions[m[41m[m
+                             </div>[m
+                         </div>[m
+                     </div>[m

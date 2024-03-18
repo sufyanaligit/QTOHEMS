@@ -308,6 +308,7 @@ class Company_Details(models.Model):
 class Project(models.Model):
     project_id = models.AutoField(primary_key=True)
     project_name = models.CharField(max_length=100)
+    project_specification_files = models.ManyToManyField('ProjectSpecifications', blank=True, related_name='projects')
     project_address = models.ForeignKey('Address', on_delete=models.SET_NULL, null=True, blank=True, default=None)
     # will be using state column for Description
     state = models.CharField(max_length=50,blank=True)
@@ -356,8 +357,7 @@ class Project(models.Model):
         null=True,
         related_name='restored_Project'
     )
-
-
+    contractors = models.ManyToManyField(User, related_name='projects_as_contractor', blank=True)
 
     def delete(self, *args, **kwargs):
         try:
@@ -377,6 +377,7 @@ class Project(models.Model):
     #To save 
     def __str__(self):
         return self.project_name
+
 
 class Bid(models.Model):
     BIDDING_METHOD_CHOICES = (
