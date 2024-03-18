@@ -3,7 +3,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from apps.models import Project
-from .models import Cart, CartItem
+# from .models import Cart, CartItem
 
 # Create your views here.
 
