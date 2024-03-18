@@ -1028,7 +1028,7 @@ ul {
   border-radius: 5px;
   margin: 0px 5px 20px 0px;
   width: 100% !important;
-  padding: 3px 5px 12px 15px;
+  padding: 10px 5px 12px 15px;
 }
 .left-detail ul li h2 {
   font-size: 16px;
@@ -1049,6 +1049,10 @@ ul {
 }
 .CSI-d {
   min-height: 210px;
+}
+.bid-left{
+  min-height: 70px;
+
 }
 .CSI-d ul {
   margin-top: 20px;
