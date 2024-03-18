@@ -93,6 +93,7 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                             aria-labelledby="pills-active-projects-tab">
                             <!-- Content for Active Projects Tab -->
                             <div class="row">
+                                
                                 <!-- <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                                                 <div class="row">
                                                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
@@ -134,15 +135,16 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                                     <ul>
                                         <li class="">
                                             <h2>Bid Date</h2>
-                                            <span>Wednesday, July 20, 2023</span>
-                                        </li>
-                                        <li class="">
-                                            <h2>Bid Date</h2>
-                                            <span>Wednesday, July 20, 2023</span>
+                                            <span>{{ projects.Project_Bid_Date }}</span>
                                         </li>
                                         <li class="">
                                             <h2>Bid Amount</h2>
-                                            <span>$ 1,000,000</span>
+                                            {% if projects.bid_set.all %}
+                                            <span> $ {{ projects.bid_set.first.bid_amount }}</span>
+                                            
+                                            {% else %}
+                                            
+                                            {% endif %}
                                         </li>
 
                                         <li class="">
@@ -227,7 +229,7 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
 
                                             </ul>
                                         </li>
-                                        
+
                                         <li class="bondsandMWS">
                                             <ul class="Bonds">
                                                 <li class="as">
@@ -322,16 +324,18 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                                                     </ul>
                                                 </li>
                                             </ul>
-                                             <!-- <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6  as">
+                                            <!-- <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6  as">
                                                 <div class="border">asdf</div>
                                             </div>
                                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6  as">
                                                 <div class="border">asdf</div>
                                             </div>  -->
                                         </li>
-                                         <!-- <li class="MWSEBs"></li>  -->
+                                        <!-- <li class="MWSEBs"></li>  -->
                                     </ul>
                                 </div>
+
+
                             </div>
                         </div>
                         <div class="tab-pane fade" id="pills-project-specs" role="tabpanel"
@@ -378,18 +382,20 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                             <!-- Content for Takeoffs Tab -->
                             <div class="specs">
                                 <ul>
-<li>
-    <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png' %}" />
-    <h2>{{ projects.project_files.name }}</h2>
-    {% if projects.project_files %}
-    <span class="size">{{ projects.project_files.size }}</span>
-    <span class="date">{{ projects.project_files.date }}</span>
-    <a class="read" href="{{ projects.project_files.url }}">Read</a>
-    <a class="download" href="{{ projects.project_files.url }}">Download</a>
-    {% else %}
-    <p>No project files uploaded.</p>
-    {% endif %}
-</li>
+                                    <li>
+                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png' %}" />
+                                        <h2>{{ projects.project_files.name }}</h2>
+                                        {% if projects.project_files %}
+                                        <span class="size">{{ projects.project_files.size }}</span>
+                                        <span class="date">{{ projects.project_files.date }}</span>
+                                        <a class="read" href="{{ projects.project_files.url }}"><img class="read" alt=""
+                                                src="{% static 'imagesqtosol/read.png'%}" /></a>
+                                        <a class="download" href="{{ projects.project_files.url }}"><img class="read" alt=""
+                                                src="{% static 'imagesqtosol/download.png'%}" /></a>
+                                        {% else %}
+                                        <p>No project files uploaded.</p>
+                                        {% endif %}
+                                        </li>
                                 </ul>
                             </div>
                         </div>
