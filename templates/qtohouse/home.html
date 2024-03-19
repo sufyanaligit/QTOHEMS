@@ -51,18 +51,18 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                         </li>
                     </ul>
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"  >
                     <ul class="qto-available">
                         <li class="border">
                             <img class="" alt="" src="{% static 'imagesqtohouse/bid-results.png'%}">
                             <span class="qtoA">Bid Results</span>
                             <span>50</span>
                         </li>
-                        <li class="border">
+                        <!-- <li class="border">
                             <img class="" alt="" src="{% static 'imagesqtohouse/group1.svg'%}">
                             <span class="qtoA">Private project</span>
                             <span>200</span>
-                        </li>
+                        </li> -->
                         <li class="border">
                             <img class="" alt="" src="{% static 'imagesqtohouse/awarded.png'%}">
                             <span class="qtoA">Awarded</span>
@@ -75,6 +75,10 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
     </section>
 </section>
 
+                                        
+                        {% block <our-solutions></our-solutions> %}
+                                    {% include "qtohouse/oursolutions.html" %}
+                        {% endblock <our-solutions></our-solutions> %}
 
                 {% block Estimation-services %}
                 {% include "qtohouse/EstimationServices.html" %}
