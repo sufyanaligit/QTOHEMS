@@ -5,7 +5,7 @@ from django.contrib.auth.models import User  # If using Django's built-in User m
 from django.utils import timezone
 
 from django.contrib.auth import get_user_model
-
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 # Create your models here.
 
@@ -322,6 +322,60 @@ class Project(models.Model):
         ('Closed', 'Closed'),
     )
     status = MultiSelectField(max_length=20, choices=STATUS_CHOICES, default='pending')
+
+    TAG_CHOICES = (  
+        ('General Requirements', 'General Requirements'),
+        ('Existing Conditions', 'Existing Conditions'),
+        ('Concrete', 'Concrete'),
+        ('Masonry', 'Masonry'),
+        ('Metals', 'Metals'),
+        ('Wood Plastics and Composites', 'Wood, Plastics, and Composites'),
+        ('Thermal and Moisture Protection', 'Thermal and Moisture Protection'),
+        ('Openings', 'Openings'),
+        ('Finishes', 'Finishes'),
+        ('Specialties', 'Specialties'),
+        ('Equipment', 'Equipment'),
+        ('Furnishings', 'Furnishings'),
+        ('Special Construction', 'Special Construction'),
+        ('Conveying Equipment', 'Conveying Equipment'),
+        ('Plumbing HVAC', 'Plumbing + HVAC'),
+        ('Electrical Lighting', 'Electrical + Lighting'),
+        ('Reserved For Future Expansion 1', 'RESERVED FOR FUTURE EXPANSION'),
+        ('Reserved For Future Expansion 2', 'RESERVED FOR FUTURE EXPANSION'),
+        ('Reserved For Future Expansion 3', 'RESERVED FOR FUTURE EXPANSION'),
+        ('Mechanical Support', 'Mechanical Support'),
+        ('Fire Suppression', 'Fire Suppression'),
+        ('Plumbing', 'Plumbing'),
+        ('HVAC', 'Heating Ventilating and Air Conditioning'),
+        ('Reserved For Future Expansion 4', 'RESERVED FOR FUTURE EXPANSION'),
+        ('Integrated Automation', 'Integrated Automation'),
+        ('Electrical', 'Electrical'),
+        ('Communications', 'Communications'),
+        ('Electronic Safety and Security', 'Electronic Safety and Security'),
+        ('Reserved For Future Expansion 5', 'RESERVED FOR FUTURE EXPANSION'),
+        ('Reserved For Future Expansion 6', 'RESERVED FOR FUTURE EXPANSION'),
+        ('Earthwork', 'Earthwork'),
+        ('Exterior Improvements', 'Exterior Improvements'),
+        ('Utilities', 'Utilities'),
+        ('Transportation', 'Transportation'),
+        ('Waterways and Marine Construction', 'Waterways and Marine Construction'),
+        ('Reserved For Future Expansion 7', 'RESERVED FOR FUTURE EXPANSION'),
+        ('Reserved For Future Expansion 8', 'RESERVED FOR FUTURE EXPANSION'),
+        ('Reserved For Future Expansion 9', 'RESERVED FOR FUTURE EXPANSION'),
+        ('Reserved For Future Expansion 10', 'RESERVED FOR FUTURE EXPANSION'),
+        ('Process Interconnections', 'Process Interconnections'),
+        ('Material Processing and Handling Equipment', 'Material Processing and Handling Equipment'),
+        ('Process Heating Cooling and Drying Equipment', 'Process Heating, Cooling, and Drying Equipment'),
+        ('Process Gas and Liquid Handling Purification and Storage Equipment', 'Process Gas and Liquid Handling, Purification and Storage Equipment'),
+        ('Pollution Control Equipment', 'Pollution Control Equipment'),
+        ('Industry-Specific Manufacturing Equipment', 'Industry-Specific Manufacturing Equipment'),
+        ('Water and Wastewater Equipment', 'Water and Wastewater Equipment'),
+        ('Reserved For Future Expansion 11', 'RESERVED FOR FUTURE EXPANSION'),
+        ('Electrical Power Generation', 'Electrical Power Generation'),
+        ('Reserved For Future Expansion 12', 'RESERVED FOR FUTURE EXPANSION'),
+)
+
+    csi_division = MultiSelectField(max_length=200,choices=TAG_CHOICES,max_choices=50,default='Developer')
     
     updated_at = models.DateTimeField(blank=True, null=True)
     deleted_at = models.DateTimeField(blank=True, null=True)
@@ -398,6 +452,17 @@ class Bid(models.Model):
     bidding_method = models.CharField(max_length=20, choices=BIDDING_METHOD_CHOICES,blank=True,null=True)
     bid_phase = models.CharField(max_length=20, choices=BID_PHASE_CHOICES,blank=True,null=True)
     project_completion_time = models.IntegerField(blank=True,null=True)  # Assuming this represents days
+    notes = models.TextField(blank=True,null=True)
+    solicitation_date = models.DateField(blank=True,null=True)
+    liquidated_damages = models.DecimalField(max_digits=10, decimal_places=2, blank=True,null=True)
+    pre_bid_meeting_date = models.DateField(blank=True,null=True)
+    pre_bid_meeting_notes = models.TextField(blank=True,null=True)
+    bid_bond = models.DecimalField(max_digits=5, decimal_places=2, default=15, blank=True, validators=[MinValueValidator(1), MaxValueValidator(100)],null=True)
+    performance_bond = models.DecimalField(max_digits=5, decimal_places=2, default=15, blank=True, validators=[MinValueValidator(1), MaxValueValidator(100)],null=True)
+    payment_bond_percentage = models.DecimalField(max_digits=5, decimal_places=2, default=100, blank=True, validators=[MinValueValidator(1), MaxValueValidator(100)],null=True)
+    bid_date = models.DateField(blank=True,null=True)
+    bid_amount = models.DecimalField(max_digits=10, decimal_places=2, blank=True,null=True)
+    bid_location = models.CharField(max_length=100, blank=True,null=True)
 
     def __str__(self):
         return f"Bid for {self.project.project_name}"

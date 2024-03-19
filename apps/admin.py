@@ -1,5 +1,5 @@
 from django.contrib import admin
-from . models import  ProjectSpecifications,CrmContact,CrmCompany,CrmLead,JobApplication,EcommerceOrder,EcommerceCustomer,TicketList, Project,Bid,Solicitation,Company, Person, Address, Company_Details,MWSEBsAndSDVOBs
+from . models import  BidHistory,ProjectSpecifications,CrmContact,CrmCompany,CrmLead,JobApplication,EcommerceOrder,EcommerceCustomer,TicketList, Project,Bid,Solicitation,Company, Person, Address, Company_Details,MWSEBsAndSDVOBs
 
 # Register your models here.
 
@@ -35,6 +35,7 @@ class EcommerceCustomerAdmin(admin.ModelAdmin):
 admin.site.register(Company)
 admin.site.register(Project)
 admin.site.register(Bid)
+admin.site.register(BidHistory)
 admin.site.register(Person)
 admin.site.register(Address)
 admin.site.register(MWSEBsAndSDVOBs)
