@@ -151,36 +151,36 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                                             <h2>Solicitation</h2>
                                             {% if projects.bid_set.all %}
                                             <span> {{ projects.bid_set.first.bid_phase }}</span>
-                                            
+
                                             {% else %}
-                                            
+
                                             {% endif %}
                                         </li>
                                         <li class="">
                                             <h2>Bidding Method</h2>
                                             {% if projects.bid_set.all %}
                                             <span> {{ projects.bid_set.first.bidding_method }}</span>
-                                            
+
                                             {% else %}
-                                            
+
                                             {% endif %}
                                         </li>
                                         <li class="">
                                             <h2>Bid Phase</h2>
                                             {% if projects.bid_set.all %}
                                             <span> {{ projects.bid_set.first.bidding_method }}</span>
-                                            
+
                                             {% else %}
-                                            
+
                                             {% endif %}
                                         </li>
                                         <li class="">
                                             <h2>Completion Time</h2>
                                             {% if projects.bid_set.all %}
                                             <span> {{ projects.bid_set.first.project_completion_time }} CCDs</span>
-                                            
+
                                             {% else %}
-                                            
+
                                             {% endif %}
                                         </li>
                                         <li class="">
@@ -214,11 +214,11 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
 
                                         <li class="CSI-d">
                                             <h2>CSI Division</h2>
-                                            
+
                                             <ul>
-                                                    {% for division in projects.csi_division %}
-                                                    <li><span>{{ forloop.counter }}</span><span>- {{ division }}</span></li>
-                                                    {% endfor %}
+                                                {% for division in projects.csi_division %}
+                                                <li><span>{{ forloop.counter }}</span><span>- {{ division }}</span></li>
+                                                {% endfor %}
 
 
                                             </ul>
@@ -259,7 +259,7 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                                                                 </div>
                                                             </div>
                                                         </li>
-   
+
                                                     </ul>
                                                 </li>
                                                 <li class="as">
@@ -327,24 +327,41 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                             aria-labelledby="pills-projects-specs-tab">
                             <!-- Content for Project Specs Tab -->
                             <div class="specs">
+                                {% for file in specification_files %}
                                 <ul>
-
                                     <li>
-                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
-                                        <h2>46160-Plans</h2>
-                                        <span class="size">2 MB</span>
-                                        <span class="date">Mar 10, 2023</span>
-                                        <img class="read" alt="" src="{% static 'imagesqtosol/read.png'%}" />
-                                        <img class="download" alt="" src="{% static 'imagesqtosol/download.png'%}" />
+                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png' %}" />
+                                        <h2>
+                                            {{file.specifications_file.name}}</h2>
+                                        <span class="size">{{ file.specifications_file.size }}</span>
+                                        <a class="read" href="{{ file.specifications_file.url }}"><img class="read" alt=""
+                                                src="{% static 'imagesqtosol/read.png'%}" /></a>
+                                        <a class="download" href="{{ file.specifications_file.url }}"><img class="read" alt=""
+                                                src="{% static 'imagesqtosol/download.png'%}" /></a>
                                     </li>
                                 </ul>
+                                {% endfor %}
                             </div>
                         </div>
                         <div class="tab-pane fade" id="pills-plans-projects" role="tabpanel"
                             aria-labelledby="pills-plans-projects-tab">
                             <!-- Content for Plans Tab -->
                             <div class="specs">
+                                {% for file in plan_files %}
                                 <ul>
+                                    <li>
+                                        <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png' %}" />
+                                        <h2>
+                                            {{file.Plans_file.name}}</h2>
+                                        <span class="size">{{ file.Plans_file.size }}</span>
+                                        <a class="read" href="{{ file.Plans_file.url }}"><img class="read" alt=""
+                                                src="{% static 'imagesqtosol/read.png'%}" /></a>
+                                        <a class="download" href="{{ file.Plans_file.url }}"><img class="read" alt=""
+                                                src="{% static 'imagesqtosol/download.png'%}" /></a>
+                                    </li>
+                                    </ul>
+                                    {% endfor %}
+                                    <!-- <ul>
                                     {% for file in project_specification_files %}
                                     <li>
                                         <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png'%}" />
@@ -359,29 +376,27 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                                     {% endfor %}
 
 
-                                </ul>
+                                </ul> -->
                             </div>
                         </div>
                         <div class="tab-pane fade" id="pills-Takeoffs-projects" role="tabpanel"
                             aria-labelledby="pills-Takeoffs-projects-tab">
                             <!-- Content for Takeoffs Tab -->
                             <div class="specs">
+                                {% for file in project_take_files %}
                                 <ul>
                                     <li>
                                         <img class="pdf" alt="" src="{% static 'imagesqtosol/pdf.png' %}" />
-                                        <h2>{{ projects.project_files.name }}</h2>
-                                        {% if projects.project_files %}
-                                        <span class="size">{{ projects.project_files.size }}</span>
-                                        <span class="date">{{ projects.project_files.date }}</span>
-                                        <a class="read" href="{{ projects.project_files.url }}"><img class="read" alt=""
+                                        <h2>
+                                            {{file.takeoff_file.name}}</h2>
+                                        <span class="size">{{ file.takeoff_file.size }}</span>
+                                        <a class="read" href="{{ file.takeoff_file.url }}"><img class="read" alt=""
                                                 src="{% static 'imagesqtosol/read.png'%}" /></a>
-                                        <a class="download" href="{{ projects.project_files.url }}"><img class="read" alt=""
+                                        <a class="download" href="{{ file.takeoff_file.url }}"><img class="read" alt=""
                                                 src="{% static 'imagesqtosol/download.png'%}" /></a>
-                                        {% else %}
-                                        <p>No project files uploaded.</p>
-                                        {% endif %}
                                     </li>
                                 </ul>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>

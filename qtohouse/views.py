@@ -6,7 +6,7 @@ from django.contrib.auth import login,logout
 from django.views.generic import FormView
 from django.contrib.auth.forms import AuthenticationForm
 from requests import request
-from apps.models import Project
+from apps.models import Project,ProjectSpecifications,ProjectPlans,Project_Takeoff_Documents
 # from qtosol.models import Cart,CartItem
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
@@ -63,12 +63,15 @@ import os
 @login_required
 def qtohouse_project_detail_view(request, pk):
     projects = get_object_or_404(Project, project_id=pk)
-    project_specification_files = projects.project_specification_files.all()
+    project_specification_files = ProjectSpecifications.objects.filter(project=projects)
+    project_plan_files = ProjectPlans.objects.filter(project=projects)
+    project_takeoff_files = Project_Takeoff_Documents.objects.filter(project=projects)
+
     
     # Extracting just the file name using os.path.basename()
     
     
-    return render(request, "qtohouse/ProjectDetail.html", {'projects': projects, 'project_specification_files': project_specification_files})
+    return render(request, "qtohouse/ProjectDetail.html", {'plan_files': project_plan_files,'projects': projects, 'specification_files': project_specification_files, 'project_take_files': project_takeoff_files })
 # def cart(request,):
 #     return render(request, 'qtohouse/Cart.html')
 

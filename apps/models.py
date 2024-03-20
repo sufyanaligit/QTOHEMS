@@ -308,7 +308,9 @@ class Company_Details(models.Model):
 class Project(models.Model):
     project_id = models.AutoField(primary_key=True)
     project_name = models.CharField(max_length=100)
-    project_specification_files = models.ManyToManyField('ProjectSpecifications', blank=True, related_name='projects')
+    project_specification_files = models.ManyToManyField('ProjectSpecifications', blank=True, related_name='specificationFiles')
+    project_plans_files = models.ManyToManyField('ProjectPlans', blank=True, related_name='projectPlans')
+    project_Takeoff_files = models.ManyToManyField('Project_Takeoff_Documents', blank=True, related_name='projectTakeoff')
     project_address = models.ForeignKey('Address', on_delete=models.SET_NULL, null=True, blank=True, default=None)
     # will be using state column for Description
     state = models.CharField(max_length=50,blank=True)
@@ -373,7 +375,7 @@ class Project(models.Model):
         ('Reserved For Future Expansion 11', 'RESERVED FOR FUTURE EXPANSION'),
         ('Electrical Power Generation', 'Electrical Power Generation'),
         ('Reserved For Future Expansion 12', 'RESERVED FOR FUTURE EXPANSION'),
-)
+) 
 
     csi_division = MultiSelectField(max_length=200,choices=TAG_CHOICES,max_choices=50,default='Developer')
     
