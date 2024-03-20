@@ -372,7 +372,7 @@ a {
   justify-content: center;
   align-items: center;
   text-align: center;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   margin-right: 75px;
 }
 
@@ -665,7 +665,7 @@ font-size: 25px !important;
 .qto-available li {
   display: flex;
   align-items: center;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   /* margin-left: 10px; */
   padding: 10px; /* Add padding to list items */
 }
@@ -1248,7 +1248,10 @@ ul {
 }
 .WCU {
   padding: 0px 30px 51px 30px;
+  /* animation: slide-in-left-1 4s ease-in-out  2; */
 }
+
+
 .WCUS .imghead {
   display: flex;
 
@@ -1267,9 +1270,29 @@ ul {
   margin-left: 10px;
   color: #767676;
 }
+
 .WCUSimg {
+  animation: slide-in-right-1 4s ease-in-out  2;
   width: 49px;
   height: 49px;
+}
+@keyframes slide-in-right-1 {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  25% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  75% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  /* 100% {
+    transform: translateX(100%);
+    opacity: 0;
+  } */
 }
 .col-small {
   height: 250px;
@@ -1315,7 +1338,7 @@ ul {
   background-repeat: no-repeat;
 }
 .ourServices {
-  padding: 0px 337px 0px 337px !important;
+  padding: 0px 290px 0px 290px !important;
 
   margin: 10px !important;
   margin: auto !important;
@@ -3113,4 +3136,10 @@ border-bottom-left-radius: 5px;
 .content {
   margin-left: 75px;
   font-size: 30px;
+}
+.custom-width {
+  width: 91% !important; 
+}
+.value-padding{
+  padding: 0px 351px 0px 508px
 }

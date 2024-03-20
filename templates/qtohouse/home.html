@@ -15,10 +15,10 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
 
     <div class="page-content">
         <div class="container-fluid">
-           
 
 
-           
+
+
 
         </div>
         <!-- container-fluid -->
@@ -28,9 +28,9 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
 
 </div>
 <!-- end main content-->
-        {% block advance-search %}
-        {% include "qtohouse/advancesearch.html" %}
-        {% endblock advance-search %}
+{% block advance-search %}
+{% include "qtohouse/advancesearch.html" %}
+{% endblock advance-search %}
 <section class="container">
     <section>
         <!-- Qto Numbering Available -->
@@ -38,22 +38,22 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                     <ul class="qto-available">
-                        <li class="border">
+                        <li>
                             <img class="" alt="" src="{% static 'imagesqtohouse/group1.svg'%}">
                             <span class="qtoA">QTO- Available</span>
                             <span>200</span>
                         </li>
                         <div></div>
-                        <li class="border">
+                        <li>
                             <img class="" alt="" src="{% static 'imagesqtohouse/qto-in-progress.png'%}">
-                            <span class="qtoA">QTO- In Progresse</span>
+                            <span class="qtoA">QTO- In Progress</span>
                             <span>81</span>
                         </li>
                     </ul>
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"  >
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                     <ul class="qto-available">
-                        <li class="border">
+                        <li>
                             <img class="" alt="" src="{% static 'imagesqtohouse/bid-results.png'%}">
                             <span class="qtoA">Bid Results</span>
                             <span>50</span>
@@ -63,37 +63,134 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                             <span class="qtoA">Private project</span>
                             <span>200</span>
                         </li> -->
-                        <li class="border">
+                        <li>
                             <img class="" alt="" src="{% static 'imagesqtohouse/awarded.png'%}">
                             <span class="qtoA">Awarded</span>
                             <span>100</span>
                         </li>
                     </ul>
                 </div>
-            </div>  
+            </div>
         </div>
     </section>
 </section>
 
-                                        
-                        {% block <our-solutions></our-solutions> %}
-                                    {% include "qtohouse/oursolutions.html" %}
-                        {% endblock <our-solutions></our-solutions> %}
+<div class="ourServices container">
+    <h2 class="pageheading">Our Solutions</h2>
+    <p style="text-align: justify;">
+        QTO House provides a range of accurate and affordable quantity
+        takeoff services and construction estimating support services to
+        organizations across the construction industry. We specialize in all
+        construction trades and CSI divisions related to:
+    </p>
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 OSThree ">
+            <div class="commercial-construction cc"></div>
+            <div class="fedral-construction cc"></div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4  OSThree">
+            <div class="residential-construction cc"></div>
+            <div class="hcivil-construction cc"></div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 OSThree ">
+            <div class="indust-construction col-larg"></div>
+        </div>
+    </div>
+</div>
 
-                {% block Estimation-services %}
-                {% include "qtohouse/EstimationServices.html" %}
-                {% endblock Estimation-services %}
-                {% block FAQS %}
-                {% include "qtohouse/Faq's.html" %}
-                {% endblock FAQS %}
-                {% block CSI-Division %}
-                {% include "qtohouse/CsiDvisions.html" %}
-                {% endblock CSI-Division %}
-                {% block Weworkwith %}
-                {% include "qtohouse/WeWorkWith.html" %}
-                {% endblock Weworkwith %}
+<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 WCUS custom-width">
+    <div class="row value-padding" >
 
-  
+        <h2 class="pageheading-test pageheading-contact">Value Propositions</h2>
+        <ul>
+            <li>
+                <div class="imghead">
+                    <img class="WCUSimg" alt="" src="{% static 'imagesqtohouse/partner.png'%}">
+                    <h2>Boost Your Pre-Construction Confidence:</h2>
+                </div>
+                <p style="font-size:16px;color:#212529;">
+                    Partner with QTO House for expert estimating support,
+                    ensuring your bids stand out in the competitive construction landscape.
+                </p>
+            </li>
+            <li>
+                <div class="imghead">
+                    <img class="WCUSimg" alt="" src="{% static 'imagesqtohouse/accuracy-1.png'%}">
+                    <h2>Outsource Estimating Hassles:</h2>
+                </div>
+                <p style="font-size:16px;color:#212529;">
+                    Focus on your core projects while we handle your estimating needs,
+                    delivering accurate, timely results every time.
+                </p>
+            </li>
+            <li>
+                <div class="imghead">
+                    <img class="WCUSimg" alt="" src="{% static 'imagesqtohouse/precision.png'%}">
+                    <h2>Empowering Contractors with Precision:</h2>
+                </div>
+                <p style="font-size:16px;color:#212529;">
+                    Trust QTO House to fine-tune your estimates, providing
+                    the edge you need to win lucrative contracts confidently.
+                </p>
+            </li>
+            <li>
+                <div class="imghead">
+                    <img class="WCUSimg" alt="" src="{% static 'imagesqtohouse/allies.png'%}">
+                    <h2>Your Estimating Allies:</h2>
+                </div>
+                <p style="font-size:16px;color:#212529;">
+                    QTO House - the reliable partner ensuring your estimations
+                    are meticulous and competitive, every single time.
+                </p>
+            </li>
+            <li>
+                <div class="imghead">
+                    <img class="WCUSimg" alt="" src="{% static 'imagesqtohouse/hand-bid.png'%}">
+                    <h2>Bid Better, Win More:</h2>
+                </div>
+                <p style="font-size:16px;color:#212529;">
+                    Harness our estimating expertise to craft compelling bids
+                    that secure your success in the cut-throat construction market.
+                </p>
+            </li>
+        </ul>
+    </div>
+</div>
+
+{% block WhyChooseQto %}
+{% include "qtohouse/WhyChooseQTO.html" %}
+{% endblock WhyChooseQto %}
+
+<div class="hiv container">
+    <h1>How it works</h1>
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
+            <p>
+                Our certified take-off specialists use a structured process to
+                accurately calculate the quantities of various construction
+                materials required for each project. Here's a brief overview of
+                how our construction take-off services work:
+            </p>
+            <img class="" alt="" src="{% static 'imagesqtohouse/hiw.png'%}" />
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 estimator">
+            <img class="fl" alt="" src="{% static 'imagesqtohouse/Mask group.png'%}" />
+            <!-- <img class="f2" alt="" src="{% static 'imagesqtohouse/Maskgroup.png'%}" /> -->
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+{% block Weworkwith %}
+{% include "qtohouse/WeWorkWith.html" %}
+{% endblock Weworkwith %}
+
+
 
 
 
