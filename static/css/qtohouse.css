@@ -382,6 +382,12 @@ a {
 .qna ul li img {
   margin: auto;
 }
+/* @media screen and (max-width: 768px) {
+  .qna ul li {
+    max-width: 100%;
+    margin-right: 0; 
+  }
+} */
 /*  Main Section Start */
 .main {
   height: 380px;
@@ -414,11 +420,11 @@ a {
   border-radius: 25px; */
   /* background-color: #000000; */
   background: linear-gradient(0deg, rgba(0,0,0,0.4906337535014006) 0%, rgba(129,129,129,0.4962359943977591) 100%);
-
   margin: auto;
   padding: 30px;
   width: 60%;
   height: 425px;
+ 
 }
 .main-image-text span {
 font-size: 35px !important;
@@ -801,7 +807,7 @@ font-size: 25px !important;
   height: 20px; /* Adjust as needed */
   width: 20px; /* Adjust as needed */
   /* Add any other styling you need for the image */
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 .input-field {
@@ -1258,7 +1264,7 @@ ul {
   align-items: center; /* Vertical centering */
 }
 .WCUS .imghead h2 {
-  font-size: 16px;
+  font-size: 20px;
   font-family: "Poppins-SemiBold";
   margin-left: 10px;
 }
@@ -1272,11 +1278,11 @@ ul {
 }
 
 .WCUSimg {
-  animation: slide-in-right-1 4s ease-in-out  2;
+  /* animation: slide-in-right-1 4s ease-in-out  2; */
   width: 49px;
   height: 49px;
 }
-@keyframes slide-in-right-1 {
+/* @keyframes slide-in-right-1 {
   0% {
     transform: translateX(100%);
     opacity: 0;
@@ -1289,26 +1295,30 @@ ul {
     transform: translateX(0);
     opacity: 1;
   }
-  /* 100% {
-    transform: translateX(100%);
-    opacity: 0;
-  } */
-}
+
+} */
 .col-small {
   height: 250px;
   background-color: #ff5f5f;
 }
 .cc {
-  height: 340px;
-  margin: 5px 0px 5px 0px;
-  padding: 0px;
+  /* height: 300px;
+  margin: 33px 0px -26px 0px;
+  padding: 0px; */
+  
+  height: 340px; 
+  margin: 5px 0px 7px 0px;
+  padding: 0px; 
   /* width:342px !important; */
 }
 
 .col-larg {
-  height: 709px;
+  height: 687px;
   margin: 5px 0px 7px 0px;
-  padding: 0px;
+  padding: 0px; 
+  /* height: 608px;
+  margin: 33px 0px -26px 0px;
+  padding: 0px; */
 }
 .commercial-construction {
   background-image: url("../imagesqtohouse/comercial.png"); /* Update with your image path */
@@ -1333,15 +1343,14 @@ ul {
 }
 
 .indust-construction {
-  background-image: url("../imagesqtohouse/industrial-construction.png"); /* Update with your image path */
+  /* background-image: url("../imagesqtohouse/industrial-construction.png"); */
+  background-image: url("../imagesqtohouse/Group 370 (1).png");
   background-position: center center;
   background-repeat: no-repeat;
 }
 .ourServices {
-  padding: 0px 290px 0px 290px !important;
-
-  margin: 10px !important;
-  margin: auto !important;
+  padding: 0px 0px 0px 0px !important;
+  margin: auto !important; 
 }
 .ourServices h2 {
   text-align: center;
@@ -2038,7 +2047,19 @@ padding: 20px;
 }
 /* Start Media Query @ 768PX */
 @media screen and (max-width: 768px) {
-
+  
+  .qna ul li {
+    max-width: 100%; /* Take full width on smaller screens */
+    margin-right: 0; /* Remove right margin */
+    
+  }
+  
+  .qtoA {
+    color: black;
+  }
+  .qto-available li span:nth-child(3) {
+    color: black;
+  }
 .about-us p {
     margin: 0px 9px 9px 20px;
 }
@@ -2054,6 +2075,8 @@ padding: 20px;
 .WCUS ul{
   padding-left: 10px;
 }
+
+
 
 
 .about h2 {
@@ -2088,7 +2111,9 @@ padding: 20px;
     margin-top: 6vh;
   }
   .search-background {
-    width: 90%;}
+    width: 80%;
+    height: auto;
+  }
   .faq {
     width: 90%;
 }
@@ -2125,7 +2150,7 @@ padding: 20px;
 } */
 
 .pageheading {
-  padding-top: 0px;
+  padding-top: 15px;
 }
 
 .WWW {
@@ -3138,8 +3163,25 @@ border-bottom-left-radius: 5px;
   font-size: 30px;
 }
 .custom-width {
-  width: 91% !important; 
+  /* width: 80% !important; */
+  /* margin-left: -290px;
+  margin-top: -753px;  */
 }
+
 .value-padding{
-  padding: 0px 351px 0px 508px
+  padding: -1px 351px 0px 508px
+}
+.solutions-top {
+  margin-top: 0px;
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  /* margin-left: 5%; 
+  margin-right: 5%; */
+}
+
+
+.p-estimates{   
+  width: 92% !important;
+  font-size: 14px !important;
+  text-align: justify;
 }
