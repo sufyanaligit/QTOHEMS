@@ -1104,7 +1104,7 @@ ul {
   min-height: 50px;
 } 
 .CSI-d ul {
-  margin-top: 20px;
+  margin-top: 5px;
   flex-direction: row;
   display: flex;
   flex-wrap: wrap;
@@ -1137,7 +1137,7 @@ ul {
   padding: 0px !important;
   border: none !important;
   flex-direction: row !important;
-  margin-top: 11px !important;
+  margin-top: 0px !important;
  
 }
 .Bonds li:first-child {
@@ -1152,7 +1152,7 @@ ul {
   /* padding-right: 10px; */
   border: 1px solid #e2e2e2;
   margin: 0px;
-  min-height: 191px;
+  min-height: 143px;
 }
 .Bonds .as ul {
   display: flex;

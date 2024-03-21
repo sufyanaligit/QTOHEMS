@@ -40,24 +40,97 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                     <ul class="qto-available">
                         <li>
                             <img class="" alt="" src="{% static 'imagesqtohouse/group1.svg'%}">
-                            <span class="qtoA">QTO- Available</span>
-                            <span>200</span>
+                            <span class="qtoA" id="qtoAvailableCounter">QTO- Available</span>
+                            <span id="qtoAvailableCount">200</span>
                         </li>
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function() {
+                                // Function to animate the counter
+                                function animateCounter(start, end, duration, element) {
+                                    let range = end - start;
+                                    let current = start;
+                                    let increment = end > start ? 1 : -1;
+                                    let stepTime = Math.abs(Math.floor(duration / range));
+                                 
+                                    let timer = setInterval(function() {
+                                        current += increment;
+                                        element.textContent = current;
+                                        if (current === end) {
+                                            clearInterval(timer);
+                                        }
+                                    }, stepTime);
+                                }
+                        
+                                // Call animateCounter for each counter span
+                                let qtoAvailableCounter = document.getElementById("qtoAvailableCounter");
+                                let qtoAvailableCount = document.getElementById("qtoAvailableCount");
+                                animateCounter(0, parseInt(qtoAvailableCount.textContent), 5000, qtoAvailableCount);
+                            });
+                        </script>
+                        
                         <div></div>
                         <li>
                             <img class="" alt="" src="{% static 'imagesqtohouse/qto-in-progress.png'%}">
-                            <span class="qtoA">QTO- In Progress</span>
-                            <span>81</span>
+                            <span class="qtoA" id="qtoProgressCounter">QTO- In Progress</span>
+                            <span id="qtoProgressCount">81</span>
                         </li>
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function() {
+                                // Function to animate the counter
+                                function animateCounter(start, end, duration, element) {
+                                    let range = end - start;
+                                    let current = start;
+                                    let increment = end > start ? 1 : -1;
+                                    let stepTime = Math.abs(Math.floor(duration / range));
+                            
+                                    let timer = setInterval(function() {
+                                        current += increment;
+                                        element.textContent = current;
+                                        if (current === end) {
+                                            clearInterval(timer);
+                                        }
+                                    }, stepTime);
+                                }
+                        
+                                // Call animateCounter for each counter span
+                                let qtoProgressCounter = document.getElementById("qtoProgressCounter");
+                                let qtoProgressCount = document.getElementById("qtoProgressCount");
+                                animateCounter(0, parseInt(qtoProgressCount.textContent), 5000, qtoProgressCount);
+                            });
+                        </script>
                     </ul>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                     <ul class="qto-available">
                         <li>
                             <img class="" alt="" src="{% static 'imagesqtohouse/bid-results.png'%}">
-                            <span class="qtoA">Bid Results</span>
-                            <span>50</span>
+                            <span class="qtoA" id="qtoResultCounter">Bid Results</span>
+                            <span id="qtoResultCount">50</span>
                         </li>
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function() {
+                                // Function to animate the counter
+                                function animateCounter(start, end, duration, element) {
+                                    let range = end - start;
+                                    let current = start;
+                                    let increment = end > start ? 1 : -1;
+                                    let stepTime = Math.abs(Math.floor(duration / range));
+                                
+                                    let timer = setInterval(function() {
+                                        current += increment;
+                                        element.textContent = current;
+                                        if (current === end) {
+                                            clearInterval(timer);
+                                        }
+                                    }, stepTime);
+                                }
+                        
+                                // Call animateCounter for each counter span
+                                let qtoResultCounter = document.getElementById("qtoResultCounter");
+                                let qtoResultCount = document.getElementById("qtoResultCount");
+                                animateCounter(0, parseInt(qtoResultCount.textContent), 5000, qtoResultCount);
+                            });
+                        </script>
                         <!-- <li class="border">
                             <img class="" alt="" src="{% static 'imagesqtohouse/group1.svg'%}">
                             <span class="qtoA">Private project</span>
@@ -65,9 +138,33 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                         </li> -->
                         <li>
                             <img class="" alt="" src="{% static 'imagesqtohouse/awarded.png'%}">
-                            <span class="qtoA">Awarded</span>
-                            <span>100</span>
+                            <span class="qtoA" id="qtoAwardedCounter">Awarded</span>
+                            <span id="qtoAwardedCount">100</span>
                         </li>
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function() {
+                                // Function to animate the counter
+                                function animateCounter(start, end, duration, element) {
+                                    let range = end - start;
+                                    let current = start;
+                                    let increment = end > start ? 1 : -1;
+                                    let stepTime = Math.abs(Math.floor(duration / range));
+                                
+                                    let timer = setInterval(function() {
+                                        current += increment;
+                                        element.textContent = current;
+                                        if (current === end) {
+                                            clearInterval(timer);
+                                        }
+                                    }, stepTime);
+                                }
+                        
+                                // Call animateCounter for each counter span
+                                let qtoAwardedCounter = document.getElementById("qtoAwardedCounter");
+                                let qtoAwardedCount = document.getElementById("qtoAwardedCount");
+                                animateCounter(0, parseInt(qtoAwardedCount.textContent), 5000, qtoAwardedCount);
+                            });
+                        </script>
                     </ul>
                 </div>
             </div>
