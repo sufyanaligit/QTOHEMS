@@ -154,6 +154,7 @@ margin-top: 2px;
   font-family: "Poppins-SemiBold";
       border: none;
 }
+
 .NB-search {
   background-color: #fdc022 !important;
   color: #000000 !important;
@@ -166,8 +167,9 @@ margin-top: 2px;
   margin: auto;
   border-radius: 8px;
   font-size: 16.7 !important;
-  font-family: "Poppins-SemiBold";
+  font-family: "Poppins-SemiBold"; 
   border: none;
+  margin-top: 65px;
 }
 
 .mni {
@@ -408,43 +410,63 @@ a {
 
 /* Search Start */
 .search {
-  padding-top: 76px;
+  /* padding-top: 76px; */
+  padding-top: 54px;
   padding-bottom: 27px;
   height: auto;
 }
 
 .search-background {
-  /* background-color: hsla(0, 0%, 50%, .551); */
-  /* background: linear-gradient(0deg, rgba(32,30,30,1) 0%, rgba(79,81,83,0.5326505602240896) 100%); */
-  /* border: 1px solid;
-  border-radius: 25px; */
-  /* background-color: #000000; */
-  /* background: linear-gradient(0deg, rgba(0,0,0,0.4906337535014006) 0%, rgba(129,129,129,0.4962359943977591) 100%); */
-  background: linear-gradient(0deg, rgba(0,0,0,0.4906337535014006) 0%, rgba(68,66,66,0.6839110644257703) 100%);
+
+   background-image: linear-gradient(to bottom, rgba(9, 8, 8, 0.2), rgb(5, 4, 4)); 
+  /* background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(68,66,66,0.7) 100%); */
   margin: auto;
-  padding: 30px;
+  padding: 0px;
   width: 60%;
   height: 425px;
-  border-top: 1px solid #fdc022;
-  border-bottom: 1px solid #fdc022;
+  border-top: 10px solid #fdc022;
+  border-bottom: 10px solid #fdc022;
+  /* border-image: linear-gradient(#fdc022, #767676) 30;
+    border-width: 38px;
+    border-style: solid; */
  
 }
+@media (max-width: 1024px) {
+  .search-background {
+    width: 100%; /* Adjusted width for 1024px view */
+ 
+  }
+ 
+  .NB-search {
+    width: 130px; /* Adjusted width for smaller screens */
+    height: 40px; /* Adjusted height for smaller screens */
+    font-size: 14px !important; /* Adjusted font size for smaller screens */
+    margin-top: 65px; /* Adjusted margin-top for smaller screens */
+    margin-right: 440px;
+  }
+}
+
+
 .main-image-text span {
-font-size: 35px !important;
+/* font-size: 55px !important; */
 }
+
 .main-image-text p {
-font-size: 25px !important;
-}
+  font-size: 25px !important;
+  margin-top: 6px;
+  }
+
+
 .search-background .NB{
   font-size: 12px !important;
 }
 
 .search-background .text-center {
-  padding: 35px;
+  padding: 26px;
 }
 
 .search-background .heading {
-  font-size: 25px;
+  font-size: 55px;
   font-weight: bold;
   color: white;
   justify-content: center;
@@ -489,6 +511,7 @@ font-size: 25px !important;
 .nav-link {
   margin: auto;
 }
+
 .location {
   width: 32%;
   /* border-left: 1px solid grey !important; */
@@ -1213,7 +1236,11 @@ ul {
 }
 
 .f2 {
-  height: 515px !important;
+  height: 545px !important;
+  margin-left: 91px;
+}
+.maskgroup{
+ width: 564px;
 }
 .fmac ul {
   margin-top: 90px;
@@ -1269,17 +1296,18 @@ ul {
   align-items: center; /* Vertical centering */
 }
 .WCUS .imghead h2 {
-  font-size: 20px;
-  font-family: "Poppins-SemiBold";
+  font-size: 25px;
+  /* font-family: "Poppins-SemiBold"; */
   margin-left: 10px;
+ 
 }
 
 .WCUS ul li p {
-  font-size: 12px;
-  font-family: "Poppins-Regular";
+  font-size: 20px;
+  /* font-family: "Poppins-Regular"; */
   margin-top: 5px !important;
   margin-left: 10px;
-  color: #767676;
+  color: #212529;
 }
 
 .WCUSimg {
@@ -1461,9 +1489,9 @@ ul {
 }
 .pageheading {
   font-weight: bold;
-  font-size: 30px;
+  font-size: 40px;
   text-align: center;
-  padding-top: 80px;
+  padding-top: 0px;
   margin-top: 0px;
   padding-bottom: 20px;
 }
@@ -1501,7 +1529,7 @@ ul {
 .wwwparagraph{
     font-size: 17.59px;
     text-align: center;
-    width: 55%;
+    width: 102%;
     margin: auto;
 }
 .pageheading-www {
@@ -1528,14 +1556,10 @@ ul {
   margin: 10px;
 }
 .hiv .estimator img {
-  height: 741px;
-  width: 501px;
+     /* height: 678px; */
+     width: 564px;
+     margin-left: 59px;
 }
-
-
-
-
-
 .WWW {
 
 
@@ -1707,21 +1731,21 @@ background-position: center center;
   background-color: #e6e6e6;
   height: auto;
   margin: auto;
-  max-width: 90%;
+  max-width: 80%;
   padding: 80px 52px 70px 18px;
-  border-radius: 1%;
+  border-radius: 15px;
 }
 .register-form-quote {
   background-color: #e6e6e6;
   height: auto;
   margin: auto;
   padding: 80px 52px 70px 18px;
-  margin-top: 110px;
+  margin-top: 0px;
   max-width: 75% !important;
   border-radius: 15px;
 }
 .footer-image {
-    padding-bottom: 37px;
+    padding-bottom: 3px;
 }
 .footer ul {
 padding-left: 15px;
@@ -1823,12 +1847,13 @@ margin-top: 30px;
 .form-textarea {
   background-color: #eeeeee !important;
   border: none !important;
-
   height: 250px;
+  width: 920px;
 }
 .form-textarea:focus {
   border: none !important;
   outline: none !important; /* This removes the outline when the textarea is focused */
+  
 }
 .regist-but {
   background-color: #f2b918 !important;
@@ -1841,7 +1866,7 @@ margin-top: 30px;
   color: #ffffff;
   height: 50px;
   border: 1px solid #b1b1b1;
-  border-radius: 20px;
+  border-radius: 20px !important;
   width: 89% !important ;
   align-items: center; /* Center items horizontally */
   justify-content: center;
@@ -1857,7 +1882,7 @@ margin-top: 30px;
   color: #ffffff;
   height: 50px;
   border: 1px solid #b1b1b1;
-  border-radius: 20px;
+  border-radius: 20px !important  ;
   width: 90% !important ;
   align-items: center; /* Center items horizontally */
 }
@@ -1887,12 +1912,12 @@ margin-top: 30px;
   display: flex;
   height: 50px;
   border: 1px solid #b1b1b1;
-  border-radius: 20px;
+  border-radius: 20px !important;
   width: 84% !important ;
   align-items: center; /* Center items horizontally */
 }
 .get-quote{
-  height: 1032px !important;
+  height: auto!important;
 }
 .login-p {
   background-image: url("../imagesqtohouse/login-bac-img.png");
@@ -1970,24 +1995,26 @@ margin-top: 30px;
 @media screen and (max-width: 415px) {
 
   .search {
-    padding-top: 47px;
+    padding-top: 40px;
   }
   .search-background .text-center {
-    padding: 6px;
-
+    padding: 1px;
+    
 }
   
 }
 @media screen and (max-width: 600px) {
+  
   .vision-content {
     padding: 10px !important;}
 /* .commercial-construction{display: none;} */
 .hat {display: none;}
 .cal{display: none;}
 .register-form-quote {margin: 0px;
-max-width: 100% !important;
-padding: 20px;
-}
+  max-width: 100% !important;
+  padding: 20px;
+  }
+  
 .form-group-quote-file{
   margin: 5px 10px 28px 10px!important;
   width: 100% !important;
@@ -2053,6 +2080,19 @@ padding: 20px;
 }
 /* Start Media Query @ 768PX */
 @media screen and (max-width: 768px) {
+  .NB-search {
+    width: 125px; /* Adjusted width for smaller screens */
+    height: 35px; /* Adjusted height for smaller screens */
+    font-size: 14px !important; /* Adjusted font size for smaller screens */
+    margin-top: 25px; /* Adjusted margin-top for smaller screens */
+    margin-left: 100px;
+  }
+  
+  .search-background .heading {
+    font-size: 35px; /* Adjust font size for smaller screens */
+    font-weight: bold;
+  }
+ 
   ul.navbar-nav {
     text-align: center !important; 
     margin: 0 auto; 
@@ -2063,6 +2103,8 @@ padding: 20px;
     margin-right: 0; /* Remove right margin */
     
   }
+  
+  
   
   .qtoA {
     color: black;
@@ -2121,9 +2163,10 @@ padding: 20px;
     margin-top: 6vh;
   }
   .search-background {
-    width: 80%;
-    height: auto;
+    width: 100%;
   }
+  
+
   .faq {
     width: 90%;
 }
@@ -2160,7 +2203,7 @@ padding: 20px;
 } */
 
 .pageheading {
-  padding-top: 15px;
+  /* padding-top: 15px; */
 }
 
 .WWW {
@@ -2172,7 +2215,8 @@ padding: 20px;
 
 /* Apply styles for screens between 600px and 1024px wide in portrait orientation */
 @media screen and (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
-    .ourServices {
+
+  .ourServices {
     padding: 0px 20px 0px 20px !important;}
   /* CSS rules for this specific condition */
 }
@@ -2258,17 +2302,64 @@ a {
 .social_media_icon {
   display: flex;
   padding: 5px;
-  background-color: #f7b100;
-  border-radius: 20px;
+  /* background-color: #f7b100;  */
+  border-radius: 15px;
   margin: 10px auto;
   height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  width: 172px;
+  width: 250px;
 }
-
+.contact_footer_instagram {
+  height: 45px;
+  width: 40px;
+  float: inherit;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 15px;
+  border-radius: 10px;
+}
+.contact_footer_instagram:hover{
+  background-color: #dd4b39;
+}
+.contact_footer_facebook {
+  height: 45px;
+  width: 40px;
+  float: inherit;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 15px;
+  border-radius: 10px;
+}
+.contact_footer_facebook:hover{
+  background-color: #3B5998;
+}
+.contact_footer_linkedin {
+  height: 45px;
+  width: 40px;
+  float: inherit;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 15px;
+  border-radius: 10px;
+}
+.contact_footer_linkedin:hover{
+  background-color: #007bb5;
+}
+.contact_footer_twitter {
+  height: 45px;
+  width: 44px;
+  float: inherit;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 15px;
+  border-radius: 10px;
+}
+.contact_footer_twitter:hover {
+  background-color: #55ACEE;
+}
 .follow-us-text {
   font-size: 40px; /* Set your desired font size */
   /* Additional styles if needed */
@@ -2282,7 +2373,7 @@ a {
   margin: auto;
   width: 60% !important;
   padding: 20px 52px 70px 18px;
-  border-radius: 1%;
+  border-radius: 15px;
 }
 
 .vision-content {
@@ -2716,6 +2807,7 @@ img {
   .contact-form .send {
     margin-bottom: 20px;
   }
+  
 }
 
 .section-title h2 {
@@ -3010,8 +3102,14 @@ img {
   height: auto;
   margin: auto;
   width: 35% !important;
-  padding: 20px 52px 70px 18px;
-  border-radius: 1%;
+  padding: 0px 32px 0px 18px;
+  border-radius: 15px;
+}
+@media (max-width: 768px) {
+  .log-back-sample {
+    width: 97% !important; /* Adjust width for smaller screens */
+    padding: 10px 10px 10px 20px; /* Adjust padding for smaller screens */
+  }
 }
 .top-bar{
   text-align: center;
@@ -3183,7 +3281,7 @@ border-bottom-left-radius: 5px;
 }
 .solutions-top {
   margin-top: 0px;
-  font-size: 20px;
+  font-size: 25px;
   font-family: 'Poppins', sans-serif;
   /* margin-left: 5%; 
   margin-right: 5%; */
@@ -3191,8 +3289,9 @@ border-bottom-left-radius: 5px;
 
 
 .p-estimates{   
-  width: 92% !important;
-  font-size: 14px !important;
+  width: 98% !important;
+  font-size: 20px !important;
   text-align: justify;
+  color: #212529;
 }
 
