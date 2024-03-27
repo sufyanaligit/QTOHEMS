@@ -176,10 +176,15 @@ margin-top: 2px;
   margin: 2px 15px 5px 15px;
   float: right !important;
 }
+
+
+
+
 .mni  img{
   height: 18px;
   width: 20px;
 }
+
 .mni  span{
   font-size: 12px;
 }
@@ -1753,7 +1758,12 @@ padding-left: 15px;
 }
 .fmac ul{
 margin-top: 30px;
-
+}
+@media screen and (max-width: 600px) {
+  .fmac ul {
+      margin-top: 20px; /* Adjusted margin for smaller screens */
+      margin-left: 80px;
+  }
 }
 .fmac ul li {
     display: inline-flex;
@@ -2062,6 +2072,7 @@ margin-top: 30px;
     height: 26px;
   }
   .mni {
+    /* text-align: center; */
     margin: 0px 15px 5px 15px;
   }
 }
@@ -2075,11 +2086,13 @@ margin-top: 30px;
 .testimonials {
   padding: 25px 250px 25px 250px;
 }
+
 /* End Media Query @ 600PX */
 
 .ESL {
   padding: 0px 100px 0px 100px !important;
 }
+
 /* Start Media Query @ 768PX */
 @media screen and (max-width: 768px) {
   .register-form {
@@ -2087,12 +2100,13 @@ margin-top: 30px;
     padding: 20px 20px 50px 20px ; 
   
   }
-  .NB-search {
+  .NB-search {  
     width: 125px; /* Adjusted width for smaller screens */
-    height: 35px; /* Adjusted height for smaller screens */
+    height: 45px; /* Adjusted height for smaller screens */
     font-size: 14px !important; /* Adjusted font size for smaller screens */
-    margin-top: 25px; /* Adjusted margin-top for smaller screens */
-    margin-left: 100px;
+    margin-top: 15px; /* Adjusted margin-top for smaller screens */
+    align-items: center;
+    margin: auto;
   }
   
   .search-background .heading {
@@ -2196,9 +2210,10 @@ margin-top: 30px;
   .cartb {
     height: 26px;
   }
-  .mni {
+   .mni {
+     text-align: center; 
     margin: 0px 15px 5px 15px;
-  }
+  } 
 
   .register {
     padding: 10px;
