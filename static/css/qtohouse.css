@@ -1414,6 +1414,16 @@ ul {
   padding: 5px !important;
   margin: 0px !important;
 }
+.OSThree-2 {
+  height: 715px;
+  padding: 5px !important;
+  margin: 0px !important;
+}
+.OSThree-3 {
+  height: 715px;
+  padding: 5px !important;
+  margin: 0px !important;
+}
 
 .backimg {
   background-image: url("../imagesqtohouse/enhanced-image 5.png"); /* Update with your image path */
@@ -3347,22 +3357,56 @@ border-bottom-left-radius: 5px;
   text-align: justify;
   color: #212529;
 }
+
+
 /* @keyframes moveDownLeft {
   0% { 
       opacity: 0; 
-      transform: translate(100%, -100%);
+      transform: translateX(100%);
   }
   100% { 
       opacity: 1; 
-      transform: translate(0, 0);
+      transform: translateX(0);
   }
+}
+
+ .ourServices .OSThree{
+  animation: moveDownLeft 2s ease forwards;
+}
+
+@keyframes moveDownLeft {
+  0% { 
+      opacity: 0; 
+      transform: translateX(100%);
+  }
+  100% { 
+      opacity: 1; 
+      transform: translateX(0);
+  }
+}
+
+
+ .ourServices .OSThree-2{
+  animation: moveDownLeft 3s ease forwards;
+}
+@keyframes moveDownLeft {
+  0% { 
+      opacity: 0; 
+      transform: translateX(100%);
+  }
+  100% { 
+      opacity: 1; 
+      transform: translateX(0);
+  }
+}
+
+
+ .ourServices .OSThree-3{
+  animation: moveDownLeft 4s ease forwards;
 } */
 
-/* Apply the animation to the container */
-/* .ourServices .OSThree {
-  animation: moveDownLeft 1s ease forwards;
-}
-@keyframes moveDownRight {
+
+/* @keyframes moveDownRight {
   0% {
       opacity: 0;
       transform: translate(-100%, -100%);
@@ -3371,12 +3415,16 @@ border-bottom-left-radius: 5px;
       opacity: 1;
       transform: translate(0, 0);
   }
-} */
+} 
 
-/* Apply the animation to the image container
+
 .WCUQTO .WCU {
   animation: moveDownRight 1s ease forwards;
-}
+} 
+
+
+
+/* 
 @keyframes moveDownRight {
   0% {
       opacity: 0;
@@ -3388,7 +3436,7 @@ border-bottom-left-radius: 5px;
   }
 }
 
- Apply the animation to the image container 
+
 .hiv .WCU {
   animation: moveDownRight 1s ease forwards;
-} */
+}  */
