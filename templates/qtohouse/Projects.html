@@ -32,9 +32,36 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                                     <span class="form-select" onclick="toggleSearchResults()">Search Results by
                                         Keyword</span>
                                 </li>
+                                <!-- <li class="dropdown-manue" id="searchLocation" style="display: none;">
+                                    <form id="locationForm" method="GET" action="{% url 'qtohouseProjects' %}">
+                                        <img class="pdf-icon" alt="" src="{% static 'imagesqtohouse/location.png'%}" />
+                                        <input type="text" class="input-field" id="locationInput" name="location"
+                                            placeholder="Search" onkeypress="handleKeyPress(event)" />
+                                    </form>
+                                </li>
+
+                                <script>
+                                    function handleKeyPress(event) {
+                                        if (event.key === "Enter") {
+                                            event.preventDefault(); // Prevent the default action (form submission)
+                                            submitLocation(); // Call a function to submit the form
+                                        }
+                                    }
+
+                                    function submitLocation() {
+                                        var form = document.getElementById("locationForm");
+                                        form.submit(); // Submit the form
+                                    }
+                                </script> -->
                                 <li class="dropdown-manue" id="searchResult" style="display: none;">
-                                    <img class="pdf-icon" alt="" src="{% static 'imagesqtohouse/search_footer.png'%}" />
-                                    <input type="text" class="input-field" placeholder="Window, roof, etc" />
+                                    <form id="locationForm" method="GET" action="{% url 'qtohouseProjects' %}">
+                                        <img class="pdf-icon" alt="" 
+                                            src="{% static 'imagesqtohouse/search_footer.png'%}" />
+                                        <input type="text" class="input-field" name="search_query"
+                                            placeholder="Window, roof, etc" onkeypress="handleKeyPress(event)" />
+                                    </form>
+                                    <!-- <img class="pdf-icon" alt="" src="{% static 'imagesqtohouse/search_footer.png'%}" /> -->
+                                    <!-- <input type="text" class="input-field" placeholder="Window, roof, etc" /> -->
                                 </li>
 
                                 <script>
@@ -55,8 +82,13 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                                 </li>
                                 <li class="dropdown-manue" id="searchLocation" style="display: none;">
                                     <!-- <div class="input-with-icon"> -->
-                                    <img class="pdf-icon" alt="" src="{% static 'imagesqtohouse/location.png'%}" />
-                                    <input type="text" class="input-field" placeholder="Search" />
+                                    <form id="locationForm" method="GET" action="{% url 'qtohouseProjects' %}">
+                                        <img class="pdf-icon" alt="" src="{% static 'imagesqtohouse/location.png'%}" />
+                                        <input type="text" class="input-field" name="location" placeholder="Search"
+                                            onkeypress="handleKeyPress(event)" />
+                                    </form>
+                                    <!-- <img class="pdf-icon" alt="" src="{% static 'imagesqtohouse/location.png'%}" />
+                                    <input type="text" class="input-field" placeholder="Search" /> -->
                                     <!-- </div> -->
                                 </li>
 
@@ -78,10 +110,11 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
 
                                 <li class="dropdown-manue" id="searchDropdown" style="display: none;">
                                     <div class="date">
-                                        <form action="/action_page.php">
-                                            <input class="left-input" type="date" id="birthday" name="birthday" />
+                                        <form method="GET" action="{% url 'qtohouseProjects' %}" id="dateFilterForm">
+                                            <input class="left-input" type="date" id="start_date" name="start_date" />
                                             <span class="center-span">To</span>
-                                            <input class="right-input" type="date" id="birthday" name="birthday" />
+                                            <input class="right-input" type="date" id="end_date" name="end_date" />
+                                            <!-- Remove the button -->
                                         </form>
                                     </div>
                                 </li>
@@ -95,7 +128,23 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                                             searchDropdown.style.display = "none";
                                         }
                                     }
+
+                                    document.getElementById("end_date").onchange = function () {
+                                        applyFilter();
+                                    };
+
+                                    function applyFilter() {
+                                        var startDate = document.getElementById("start_date").value;
+                                        var endDate = document.getElementById("end_date").value;
+                                        // Check if both dates are entered
+                                        if (startDate && endDate) {
+                                            // Submit the form when both dates are entered
+                                            document.getElementById("dateFilterForm").submit();
+                                        }
+                                    }
                                 </script>
+
+
 
                                 <li>
                                     <span class="form-select" aria-label="Default select example"
@@ -104,9 +153,15 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
 
                                 <li class="dropdown-manue" id="searchBidAmount" style="display: none;">
                                     <div class="amount">
-                                        <input class="left-input" type="number" placeholder="100   $" />
-                                        <span class="center-span">To</span>
-                                        <input class="right-input" type="number" placeholder="5000000  $" />
+                                        <form method="GET" action="{% url 'qtohouseProjects' %}"
+                                            id="bidAmountFilterForm">
+                                            <input class="left-input" type="number" name="min_bid"
+                                                placeholder="Min Bid Amount" onchange="applyBidFilter()" />
+                                            <span class="center-span">To</span>
+                                            <input class="right-input" type="number" name="max_bid"
+                                                placeholder="Max Bid Amount" onchange="applyBidFilter()" />
+                                            <!-- Remove the button -->
+                                        </form>
                                     </div>
                                 </li>
 
@@ -119,6 +174,16 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                                             searchBidAmount.style.display = "none";
                                         }
                                     }
+
+                                    function applyBidFilter() {
+                                        var minBid = document.getElementsByName("min_bid")[0].value;
+                                        var maxBid = document.getElementsByName("max_bid")[0].value;
+                                        // Check if both minimum and maximum bid amounts are entered
+                                        if (minBid && maxBid) {
+                                            // Submit the form when both amounts are entered
+                                            document.getElementById("bidAmountFilterForm").submit();
+                                        }
+                                    }
                                 </script>
 
                                 <li>
@@ -127,13 +192,18 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                                 </li>
 
                                 <li class="dropdown-manue" id="searchToggle" style="display: none;">
-                                    <!-- <div class="status"> -->
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option value="">Solicicated</option>
-                                        <option value="Alabama">UnSolicicated</option>
-                                        <option value="Alaska">None</option>
-                                    </select>
-                                    <!-- </div> -->
+                                    <form method="GET" action="{% url 'qtohouseProjects' %}" id="statusFilterForm">
+                                        <select class="form-select" aria-label="Default select example" name="status"
+                                            onchange="applyFilter('status')">
+                                            <option value="">All</option>
+                                            <option value="Started">Started</option>
+                                            <option value="pending">Pending</option>
+                                            <option value="in_progress">In Progress</option>
+                                            <option value="completed">Completed</option>
+                                            <option value="Closed">Closed</option>
+                                        </select>
+                                        <!-- Remove the button -->
+                                    </form>
                                 </li>
 
                                 <script>
@@ -145,6 +215,15 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                                             searchToggle.style.display = "none";
                                         }
                                     }
+
+                                    function applyFilter(type) {
+                                        var formId = type + 'FilterForm';
+                                        var selectName = type;
+                                        var selectValue = document.getElementsByName(selectName)[0].value;
+                                        if (selectValue) {
+                                            document.getElementById(formId).submit();
+                                        }
+                                    }
                                 </script>
 
                                 <li>
@@ -152,16 +231,20 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                                         onclick="toggleDivision()">Division</span>
                                 </li>
 
-                                <li class="dropdown-manue" id="searchDivision" style="display: none; ">
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option value="">All</option>
-                                        <option value="">Masonry</option>
-                                        <option value="Alabama">Lumber</option>
-                                        <option value="Alaska">Dry Wall</option>
-                                        <option value="Alaska">Painting</option>
-                                        <option value="Alaska">HVAC</option>
-                                        <option value="Alaska">Plumbing</option>
-                                    </select>
+                                <li class="dropdown-manue" id="searchDivision" style="display: none;">
+                                    <form method="GET" action="{% url 'qtohouseProjects' %}" id="divisionFilterForm">
+                                        <select class="form-select" aria-label="Default select example" name="division"
+                                            onchange="applyFilter('division')">
+                                            <option value="">All</option>
+                                            <option value="Masonry">Masonry</option>
+                                            <option value="Lumber">Lumber</option>
+                                            <option value="Dry Wall">Dry Wall</option>
+                                            <option value="Painting">Painting</option>
+                                            <option value="HVAC">HVAC</option>
+                                            <option value="Plumbing">Plumbing</option>
+                                        </select>
+                                        <!-- Remove the button -->
+                                    </form>
                                 </li>
 
                                 <script>
@@ -174,6 +257,8 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                                         }
                                     }
                                 </script>
+
+
                                 <!-- </div> -->
                                 </li>
                             </ul>
@@ -220,7 +305,7 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                                         <div>
                                             <span>New</span>
                                         </div>
-                                    </div> 
+                                    </div>
                                     <div class="row border ht">
                                         <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 cardheadingsect">
                                             <div>
