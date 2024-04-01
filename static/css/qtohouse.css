@@ -176,10 +176,15 @@ margin-top: 2px;
   margin: 2px 15px 5px 15px;
   float: right !important;
 }
+
+
+
+
 .mni  img{
   height: 18px;
   width: 20px;
 }
+
 .mni  span{
   font-size: 12px;
 }
@@ -432,6 +437,8 @@ a {
  
 }
 @media (max-width: 1024px) {
+ 
+  
   .search-background {
     width: 100%; /* Adjusted width for 1024px view */
  
@@ -1385,6 +1392,7 @@ ul {
   padding: 0px 0px 0px 0px !important;
   margin: auto !important; 
 }
+
 .ourServices h2 {
   text-align: center;
   font-size: 36.59px;
@@ -1527,7 +1535,7 @@ ul {
   padding-bottom: 20px;
 }
 .wwwparagraph{
-    font-size: 17.59px;
+    font-size: 25.59px;
     text-align: center;
     width: 102%;
     margin: auto;
@@ -1561,16 +1569,13 @@ ul {
      margin-left: 59px;
 }
 .WWW {
-
-
-  
   background-color: #fdc022;
   padding-bottom: 20px;
   padding: 50px 250px;
   margin: auto;
 }
 .WWW .row {
-  margin: 25px 0px 25px 0px;
+  margin: 25px 15px 25px 40px;
 }
 .WWW .d-flex p {
     padding-left: 5px;
@@ -1731,17 +1736,18 @@ background-position: center center;
   background-color: #e6e6e6;
   height: auto;
   margin: auto;
-  max-width: 80%;
+  max-width: 70%;
   padding: 80px 52px 70px 18px;
   border-radius: 15px;
 }
+
 .register-form-quote {
   background-color: #e6e6e6;
   height: auto;
   margin: auto;
-  padding: 80px 52px 70px 18px;
+  padding: 80px 52px 0px 18px;
   margin-top: 0px;
-  max-width: 75% !important;
+  max-width: 60% !important;
   border-radius: 15px;
 }
 .footer-image {
@@ -1752,7 +1758,12 @@ padding-left: 15px;
 }
 .fmac ul{
 margin-top: 30px;
-
+}
+@media screen and (max-width: 600px) {
+  .fmac ul {
+      margin-top: 20px; /* Adjusted margin for smaller screens */
+      margin-left: 80px;
+  }
 }
 .fmac ul li {
     display: inline-flex;
@@ -1832,10 +1843,11 @@ margin-top: 30px;
   color: #b1b1b1 !important;
   border: none;
   border: 1px #eeeeee !important ;
-  margin-left: 15px !important;
-  outline: none !important;
+  /* margin-left: 15px !important;
+  outline: none !important; */
   
 }
+
 .user {
   height: 15.36px;
   width: 13.66;
@@ -2060,6 +2072,7 @@ margin-top: 30px;
     height: 26px;
   }
   .mni {
+    text-align: center; 
     margin: 0px 15px 5px 15px;
   }
 }
@@ -2073,19 +2086,27 @@ margin-top: 30px;
 .testimonials {
   padding: 25px 250px 25px 250px;
 }
+
 /* End Media Query @ 600PX */
 
 .ESL {
   padding: 0px 100px 0px 100px !important;
 }
+
 /* Start Media Query @ 768PX */
 @media screen and (max-width: 768px) {
-  .NB-search {
+  .register-form {
+    max-width: 80%; 
+    padding: 20px 20px 50px 20px ; 
+  
+  }
+  .NB-search {  
     width: 125px; /* Adjusted width for smaller screens */
-    height: 35px; /* Adjusted height for smaller screens */
+    height: 45px; /* Adjusted height for smaller screens */
     font-size: 14px !important; /* Adjusted font size for smaller screens */
-    margin-top: 25px; /* Adjusted margin-top for smaller screens */
-    margin-left: 100px;
+    margin-top: 15px; /* Adjusted margin-top for smaller screens */
+    align-items: center;
+    margin: auto;
   }
   
   .search-background .heading {
@@ -2189,9 +2210,10 @@ margin-top: 30px;
   .cartb {
     height: 26px;
   }
-  .mni {
+   .mni {
+     text-align: center; 
     margin: 0px 15px 5px 15px;
-  }
+  } 
 
   .register {
     padding: 10px;
@@ -2375,6 +2397,12 @@ a {
   padding: 20px 52px 70px 18px;
   border-radius: 15px;
 }
+/* @media screen and (max-width: 768px) {
+  .log-back {
+    width: 80% !important;
+    padding: 20px 20px 50px 20px; 
+  }
+} */
 
 .vision-content {
   padding: 30px;
@@ -3105,9 +3133,22 @@ img {
   padding: 0px 32px 0px 18px;
   border-radius: 15px;
 }
-@media (max-width: 768px) {
+
+@media (max-width: 1024px) {
+  
   .log-back-sample {
-    width: 97% !important; /* Adjust width for smaller screens */
+    width: 52% !important; 
+    padding: 10px 10px 10px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .log-back {
+    width: 80% !important; /* Adjusted width for smaller screens */
+    padding: 20px 20px 50px 20px; /* Adjusted padding for smaller screens */
+  }
+  .log-back-sample {
+    width: 80% !important; /* Adjust width for smaller screens */
     padding: 10px 10px 10px 20px; /* Adjust padding for smaller screens */
   }
 }
