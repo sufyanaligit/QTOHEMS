@@ -150,9 +150,9 @@ margin-top: 2px;
   align-items: center;
   margin: auto;
   border-radius: 8px;
-  font-size: 16.7 !important;
+  font-size: 18px;
   font-family: "Poppins-SemiBold";
-      border: none;
+  border: none;
 }
 
 .NB-search {
@@ -166,8 +166,9 @@ margin-top: 2px;
   align-items: center;
   margin: auto;
   border-radius: 8px;
-  font-size: 16.7 !important;
-  font-family: "Poppins-SemiBold"; 
+  /* font-size: 16.7 !important; */
+  font-size: 18px;
+  font-family: "Poppins-SemiBold" !important; 
   border: none;
   margin-top: 65px;
 }
@@ -654,8 +655,8 @@ a {
 /* Search End */
 .qtoA {
   
-  /* font-family: "Inter-Medium"; */
-  font-size: 14.3px;
+font-family: "Inter-Medium"; 
+  font-size: 18px;
   color: white;
   margin-bottom: -21px;
 }
@@ -1248,6 +1249,7 @@ ul {
 }
 .maskgroup{
  width: 564px;
+ 
 }
 .fmac ul {
   margin-top: 90px;
@@ -1503,6 +1505,15 @@ ul {
   margin-top: 0px;
   padding-bottom: 20px;
 }
+.pageheading-sample{
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  padding-top: 0px;
+  margin-top: 0px;
+  padding-bottom: 20px;
+}
+
 .pageheading-vision {
   font-weight: bold;
   font-size: 30px;
@@ -1516,7 +1527,6 @@ ul {
 }
 .pageheading-mission {
   font-weight: bold;
-  
   font-size: 30px;
   text-align: center;
   padding-top: 30px;
@@ -1666,7 +1676,7 @@ background-position: center center;
   display: flex;
   margin-top: 35px;
   font-family: "Poppins-Regular";
-  font-size: 16px;
+  font-size: 20px;
 }
 .about-us p{
   margin-top: 9px ;
@@ -2405,13 +2415,14 @@ a {
 } */
 
 .vision-content {
-  padding: 30px;
+padding: 20px; 
   margin-top: 20px;
   max-width: 400px; /* Adjust the maximum width as needed */
   text-align: justify;
   justify-content: center;
   display: flex;
   margin: auto;
+  font-size: 17px;
 }
 .vision-container {
   border: 1px solid #e2e2e2;
@@ -3155,6 +3166,7 @@ img {
 .top-bar{
   text-align: center;
   margin-left: 10px;
+  font-size: 20px;
 }
 
 .item-overlay .job-info,
@@ -3331,8 +3343,52 @@ border-bottom-left-radius: 5px;
 
 .p-estimates{   
   width: 98% !important;
-  font-size: 20px !important;
+  /* font-size: 20px !important; */
   text-align: justify;
   color: #212529;
 }
+/* @keyframes moveDownLeft {
+  0% { 
+      opacity: 0; 
+      transform: translate(100%, -100%);
+  }
+  100% { 
+      opacity: 1; 
+      transform: translate(0, 0);
+  }
+} */
 
+/* Apply the animation to the container */
+/* .ourServices .OSThree {
+  animation: moveDownLeft 1s ease forwards;
+}
+@keyframes moveDownRight {
+  0% {
+      opacity: 0;
+      transform: translate(-100%, -100%);
+  }
+  100% {
+      opacity: 1;
+      transform: translate(0, 0);
+  }
+} */
+
+/* Apply the animation to the image container
+.WCUQTO .WCU {
+  animation: moveDownRight 1s ease forwards;
+}
+@keyframes moveDownRight {
+  0% {
+      opacity: 0;
+      transform: translate(-100%, -100%);
+  }
+  100% {
+      opacity: 1;
+      transform: translate(0, 0);
+  }
+}
+
+ Apply the animation to the image container 
+.hiv .WCU {
+  animation: moveDownRight 1s ease forwards;
+} */
