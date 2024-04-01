@@ -10,6 +10,10 @@ from apps.models import Project,ProjectSpecifications,ProjectPlans,Project_Takeo
 # from qtosol.models import Cart,CartItem
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
+from datetime import datetime
+
+
+
 
 class qtohouseView(TemplateView):
     pass
@@ -55,10 +59,77 @@ def qtohouse_Projects_view(request):
     if contractor_group in user.groups.all():
         # User is a contractor, so show all projects and mark their projects
         my_projects = user.projects_as_contractor.all()
+        # Handling search filters
+        search_query = request.GET.get('search_query')
+        location = request.GET.get('location')
+        start_date = request.GET.get('start_date')
+        end_date = request.GET.get('end_date')
+        min_bid = request.GET.get('min_bid')
+        max_bid = request.GET.get('max_bid')
+        status = request.GET.get('status')
+        division = request.GET.get('division')
+        
+        if search_query:
+            projects = projects.filter(project_name__icontains=search_query)
+        if location:
+            # Search with all fields of the Address table
+            projects = projects.filter(project_address__location__icontains=location) | \
+                        projects.filter(project_address__country__icontains=location) | \
+                        projects.filter(project_address__state__icontains=location) | \
+                        projects.filter(project_address__city__icontains=location) | \
+                        projects.filter(project_address__zip_code__icontains=location) | \
+                        projects.filter(project_address__region__icontains=location) | \
+                        projects.filter(project_address__timezone__icontains=location)
+        if start_date and end_date:
+            start_date = datetime.strptime(start_date, "%Y-%m-%d").date()
+            end_date = datetime.strptime(end_date, "%Y-%m-%d").date()
+            projects = projects.filter(bid__bid_date__range=[start_date, end_date])
+        if min_bid and max_bid:
+            projects = projects.filter(bid__bid_amount__range=[min_bid, max_bid])
+        if status:
+            projects = projects.filter(status=status)
+        if division:
+            projects = projects.filter(csi_division__icontains=division)
+
         return render(request, 'qtohouse/Projects.html', {'projects': projects, 'my_projects': my_projects,'my_projects': my_projects, 'show_my_projects_tab': True })
+    
+
     else:
-        # User is not a contractor, so show all projects without marking
+        # User is not a contractor, so show all projects without marking   
+        search_query = request.GET.get('search_query')
+        location = request.GET.get('location')
+        start_date = request.GET.get('start_date')
+        end_date = request.GET.get('end_date')
+        min_bid = request.GET.get('min_bid')
+        max_bid = request.GET.get('max_bid')
+        status = request.GET.get('status')
+        division = request.GET.get('division')
+
+        if search_query:
+            projects = projects.filter(project_name__icontains=search_query)
+            # Assuming Address model has a field 'location_name'
+            if location:
+                # Search with all fields of the Address table
+                projects = projects.filter(project_address__location__icontains=location) | \
+                            projects.filter(project_address__country__icontains=location) | \
+                            projects.filter(project_address__state__icontains=location) | \
+                            projects.filter(project_address__city__icontains=location) | \
+                            projects.filter(project_address__zip_code__icontains=location) | \
+                            projects.filter(project_address__region__icontains=location) | \
+                            projects.filter(project_address__timezone__icontains=location)
+        if start_date and end_date:
+            start_date = datetime.strptime(start_date, "%Y-%m-%d").date()
+            end_date = datetime.strptime(end_date, "%Y-%m-%d").date()
+            projects = projects.filter(bid__bid_date__range=[start_date, end_date])
+        if min_bid and max_bid:
+            projects = projects.filter(bid__bid_amount__range=[min_bid, max_bid])
+        if status:
+            projects = projects.filter(status=status)
+        if division:
+            projects = projects.filter(csi_division__icontains=division)
+
         return render(request, 'qtohouse/Projects.html', {'projects': projects})
+
 import os
 @login_required
 def qtohouse_project_detail_view(request, pk):

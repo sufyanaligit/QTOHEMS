@@ -110,7 +110,7 @@ class Project_Create_Form(forms.ModelForm):
                 bid_phase=self.cleaned_data['bid_phase'],
                 project_completion_time=self.cleaned_data['project_completion_time'],
             )
-            bid.save()
+            bid.save() 
             solicitation = Solicitation(
                 project=project,
                 notes=self.cleaned_data['notes'],
