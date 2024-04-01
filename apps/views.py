@@ -243,7 +243,7 @@ def apps_projects_list_view(request):
 def apps_projects_create_view(request):
     projects = Project.objects.all().order_by('-project_id')
 
-    if request.method == 'POST':
+    if request.method == 'POST': 
         print(request.FILES)  # Add this line
         form = Project_Create_Form(request.POST, request.FILES)
         if form.is_valid():

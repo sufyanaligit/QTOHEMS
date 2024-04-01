@@ -2,16 +2,16 @@
 {% block header %}
 
 <div class="icon-bar">
-    <a href="https://www.linkedin.com/company/71647097/admin/feed/posts/" class="linkedin">
+    <a href="https://www.linkedin.com/company/qtohouse/" class="linkedin">
         <img class="fixed-sidebar-image" alt="" src="/static/imagesqtohouse/twitter-circled@2x.png" />
     </a>
-    <a href="https://www.instagram.com/qto_solutions/" class="instagram">
+    <a href="https://www.instagram.com/qtohouse/" class="instagram">
         <img class="fixed-sidebar-image" alt="" src="/static/imagesqtohouse/instagram@2x.png" />
     </a>
     <!-- <a href="https://twitter.com/QtoSol" class="twitter">
         <img class="fixed-sidebar-image" alt="" src="/static/imagesqtohouse/twitter-circled@2x.png" />
     </a> -->
-    <a href="https://www.facebook.com/profile.php?id=100064318140416" class="facebook">
+    <a href="https://www.facebook.com/qtohouse" class="facebook">
         <img class="fixed-sidebar-image" alt="" src="/static/imagesqtohouse/facebook@2x.png" />
     </a>
 </div>
@@ -66,10 +66,12 @@
         </div> -->
         <div class="mni">
             <div>
+                <a class="" href="mailto:info@qtohouse.com">
                 <img src="{% static 'imagesqtosol/mail.png'%}" alt="Image 5" />
                 <div class="newproject">
                     <span>info@qtohouse.com</span>
                 </div>
+            </a>
             </div>
         </div>
         <div class="mni ml-auto">
@@ -88,7 +90,7 @@
 <div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
                 <img class="logo nav_logo" src="{% static 'imagesqtosol/logo1.png'%}" alt="Image 6" />
             </a>
 
@@ -100,36 +102,27 @@
             </button>
 
             <!-- Navbar content -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                 <div class="container teal borderYtoX">
                     <div class="justify-content-end">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="float: right;">
-                            <li class="nav-item ">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 " style="float: right;">
+                            <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="/">Home</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/AboutUs">About Us</a>
-                            </li>
                             {% if user.is_authenticated %}
-
                             <li class="nav-item">
                                 <a class="nav-link" href="/Projects">Projects</a>
                             </li>
                             {% else %}
-
-
                             {% endif %}
                             <li class="nav-item">
-                                <a class="nav-link" href="/Services">Solutions</a>
+                                <a class="nav-link" href="/Sample">Sample</a>
                             </li>
-                            <!-- <li class="nav-item">
-                                <a class="nav-link" href="career">Career</a>
-                            </li> -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="/AboutUs">About Us</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/ContactUs">Contact Us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/Sample">Sample</a>
                             </li>
                         </ul>
                     </div>
@@ -139,13 +132,11 @@
                         Get Free Quote
                     </button>
                 </a>
-
-
-
             </div>
         </div>
     </nav>
 </div>
+
 
 <section>
     <!-- Carousel section -->
