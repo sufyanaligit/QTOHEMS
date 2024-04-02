@@ -1272,7 +1272,7 @@ ul {
 }
 .fmac ul li p {
   font-family: "Inter-Medium";
-  font-size: 14.67px;
+  font-size: 16.67px;
 }
 .mailfooter {
   height: 17.33px;
@@ -2366,7 +2366,7 @@ a {
   width: 250px;
 }
 .contact_footer_instagram {
-  height: 45px;
+  height: 40px;
   width: 40px;
   float: inherit;
   margin-top: 0px;
@@ -2378,7 +2378,7 @@ a {
   background-color: #dd4b39;
 }
 .contact_footer_facebook {
-  height: 45px;
+  height: 40px;
   width: 40px;
   float: inherit;
   margin-top: 0px;
@@ -2390,7 +2390,7 @@ a {
   background-color: #3B5998;
 }
 .contact_footer_linkedin {
-  height: 45px;
+  height: 40px;
   width: 40px;
   float: inherit;
   margin-top: 0px;
@@ -2402,8 +2402,8 @@ a {
   background-color: #007bb5;
 }
 .contact_footer_twitter {
-  height: 45px;
-  width: 44px;
+  height: 40px;
+  width: 40px;
   float: inherit;
   margin-top: 0px;
   margin-left: 0px;
