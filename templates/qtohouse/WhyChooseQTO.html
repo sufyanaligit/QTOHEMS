@@ -16,7 +16,22 @@
             <!-- <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 estimator"> -->
                 <!-- <img class="fl" alt="" src="{% static 'imagesqtohouse/Mask group.png'%}" /> -->
                  <img class="maskgroup" alt="" src="{% static 'imagesqtohouse/Maskgroup.png'%}" />  
-            </div>
+        </div>
+        <script>
+            // Add event listener for scroll event on home page "a decision of excellence"
+             window.addEventListener('scroll', function() {
+                   const image = document.querySelector('.maskgroup');
+                   const imagePosition = image.getBoundingClientRect().top;
+                   const windowHeight = window.innerHeight;
+
+                    // Check if the image is in the viewport
+                      if (imagePosition < windowHeight) {
+                      image.classList.add('animated');
+    }
+});
+
+        </script>
+
             <!-- <h2 class="pageheading">Selecting QTO House: A Decision for Excellence</h2>
             <p style="text-align: justify;">
                 Join hands with QTO House, where we blend a decade of 

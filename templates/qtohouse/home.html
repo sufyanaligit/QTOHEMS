@@ -164,6 +164,10 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                                 let qtoAwardedCount = document.getElementById("qtoAwardedCount");
                                 animateCounter(0, parseInt(qtoAwardedCount.textContent), 7000, qtoAwardedCount);
                             });
+
+                       
+
+
                         </script>
                     </ul>
                 </div>
@@ -256,23 +260,43 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                     construction trades and CSI divisions.
                 </p> 
             </div> -->
+        <div class="ourServices" id="servicesSection">
             <div class="ourServices container">
                 <div class="row">
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 OSThree">
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 OSThree-1">
                         <div class="commercial-construction cc"></div>
                         <div class="fedral-construction cc"></div>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 OSThree">
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4  OSThree-2">
                         <div class="residential-construction cc"></div>
                         <div class="hcivil-construction cc"></div>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 OSThree">
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4  OSThree-3">
                         <div class="indust-construction col-larg"></div>
                     </div>
                     <!-- Add other columns for remaining images -->
                 </div>
             </div>
-                
+        </div>  
+        <script>
+            window.addEventListener('scroll', function() {
+                console.log('Scroll event triggered');
+                const elements = document.querySelectorAll('.OSThree-1, .OSThree-2, .OSThree-3');
+        
+                elements.forEach(function(element) {
+                    const imagePosition = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+        
+                    // Check if the element is in the viewport
+                    if (imagePosition < windowHeight) {
+                        element.classList.add('animated');
+                    
+                    }
+                });
+            });
+        </script>
+        
+            
         </div>
     </div>
 </div>
@@ -358,8 +382,22 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 WCU">
         <!-- <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 estimator"> -->
             <!-- <img class="fl" alt="" src="{% static 'imagesqtohouse/Mask group.png'%}" /> -->
-             <img class="maskgroup" alt="" src="{% static 'imagesqtohouse/Maskgroup.png'%}" /> 
-        <!-- </div> -->
+             <img class="maskgroup-1" alt="" src="{% static 'imagesqtohouse/Maskgroup.png'%}" /> 
+
+             <script>
+                window.addEventListener('scroll', function() {
+                 const image = document.querySelector('.maskgroup-1');
+                 const imagePosition = image.getBoundingClientRect().top;
+                 const windowHeight = window.innerHeight;
+
+                 // Check if the image is in the viewport
+                 if (imagePosition < windowHeight) {
+                 image.classList.add('animated');
+                }
+             });
+
+             </script>
+        <!-- </div> --> 
         </div>
     </div>
 </div>
