@@ -303,8 +303,33 @@ class Company_Details(models.Model):
     def __str__(self):
         return ', '.join(self.get_type_of_construction_display())
     
+class Authority(models.Model):
+    AUTHORITIES = [
+        ('SCA', 'SCA'),
+        # Add more options as needed
+      ]
 
+    authority_id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=100, choices=AUTHORITIES)
 
+    def __str__(self):
+        return self.name
+
+class SubAuthority(models.Model):
+    SUB_AUTHORITIES = [
+        ('MENTOR', 'MENTOR'),
+        ('CIP', 'CIP'),
+        ('GRADUATE_MENTOR', 'Graduate MENTOR'),
+        ('Capacity_Projects', 'Capacity Projects'),
+        ('other', 'Other'),
+        # Add more options as needed
+      ]
+    subauthority_id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=100, choices=SUB_AUTHORITIES)
+    authority = models.ForeignKey(Authority, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
 class Project(models.Model):
     project_id = models.AutoField(primary_key=True)
     project_name = models.CharField(max_length=100)
@@ -312,10 +337,8 @@ class Project(models.Model):
     project_plans_files = models.ManyToManyField('ProjectPlans', blank=True, related_name='projectPlans')
     project_Takeoff_files = models.ManyToManyField('Project_Takeoff_Documents', blank=True, related_name='projectTakeoff')
     project_address = models.ForeignKey('Address', on_delete=models.SET_NULL, null=True, blank=True, default=None)
-    # will be using state column for Description
-    state = models.CharField(max_length=50,blank=True)
-    # will use city for project address 
-    city = models.CharField(max_length=50,blank=True)
+    Description = models.CharField(max_length=50,blank=True)
+    address = models.CharField(max_length=50,blank=True)
     STATUS_CHOICES = (
         ('Started', 'Started'),
         ('pending', 'Pending'),
@@ -376,9 +399,7 @@ class Project(models.Model):
         ('Electrical Power Generation', 'Electrical Power Generation'),
         ('Reserved For Future Expansion 12', 'RESERVED FOR FUTURE EXPANSION'),
 ) 
-
     csi_division = MultiSelectField(max_length=200,choices=TAG_CHOICES,max_choices=50,default='Developer')
-    
     updated_at = models.DateTimeField(blank=True, null=True)
     deleted_at = models.DateTimeField(blank=True, null=True)
     addendum_files = models.FileField(upload_to='project_addendum/', null=True, blank=True)
@@ -392,6 +413,9 @@ class Project(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
     deleted_at = models.DateTimeField(blank=True, null=True)
     user_created = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    authority = models.ForeignKey(Authority, on_delete=models.CASCADE, null=True, blank=True)
+    subauthority = models.ForeignKey(SubAuthority, on_delete=models.SET_NULL, null=True, blank=True)
+
     user_updated = models.ForeignKey(
         get_user_model(),
         models.DO_NOTHING,
