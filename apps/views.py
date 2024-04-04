@@ -2,7 +2,7 @@ import logging
 from django.shortcuts import redirect, render,get_object_or_404 
 from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import CrmContact,CrmCompany,CrmLead,JobApplication,EcommerceOrder,EcommerceCustomer,TicketList,Project,Company,Person,Address
+from .models import Project_Takeoff_Documents,ProjectSpecifications,ProjectPlans,MWSEBsAndSDVOBs,Bid,CrmContact,CrmCompany,CrmLead,JobApplication,EcommerceOrder,EcommerceCustomer,TicketList,Project,Company,Person,Address
 
 from .forms import CrmContactAddForm,Company_create_Form,Project_Create_Form,CrmContactAddForm,Company_create_Form,Project_Create_Form,BidForm,EcommerceCustomerForm
 from django.contrib import messages
@@ -250,8 +250,57 @@ def apps_projects_create_view(request):
             project = form.save(commit=False)
             
             project.user_created = request.user
+            address = Address.objects.create(
+                location=form.cleaned_data['location'],
+                country=form.cleaned_data['country'],
+                state=form.cleaned_data['state'],
+                city=form.cleaned_data['city'],
+            )
+            project.project_address = address
+
             # Save the project
             project.save()
+            bid = Bid.objects.create(
+                project=project,
+                bid_amount=form.cleaned_data['bid_amount'],
+                bidding_method=form.cleaned_data['bidding_method'],
+                bid_phase=form.cleaned_data['bid_phase'],
+                project_completion_time=form.cleaned_data['project_completion_time'],
+                notes=form.cleaned_data['notes'],
+                solicitation_date=form.cleaned_data['solicitation_date'],
+                liquidated_damages=form.cleaned_data['liquidated_damages'],
+                pre_bid_meeting_date=form.cleaned_data['pre_bid_meeting_date'],
+                pre_bid_meeting_notes=form.cleaned_data['pre_bid_meeting_notes'],
+                bid_bond=form.cleaned_data['bid_bond'],
+                performance_bond=form.cleaned_data['performance_bond'],
+                payment_bond_percentage=form.cleaned_data['payment_bond_percentage'],
+                bid_date=form.cleaned_data['bid_date'],
+                bid_location=form.cleaned_data['bid_location']
+            )
+            MWSEBsAndSDVOBs.objects.create(
+                project=project,
+                mwsebs=form.cleaned_data['mwsebs'],
+                sdvobs=form.cleaned_data['sdvobs'],
+                MBE=form.cleaned_data['MBE'],
+                EEO=form.cleaned_data['EEO'],
+            )
+            # Handle multiple uploaded files for ProjectPlans
+            project_plans_files = request.FILES.getlist('Project_plans')
+            for plans_file in project_plans_files:
+                ProjectPlans.objects.create(project=project, Plans_file=plans_file)
+
+            # Create ProjectSpecifications instance associated with the saved Project
+            ProjectSpecifications.objects.create(
+                project=project,
+                specifications_file=form.cleaned_data['Project_specs'],
+            )
+
+            # Create Project_Takeoff_Documents instance associated with the saved Project
+            Project_Takeoff_Documents.objects.create(
+                project=project,
+                takeoff_file=form.cleaned_data['Project_take_offs'],
+            )
+
 
             messages.success(request, "Project and Bid inserted successfully!")
             return redirect("apps:projects.list")

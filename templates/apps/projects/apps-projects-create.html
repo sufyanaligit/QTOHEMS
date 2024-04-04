@@ -3,7 +3,13 @@
 {% block title %}Create Project{% endblock title %}
 {% block extra_css %}
 <!-- Plugins css -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<!-- Plugins css -->
 <link href="{% static 'libs/dropzone/dist/dropzone.css'%}" rel="stylesheet" type="text/css" />
+<!-- multi.js css -->
+<link rel="stylesheet" type="text/css" href="{% static 'libs/multi.js/dist/multi.min.css'%}" />
+<!-- autocomplete css -->
+<link rel="stylesheet" href="{% static 'libs/@tarekraafat/autocomplete.js/dist/css/autoComplete.css'%}" />
 {% endblock extra_css %}
 {% block content %}
 <!-- ============================================================== -->
@@ -32,7 +38,28 @@
                                 <div class="col-lg-12">
                                     <div class="mb-3">
                                         <label for="location-field" class="form-label">Location</label>
-                                        <input type="text" name="city" class="form-control" placeholder="Enter location"
+                                        <input type="text" name="location" class="form-control"
+                                            placeholder="Enter location" required />
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="mb-3">
+                                        <label for="location-field" class="form-label">Country</label>
+                                        <input type="text" name="country" class="form-control" placeholder="Country"
+                                            required />
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="mb-3">
+                                        <label for="location-field" class="form-label">State</label>
+                                        <input type="text" name="state" class="form-control" placeholder="State"
+                                            required />
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="mb-3">
+                                        <label for="location-field" class="form-label">City</label>
+                                        <input type="text" name="city" class="form-control" placeholder="City"
                                             required />
                                     </div>
                                 </div>
@@ -71,12 +98,164 @@
                                 <div class="col-12 mb-3">
                                     <label for="address" class="form-label">Project Description</label>
                                     <textarea class="form-control" id="VertimeassageInput" rows="3"
-                                        placeholder="Project Descrilption" name="state"></textarea>
+                                        placeholder="Project Descrilption" name="Description"></textarea>
                                     <div class="invalid-feedback">
                                         Write Project Description
                                     </div>
                                 </div>
+                                <div class="col-lg-12 mb-3">
+                                    <h6 class="fw-semibold">CSI Divisions</h6>
+                                    <select class="js-example-basic-multiple" name="csi_division" multiple="multiple">
+                                        <optgroup label="General Requirements">
+                                            <option value="General Requirements">General
+                                                Requirements</option>
+                                        </optgroup>
+                                        <optgroup label="Facility Construction Subgroup">
+                                            <option value="Existing_Conditions">Existing
+                                                Conditions</option>
+                                            <option value="Concrete">Concrete</option>
+                                            <option value="Masonry">Masonry</option>
+                                            <option value="Metals">Metals</option>
+                                            <option value="Wood_Plastics_Composites">Wood,
+                                                Plastics, and
+                                                Composites</option>
+                                            <option value="Thermal_Moisture_Protection">
+                                                Thermal and Moisture
+                                                Protection</option>
+                                            <option value="Openings">Openings</option>
+                                            <option value="Finishes">Finishes</option>
+                                            <option value="Specialties">Specialties</option>
+                                            <option value="Equipment">Equipment</option>
+                                            <option value="Furnishings">Furnishings</option>
+                                            <option value="Special_Construction">Special
+                                                Construction</option>
+                                            <option value="Conveying_Equipment">Conveying
+                                                Equipment</option>
+                                            <option value="Plumbing_HVAC">Plumbing + HVAC
+                                            </option>
+                                            <option value="Electrical_Lighting">Electrical +
+                                                Lighting</option>
+                                            <option value="Reserved_Expansion_1">RESERVED
+                                                FOR FUTURE EXPANSION
+                                            </option>
+                                            <option value="Reserved_Expansion_2">RESERVED
+                                                FOR FUTURE EXPANSION
+                                            </option>
+                                            <option value="Reserved_Expansion_3">RESERVED
+                                                FOR FUTURE EXPANSION
+                                            </option>
+                                        </optgroup>
+                                        <optgroup label="Facility Services Subgroup">
+                                            <option value="Mechanical_Support">Mechanical
+                                                Support</option>
+                                            <option value="Fire_Suppression">Fire
+                                                Suppression</option>
+                                            <option value="Plumbing">Plumbing</option>
+                                            <option value="Heating_Ventilating_and_Air_Conditioning">
+                                                Heating
+                                                Ventilating and Air Conditioning</option>
+                                            <option value="RESERVED_FOR_FUTURE_EXPANSION">
+                                                RESERVED FOR FUTURE
+                                                EXPANSION</option>
+                                            <option value="Integrated_Automation">Integrated
+                                                Automation
+                                            </option>
+                                            <option value="Electrical">Electrical</option>
+                                            <option value="Communications">Communications
+                                            </option>
+                                            <option value="Electronic_Safety_and_Security">
+                                                Electronic Safety
+                                                and Security</option>
+                                            <option value="RESERVED_FOR_FUTURE_EXPANSION_2">
+                                                RESERVED FOR
+                                                FUTURE EXPANSION</option>
+                                        </optgroup>
+                                        <optgroup label="Site and Infrastructure Subgroup">
+                                            <option value="Reserved_For_Future_Expansion">
+                                                RESERVED FOR FUTURE
+                                                EXPANSION</option>
+                                            <option value="Earthwork">Earthwork</option>
+                                            <option value="Exterior_Improvements">Exterior
+                                                Improvements
+                                            </option>
+                                            <option value="Utilities">Utilities</option>
+                                            <option value="Transportation">Transportation
+                                            </option>
+                                            <option value="Waterways_and_Marine_Construction">
+                                                Waterways and
+                                                Marine Construction</option>
+                                            <option value="Reserved_For_Future_Expansion">
+                                                RESERVED FOR FUTURE
+                                                EXPANSION</option>
+                                            <option value="Reserved_For_Future_Expansion">
+                                                RESERVED FOR FUTURE
+                                                EXPANSION</option>
+                                            <option value="Reserved_For_Future_Expansion">
+                                                RESERVED FOR FUTURE
+                                                EXPANSION</option>
+                                        </optgroup>
+                                        <optgroup label="Process Equipment Subgroup">
+                                            <option value="Process_Interconnections">Process
+                                                Interconnections
+                                            </option>
+                                            <option value="Material_Processing_and_Handling_Equipment">
+                                                Material Processing and Handling Equipment
+                                            </option>
+                                            <option value="Process_Heating_Cooling_and_Drying_Equipment">
+                                                Process Heating, Cooling, and Drying
+                                                Equipment
+                                            </option>
+                                            <option
+                                                value="Process_Gas_and_Liquid_Handling_Purification_and_Storage_Equipment">
+                                                Process Gas and Liquid
+                                                Handling, Purification and Storage Equipment
+                                            </option>
+                                            <option value="Pollution_Control_Equipment">
+                                                Pollution Control
+                                                Equipment</option>
+                                            <option value="Industry_Specific_Manufacturing_Equipment">
+                                                Industry-Specific Manufacturing Equipment
+                                            </option>
+                                            <option value="Water_and_Wastewater_Equipment">
+                                                Water and
+                                                Wastewater Equipment</option>
+                                            <option value="Reserved_For_Future_Expansion">
+                                                RESERVED FOR FUTURE
+                                                EXPANSION</option>
+                                            <option value="Electrical_Power_Generation">
+                                                Electrical Power
+                                                Generation</option>
+                                            <option value="Reserved_For_Future_Expansion">
+                                                RESERVED FOR FUTURE
+                                                EXPANSION</option>
+                                        </optgroup>
+                                    </select>
 
+                                </div>
+                                <div class="col-lg-4 mb-3">
+                                    <div class="mb-4 mb-lg-0">
+                                        <label for="choices-status-input" class="form-label">Authority</label>
+                                        <select class="form-select" data-choices data-choices-search-false
+                                            id="choices-status-input" name="Authority">
+                                            <option value="SCA" selected>SCA</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 mb-3">
+                                    <div class="mb-4 mb-lg-0">
+                                        <label for="choices-status-input" class="form-label">Sub Authority</label>
+                                        <select class="form-select" data-choices data-choices-search-false
+                                            id="choices-status-input" name="SUB_AUTHORITIES">
+                                            <option value="MENTOR" selected>MENTOR</option>
+                                            <option value="CIP" selected>CIP</option>
+                                            <option value="GRADUATE_MENTOR" selected>Graduate MENTOR</option>
+                                            <option value="Capacity_Projects" selected>Capacity Projects</option>
+                                            <option value="other" selected>Other</option>
+
+                                        </select>
+                                    </div>
+                                </div>
 
                                 <div class="row mb-3">
                                     <!-- <div class="col-lg-4">
@@ -116,6 +295,21 @@
                                             <span class="input-group-text">$ Per CCD's</span>
                                         </div>
                                     </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="file" class="form-label">Project Plas</label>
+                                        <input type="file" class="form-control" id="file" name="Project_plans"
+                                            multiple="multiple">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="file" class="form-label">Project Specs</label>
+                                        <input type="file" class="form-control" id="file" name="Project_specs"
+                                            multiple="multiple">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="file" class="form-label">Project Take-offs</label>
+                                        <input type="file" class="form-control" id="file" name="Project_take_offs"
+                                            multiple="multiple">
+                                    </div>
 
                                     <!-- <div class="col-lg-4">
                                                                             <div>
@@ -129,59 +323,65 @@
                             <!-- end card body -->
                         </div>
                         <!-- end card -->
+                        <!-- 
+                        <div class="card-body row">
 
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="card-title mb-0">Attached files</h5>
-                            </div>
-                            <div class="card-body">
-                                <div>
-                                    <p class="text-muted">Add Attached files here.</p>
+                            <div class="col-lg-4">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">Project Plans</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div>
+                                        <p class="text-muted">Add Project Plans here.</p>
 
-                                    <div class="dropzone">
-                                        <div class="fallback">
-                                            <input name="project_files" type="file" multiple="multiple">
-                                        </div>
-                                        <div class="dz-message needsclick">
-                                            <div class="mb-3">
-                                                <i class="display-4 text-muted ri-upload-cloud-2-fill"></i>
+                                        <div class="dropzone">
+                                            <div class="fallback">
+                                                <input name="project_files" type="file" multiple="multiple">
                                             </div>
+                                            <div class="dz-message needsclick">
+                                                <div class="mb-3">
+                                                    <i class="display-4 text-muted ri-upload-cloud-2-fill"></i>
+                                                </div>
 
-                                            <h5>Drop files here or click to upload.</h5>
+                                                <h5>Drop files here or click to upload.</h5>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <ul class="list-unstyled mb-0" id="dropzone-preview">
-                                        <li class="mt-2" id="dropzone-preview-list">
-                                            <!-- This is used as the file preview template -->
-                                            <div class="border rounded">
-                                                <div class="d-flex p-2">
-                                                    <div class="flex-shrink-0 me-3">
-                                                        <div class="avatar-sm bg-light rounded">
-                                                            <img src="#" alt="Project-Image" data-dz-thumbnail
-                                                                class="img-fluid rounded d-block" />
+                                        <ul class="list-unstyled mb-0" id="dropzone-preview">
+                                            <li class="mt-2" id="dropzone-preview-list">
+                                                
+                                                <div class="border rounded">
+                                                    <div class="d-flex p-2">
+                                                        <div class="flex-shrink-0 me-3">
+                                                            <div class="avatar-sm bg-light rounded">
+                                                                <img src="#" alt="Project-Image" data-dz-thumbnail
+                                                                    class="img-fluid rounded d-block" />
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="flex-grow-1">
-                                                        <div class="pt-1">
-                                                            <h5 class="fs-14 mb-1" data-dz-name>&nbsp;</h5>
-                                                            <p class="fs-13 text-muted mb-0" data-dz-size></p>
-                                                            <strong class="error text-danger"
-                                                                data-dz-errormessage></strong>
+                                                        <div class="flex-grow-1">
+                                                            <div class="pt-1">
+                                                                <h5 class="fs-14 mb-1" data-dz-name>&nbsp;</h5>
+                                                                <p class="fs-13 text-muted mb-0" data-dz-size></p>
+                                                                <strong class="error text-danger"
+                                                                    data-dz-errormessage></strong>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="flex-shrink-0 ms-3">
-                                                        <button data-dz-remove
-                                                            class="btn btn-sm btn-danger">Delete</button>
+                                                        <div class="flex-shrink-0 ms-3">
+                                                            <button data-dz-remove
+                                                                class="btn btn-sm btn-danger">Delete</button>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <!-- end dropzon-preview -->
+                                            </li>
+                                        </ul>
+                                        
+                                    </div>
                                 </div>
                             </div>
+                            
+
                         </div>
+                         -->
                         <!-- end card -->
                         <div class="text-end mb-4">
                             <button type="submit" class="btn btn-success w-sm">Create</button>
@@ -218,7 +418,7 @@
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="zip" class="form-label">Project Completion Time</label>
-                                        <input type="text" class="form-control" id="zip" placeholder=""
+                                        <input type="number" class="form-control" id="zip" placeholder=""
                                             name="project_completion_time" />
                                     </div>
 
@@ -287,10 +487,7 @@
                                             Write Project Description
                                         </div>
                                     </div>
-                                    <div class="col-md-3 mb-3">
-                                        <label for="file" class="form-label">File</label>
-                                        <input type="file" class="form-control" id="file" name="file">
-                                    </div>
+
                                 </div>
                             </div>
                             <!-- end card body -->
@@ -570,11 +767,26 @@
 <!-- end modal -->
 {% endblock extra_content %}
 {% block extra_js %}
+<script src="{% static 'js/pages/form-wizard.init.js'%}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="{% static 'js/pages/select2.init.js' %}"></script>
+<!-- form wizard init -->
+
 <!-- ckeditor -->
 <script src="{% static 'libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js'%}"></script>
-
 <!-- dropzone js -->
 <script src="{% static 'libs/dropzone/dist/dropzone-min.js'%}"></script>
 <!-- project-create init -->
 <script src="{% static 'js/pages/project-create.init.js'%}"></script>
+<!-- multi.js -->
+<script src="{% static 'libs/multi.js/dist/multi.min.js'%}"></script>
+<!-- autocomplete js -->
+<script src="{% static 'libs/@tarekraafat/autocomplete.js/dist/autoComplete.min.js'%}"></script>
+<!-- init js -->
+<script src="{% static 'js/pages/form-advanced.init.js'%}"></script>
+<!-- input spin init -->
+<script src="{% static 'js/pages/form-input-spin.init.js'%}"></script>
+<!-- input flag init -->
+<script src="{% static 'js/pages/flag-input.init.js'%}"></script>
 {% endblock extra_js %}

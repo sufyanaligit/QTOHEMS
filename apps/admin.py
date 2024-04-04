@@ -32,13 +32,13 @@ from . models import  ProjectPlans,Project_Takeoff_Documents,BidHistory,ProjectS
 #     list_display = ['title','client_name','assign_to','create_date','due_date','status','priority']
 
 
-# admin.site.register(Company)
+admin.site.register(Company)
 admin.site.register(Project)
 admin.site.register(Bid)
 # admin.site.register(BidHistory)
-# admin.site.register(Person)
+admin.site.register(Person)
 admin.site.register(Address)
-# admin.site.register(MWSEBsAndSDVOBs)
+admin.site.register(MWSEBsAndSDVOBs)
 # admin.site.register(Solicitation)
 admin.site.register(ProjectSpecifications)
 admin.site.register(ProjectPlans)
