@@ -175,8 +175,12 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
         </div>
     </section>
 </section>
-<br/>
-<br/>
+
+{% block WhyChooseQto %}
+{% include "qtohouse/WhyChooseQTO.html" %}
+{% endblock WhyChooseQto %}
+
+
 <div class="container">
     <div class="row">
         <div class="solutions-top">
@@ -192,7 +196,7 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
         <!-- Left column for Value Propositions -->
 
         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-            <div class="WCUS custom-width">
+            <div class="WCUS ">
                 <div class="row value-padding">
                     <!-- <h2 class="pageheading-test pageheading-contact">Value Propositions</h2> -->
                     <ul>
@@ -260,7 +264,7 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                     construction trades and CSI divisions.
                 </p> 
             </div> -->
-        <div class="ourServices" id="servicesSection">
+         <div class="ourServices" id="servicesSection">
             <div class="ourServices container">
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 OSThree-1">
@@ -300,11 +304,14 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
         </div>
     </div>
 </div>
+  <br/>
+  <br/>
+
+{% block EstimationServices %}
+{% include "qtohouse/EstimationServices.html" %}
+{% endblock EstimationServices %}
 
 
-{% block WhyChooseQto %}
-{% include "qtohouse/WhyChooseQTO.html" %}
-{% endblock WhyChooseQto %}
 
 <!-- <div class="hiv container">
     <h1>How it works</h1>
@@ -324,6 +331,12 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
         </div>
     </div>
 </div> -->
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <div class="hiv container">
     <!-- <h1>How Our Process Works    </h1> -->
     <div class="row">
@@ -370,7 +383,7 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                     <li>
                         <div class="imghead">
                             <img class="WCUSimg" alt="" src="{% static 'imagesqtohouse/deliverables.png'%}" />
-                            <h2>Detailed Takeoff Deliverables:                            </h2>
+                            <h2>Detailed Takeoff Deliverables:</h2>
                         </div>
                         <p class="p-estimates">
                             Tailored reports that outline the project scope comprehensively, with all data clearly presented for client review.
@@ -379,9 +392,99 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                 </ul>
             </div>
         </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 WCU">
-        <!-- <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 estimator"> -->
-            <!-- <img class="fl" alt="" src="{% static 'imagesqtohouse/Mask group.png'%}" /> -->
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <!-- <div class="solutions-top">
+                <h2 class="pageheading">Our Solutions</h2>
+               <p style="text-align: justify;">
+                    QTO House provides a range of accurate and affordable quantity
+                    takeoff services and construction estimating support services to
+                    organizations across the construction industry. We specialize in all
+                    construction trades and CSI divisions.
+                </p> 
+            </div> -->
+         <div class="ourServices" id="servicesSection">
+            <div class="ourServices container">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 OS-1">
+                        <div class="plans ">
+                             <p >Initial Stage</p>
+                             <h1  >Send Plans</h1>
+                            </div> 
+                         <div class="quotation  ">
+
+                             <p >Third Stage</p>
+                             <h1 >Make Payment</h1>
+                            </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 OS-2">
+                        <div class="payment ">
+                            <p >Second Stage</p>
+                             <h1  >Receive Quotation</h1>
+                            </div>
+                        <div class="finalstage ">
+                            <p >Final Stage</p>
+                             <h1 >Receive Estimates</h1>
+                            </div>
+                    </div>
+                    <!-- <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4  OSThree-3">
+                        <div class="indust-construction col-larg"></div>
+                    </div> -->
+                    <!-- Add other columns for remaining images -->
+                </div>
+            </div>
+        </div>  
+        <!-- .OS-1, .OS-2, .plans, .quotation, .payment, .finalstage -->
+  <script>
+
+    // Function to check if an element is in the viewport
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+// Function to handle scroll event
+function handleScroll() {
+    document.querySelectorAll('.OS-1, .OS-2, .plans, .quotation, .payment, .finalstage').forEach(element => {
+        if (isInViewport(element)) {
+            element.classList.add('in-view');
+        }
+    });
+}
+
+// Add scroll event listener
+window.addEventListener('scroll', handleScroll);
+
+// Initial check when page loads
+handleScroll();
+
+
+  </script>
+
+
+
+        <script>
+            window.addEventListener('scroll', function() {
+                console.log('Scroll event triggered');
+                const elements = document.querySelectorAll('.OSThree-1, .OSThree-2, .OSThree-3' );
+        
+                elements.forEach(function(element) {
+                    const imagePosition = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+        
+                    // Check if the element is in the viewport
+                    if (imagePosition < windowHeight) {
+                        element.classList.add('animated');
+                    
+                    }
+                });
+            });
+        </script>
+        <!-- <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 WCU">
              <img class="maskgroup-1" alt="" src="{% static 'imagesqtohouse/Maskgroup.png'%}" /> 
 
              <script>
@@ -396,7 +499,7 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
                 }
              });
 
-             </script>
+             </script> -->
         <!-- </div> --> 
         </div>
     </div>

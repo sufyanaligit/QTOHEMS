@@ -43,8 +43,8 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
         
         
         </p>
-        <br /><br /><br /><br /><br />
-        <div class="pageheading">CSI Divisions</div>
+        <br />
+        <div class="pageheading-test pageheading-contact">CSI Divisions</div>
         <div class="csidivsions csdaboutus container">
             <ul>
                     <li><span>01&nbsp;</span>-&nbsp;<span>General Requirnments</span></li>
@@ -81,18 +81,15 @@ data-sidebar="dark" data-sidebar-size="lg" data-layout-width="fluid"{% endblock 
     <img class="cal Img-Disp" alt="" src="{% static 'imagesqtosol/Cal 1.png'%}" />
     </div>
 
-
-
-
-
-
-
-{% block CSI-Division %}
-{% include "qtohouse/CsiDvisions.html" %}
-{% endblock CSI-Division %}
-{% block Weworkwith %}
-{% include "qtohouse/WeWorkWith.html" %}
-{% endblock Weworkwith %}
+    {% block Faq's %}
+    {% include "qtohouse/Faq's.html" %}
+    {% endblock Faq's %}
+    {% block CSI-Division %}
+    {% include "qtohouse/CsiDvisions.html" %}
+    {% endblock CSI-Division %}
+    {% block Weworkwith %}
+    {% include "qtohouse/WeWorkWith.html" %}
+    {% endblock Weworkwith %}
 
 
 
