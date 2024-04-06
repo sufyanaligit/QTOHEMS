@@ -1107,6 +1107,7 @@ ul {
   margin-left: 0px;
   flex-direction: column;
 }
+
 .left-detail ul li {
   display: flex;
   border: 1px solid #e2e2e2;
@@ -2984,6 +2985,7 @@ img {
 @media (max-width: 1300px) {
 .hat {display: none;}
 .cal{display: none;}
+
 .ourServices {
     padding: 0px 0px 0px 0px !important;}
 
@@ -2992,6 +2994,7 @@ img {
 @media (max-width: 767px) {
 .hat {display: none;}
 .cal{display: none;}
+
   .contact-form .send {
     margin-bottom: 20px;
   }
@@ -3699,3 +3702,31 @@ border-bottom-left-radius: 5px;
   transform: scale(1);
   opacity: 1;
 }
+
+/* arrows  */
+/* .arrows{
+    position: absolute;
+    top: 114%;
+    right: 31%;
+    z-index: 100;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.arrows button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fdc022;
+    border: none;
+    color: #fff;
+    font-family: monospace;
+    font-weight: bold;
+    transition: .5s;
+}
+.arrows button:hover{
+    background-color: #fff;
+    color: #000;
+} */
