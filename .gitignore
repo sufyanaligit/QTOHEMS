@@ -5,7 +5,7 @@ __pycache__/
 *.pyd
 *.db.sqlite3
 *.log
-*.env
+*.myenv
 
 #settings.py file
 velzon/settings.py
